@@ -1,0 +1,14 @@
+ssl_verify: true
+changeps1: true
+channels:
+  - oxfordcontrol
+  - fastai
+  - pytorch
+  - defaults
+  - conda-forge
+  - intel
+  - gurobi
+  - MOSEK
+  - menpo
+  - lukepfister
+  - sbu-hpc

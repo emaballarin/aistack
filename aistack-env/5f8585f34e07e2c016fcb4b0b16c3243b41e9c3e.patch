@@ -1,0 +1,22 @@
+From 5f8585f34e07e2c016fcb4b0b16c3243b41e9c3e Mon Sep 17 00:00:00 2001
+From: Emanuele Ballarin <emanuele@ballarin.cc>
+Date: Tue, 16 Oct 2018 00:36:18 +0200
+Subject: [PATCH] Patch to obtain fully --no-deps install
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index c340fa2..5d02045 100644
+--- a/setup.py
++++ b/setup.py
+@@ -23,7 +23,7 @@
+ def setup_package():
+     needs_sphinx = {'build_sphinx', 'upload_docs'}.intersection(sys.argv)
+     sphinx = ['sphinx'] if needs_sphinx else []
+-    setup(setup_requires=['pyscaffold>=3.0a0,<3.1a0'] + sphinx,
++    setup(setup_requires=[] + sphinx,
+           entry_points=entry_points,
+           use_pyscaffold=True)
+ 

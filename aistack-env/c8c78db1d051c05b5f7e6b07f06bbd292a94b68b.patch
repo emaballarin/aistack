@@ -1,0 +1,22 @@
+From c8c78db1d051c05b5f7e6b07f06bbd292a94b68b Mon Sep 17 00:00:00 2001
+From: Emanuele Ballarin <emanuele@ballarin.cc>
+Date: Sat, 13 Oct 2018 22:20:09 +0200
+Subject: [PATCH] Suppress -Werror
+
+---
+ textworld/thirdparty/glulx/cheapglk/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/textworld/thirdparty/glulx/cheapglk/Makefile b/textworld/thirdparty/glulx/cheapglk/Makefile
+index 1c6556a..21b0e6f 100644
+--- a/textworld/thirdparty/glulx/cheapglk/Makefile
++++ b/textworld/thirdparty/glulx/cheapglk/Makefile
+@@ -15,7 +15,7 @@
+ CC = cc
+ #CC = gcc -ansi
+ 
+-OPTIONS = -g -Wall -Werror -std=gnu99
++OPTIONS = -g -Wall -std=gnu99
+ 
+ CFLAGS = $(OPTIONS) $(INCLUDEDIRS)
+ 

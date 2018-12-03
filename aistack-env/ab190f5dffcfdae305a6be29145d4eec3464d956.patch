@@ -1,0 +1,22 @@
+From ab190f5dffcfdae305a6be29145d4eec3464d956 Mon Sep 17 00:00:00 2001
+From: Emanuele Ballarin <emanuele@ballarin.cc>
+Date: Wed, 14 Nov 2018 03:52:01 +0100
+Subject: [PATCH] Remove requirements (for patching purposes)
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 97b2c8a6..35c92b09 100644
+--- a/setup.py
++++ b/setup.py
+@@ -28,7 +28,7 @@
+                'of quantum chemistry and materials.')
+ 
+ # Read in runtime-requirements.txt
+-requirements = open('requirements.txt').readlines()
++requirements = ""
+ requirements = [r.strip() for r in requirements]
+ 
+ openfermioncirq_packages = ['openfermioncirq'] + [

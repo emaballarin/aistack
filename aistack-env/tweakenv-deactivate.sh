@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Restore backed-up variables
+export MPI_C_COMPILER="$PRE_MPI_C_COMPILER"
+export MPI_CXX_COMPILER="$PRE_MPI_CXX_COMPILER"
+export MPI_Fortran_COMPILER="$PRE_MPI_Fortran_COMPILER"
+export MPI_FORTRAN_COMPILER="$PRE_MPI_FORTRAN_COMPILER"
+export MPI_FC_COMPILER="$PRE_MPI_FC_COMPILER"
+export CC="$PRE_CC"
+export CXX="$PRE_CXX"
+export FC="$PRE_FC"
+export CMAKE_C_COMPILER="$PRE_CMAKE_C_COMPILER"
+export CMAKE_CXX_COMPILER="$PRE_CMAKE_CXX_COMPILER"
+export CMAKE_Fortran_COMPILER="$PRE_CMAKE_Fortran_COMPILER"
+export CMAKE_FORTRAN_COMPILER="$PRE_CMAKE_FORTRAN_COMPILER"
+export CMAKE_FC_COMPILER="$PRE_CMAKE_FC_COMPILER"
+export cc="$PRE_cc"
+export cxx="$PRE_cxx"
+export fc="$PRE_fc"
+
+# Unset (eventually) overridden LD_PRELOAD flag
+unset LD_PRELOAD
+
+# Remove now useless variables
+unset PRE_MPI_C_COMPILER
+unset PRE_MPI_CXX_COMPILER
+unset PRE_MPI_Fortran_COMPILER
+unset PRE_MPI_FORTRAN_COMPILER
+unset PRE_MPI_FC_COMPILER
+unset PRE_CC
+unset PRE_CXX
+unset PRE_FC
+unset PRE_CMAKE_C_COMPILER
+unset PRE_CMAKE_CXX_COMPILER
+unset PRE_CMAKE_Fortran_COMPILER
+unset PRE_CMAKE_FORTRAN_COMPILER
+unset PRE_CMAKE_FC_COMPILER
+unset PRE_cc
+unset PRE_cxx
+unset PRE_fc
