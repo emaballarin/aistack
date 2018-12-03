@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 1.5.0-002 (03/12/2018)  ##
+##  AIStack, v. 1.5.1-001 (03/12/2018)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -10,7 +10,7 @@
 # and minimal external (i.e. not automatically installed) dependencies.
 #
 # (c) 2018 Emanuele Ballarin <emanuele@ballarin.cc>
-# Released under the GNU-LGPL3.
+# Released under the Apache License 2.0.
 ##
 #
 # HARDWARE REQUIREMENTS:
@@ -129,16 +129,18 @@ conda env create -f ./environment.yml
 ## PRE-PIP PROCEDURES ##
 ########################
 
+# Tweak the Conda environment to work-around some bugs or enhance features
+mv "$SELF_CONDA_ENV_PATH/aistack/.condarc" "$SELF_CONDA_ENV_PATH/aistack/.condarc.old"
+mv ./dot-condarc "$SELF_CONDA_ENV_PATH/aistack/.condarc"
+ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/libwebp.so" "$SELF_CONDA_ENV_PATH/aistack/lib/libwebp.so.6"
+ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/libjasper.so" "$SELF_CONDA_ENV_PATH/aistack/lib/libjasper.so.1"
+
 # Remove faulty/buggy Conda packages and force-reinstall others, if needed
 source $SELF_CEACT_COMMAND aistack
 echo ' '
 conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi --force
 conda install -y boost-cpp==1.67 util-linux ipywebrtc libgcc=7.2.0 urllib3 libtool --force --no-deps
 source deactivate
-
-# Tweak the Conda environment to work-around some bugs or enhance features
-mv "$SELF_CONDA_ENV_PATH/aistack/.condarc" "$SELF_CONDA_ENV_PATH/aistack/.condarc.old"
-mv ./dot-condarc "$SELF_CONDA_ENV_PATH/aistack/.condarc"
 
 # Fix Kerberos-related bug (MXNet)
 rm -R -f "$SELF_CONDA_ENV_PATH/aistack/bin/../lib/libkrb5.so.3"

@@ -419,7 +419,6 @@ git+https://github.com/johnhw/pfilter.git
 phat
 git+https://github.com/ctralie/cechmate.git
 igraph-python
-git+https://github.com/MLWave/kepler-mapper.git
 git+https://github.com/sauln/cyclonysus.git
 git+https://github.com/dedupeio/pylbfgs.git
 simplicial
@@ -439,3 +438,12 @@ git+https://github.com/alexis-jacq/Mutual_Modelling.git
 git+https://github.com/chili-epfl/shape_learning.git
 git+https://github.com/chili-epfl/multimodal-feature-extraction-cli.git
 git+https://github.com/sanket-kamthe/gptf.git
+git+https://github.com/sklearn-theano/sklearn-theano.git
+pystache
+git+https://github.com/fomorians/tfstage.git
+git+https://github.com/qutip/qutip.git
+git+https://github.com/qutip/spectre.git
+git+https://github.com/ryu577/stochproc.git
+git+https://github.com/ryu577/pyray.git
+DateTime
+git+https://github.com/ryu577/survival.git

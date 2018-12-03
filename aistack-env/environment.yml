@@ -21,7 +21,7 @@ dependencies:
   - dask=1.0.0
   - dask-core=1.0.0
   - faiss-gpu=1.4.0
-  - fastai=1.0.31
+  - fastai=1.0.32
   - jupyterlab=0.35.3
   - libgpuarray=0.7.6
   - mkl-dnn=0.14
@@ -604,3 +604,5 @@ dependencies:
   - crcmod
   - python-avro
   - overrides
+  - libwebp
+  - jasper
