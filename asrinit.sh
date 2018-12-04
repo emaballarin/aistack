@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 1.5.1-001 (03/12/2018)  ##
+##  AIStack, v. 1.5.2-002 (04/12/2018)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -51,6 +51,7 @@
 # - Unity3D engine for Linux (through the Unity Hub)
 # - CERN's ROOT >= 6 (correctly installed and sourced)
 # - The ROS (Robotics Open Source) suite, 'Melodic' version
+# - Dyalog APL >= 16
 # - Optimization software, i.e.:
 #                                 * COIN-OR GLPK (recommended)
 #                                 * Gurobi (recommended)
