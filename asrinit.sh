@@ -762,11 +762,19 @@ echo 'Unity 3D Agents for ML & Marathon Agents successfully installed!'
 # pip install --upgrade --no-deps "$ROBOSCHOOL_PATH"
 
 # PyTorch LibTorch for C++
+echo ' '
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/nightly/cu92/libtorch-shared-with-deps-latest.zip
 unzip ./libtorch-shared-with-deps-latest.zip
 cd ./libtorch
 cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
 cd ../
+echo 'PyTorch libraries for C++ successfully installed!'
+
+# Dyalog APL Kernel for Jupyter (package)
+echo ' '
+git clone --recursive https://github.com/Dyalog/dyalog-jupyter-kernel.git
+cp -R ./dyalog-jupyter-kernel/dyalog_kernel "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo 'Dyalog APL Jupyter Kernel package successfully installed!'
 
 # END BLOCK: experimental packages
 
