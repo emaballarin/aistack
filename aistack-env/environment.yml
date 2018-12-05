@@ -21,7 +21,7 @@ dependencies:
   - dask=1.0.0
   - dask-core=1.0.0
   - faiss-gpu=1.4.0
-  - fastai=1.0.32
+  - fastai=1.0.33
   - jupyterlab=0.35.3
   - libgpuarray=0.7.6
   - mkl-dnn=0.14
@@ -606,3 +606,7 @@ dependencies:
   - overrides
   - libwebp
   - jasper
+  - pyperclip
+  - cmd2
+  - prettytable
+  - cliff

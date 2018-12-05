@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 1.5.2-002 (04/12/2018)  ##
+##  AIStack, v. 1.6.1-001 (05/12/2018)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -106,6 +106,7 @@ wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --t
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/5f8585f34e07e2c016fcb4b0b16c3243b41e9c3e.patch
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/ab190f5dffcfdae305a6be29145d4eec3464d956.patch
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/requirements-nodeps-pt1.txt
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/requirements-nodeps-pt1-bis.txt
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/requirements-nodeps-pt2.txt
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/requirements-nodeps-pt3.txt
 
@@ -413,8 +414,38 @@ source $SELF_CEACT_COMMAND aistack
 
 cd "$SELF_INVOKE_DIR/aistack/aistack-env/dlfiles"
 
-# Install PIP dependencies (in order) - 1st block
+# Install PIP dependencies (in order) - 0th block
 for reqline in $(cat requirements-nodeps-pt1.txt)
+do
+  pip install --upgrade --no-deps "$reqline"
+  echo ' '
+done
+
+################################################################################
+# Manually install some PIP packages that require additional flags - 0th block
+export SELF_PREVIOUS_MAKEFLAGS="$MAKEFLAGS"
+export CHAINER_BUILD_CHAINERX=1
+export CHAINERX_BUILD_CUDA=1
+export MAKEFLAGS=-j8
+pip install --upgrade --no-deps --pre cupy-cuda92
+echo ' '
+pip install --upgrade --no-deps --pre ideep4py
+echo ' '
+pip install --upgrade --no-deps --pre chainer
+echo ' '
+pip install --upgrade --no-deps --pre chainercv
+echo ' '
+pip install --upgrade --no-deps --pre chainerrl
+echo ' '
+pip install --upgrade --no-deps --pre onnx-chainer
+echo ' '
+pip install --upgrade --no-deps --pre chainerui
+echo ' '
+export MAKEFLAGS="$SELF_PREVIOUS_MAKEFLAGS"
+################################################################################
+
+# Install PIP dependencies (in order) - 1st block
+for reqline in $(cat requirements-nodeps-pt1-bis.txt)
 do
   pip install --upgrade --no-deps "$reqline"
   echo ' '

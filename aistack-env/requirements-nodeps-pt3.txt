@@ -449,3 +449,5 @@ DateTime
 git+https://github.com/ryu577/survival.git
 git+https://github.com/Dyalog/pynapl.git
 git+https://github.com/emaballarin/vadam.git
+hacking
+git+https://github.com/pfnet/optuna.git
