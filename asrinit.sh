@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 1.6.1-001 (05/12/2018)  ##
+##  AIStack, v. 1.7.0-001 (07/12/2018)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -801,6 +801,10 @@ cd ./libtorch
 cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
 cd ../
 echo 'PyTorch libraries for C++ successfully installed!'
+
+# Catalyst, a RL/DL framework by Sergey Kolesnikov
+git clone --recursive https://github.com/Scitator/catalyst.git
+cp -R ./catalyst "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 
 # Dyalog APL Kernel for Jupyter (package)
 echo ' '

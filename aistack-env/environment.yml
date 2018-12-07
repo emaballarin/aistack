@@ -602,7 +602,6 @@ dependencies:
   - octave_kernel
   - oct2py
   - crcmod
-  - python-avro
   - overrides
   - libwebp
   - jasper

@@ -69,7 +69,7 @@ git+https://github.com/tensorlayer/tensorlayer.git
 cocos2d
 mazeexp
 git+https://github.com/reinforceio/tensorforce.git
-dm-sonnet
+dm-sonnet-gpu
 git+https://github.com/openai/retro.git
 git+https://github.com/deepmind/dm_control.git
 git+https://github.com/deepmind/pycolab.git
