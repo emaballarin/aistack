@@ -16,8 +16,6 @@ dependencies:
   - blas=1.0=mkl
   - boost-cpp=1.67
   - catboost=0.11.1
-  - cudatoolkit=9.2
-  - cudnn=7.2
   - dask=1.0.0
   - dask-core=1.0.0
   - faiss-gpu=1.4.0
@@ -108,7 +106,7 @@ dependencies:
   - coveralls
   - cryptography
   - cryptography-vectors
-  - cuda92
+  - cuda100
   - cupti
   - cycler
   - cymem
@@ -271,7 +269,7 @@ dependencies:
   - lxml
   - lz4-c
   - lzo
-  - magma-cuda92
+  - magma-cuda100
   - mahotas
   - mako
   - markdown

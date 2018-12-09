@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 1.8.0-001 (09/12/2018)  ##
+##  AIStack, v. 2.0.0-001 (10/12/2018)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -140,8 +140,8 @@ ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/libjasper.so" "$SELF_CONDA_ENV_PATH/aist
 # Remove faulty/buggy Conda packages and force-reinstall others, if needed
 source $SELF_CEACT_COMMAND aistack
 echo ' '
-conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi --force
-conda install -y boost-cpp==1.67 util-linux ipywebrtc libgcc=7.2.0 urllib3 libtool --force --no-deps
+conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi cudatoolkit cudnn nvcc nvcc2 --force
+conda install -y boost-cpp==1.67 util-linux ipywebrtc libgcc=8 urllib3 libtool --force --no-deps
 source deactivate
 
 # Fix Kerberos-related bug (MXNet)
@@ -155,15 +155,19 @@ rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/cmake"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/ccmake"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gcc"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-7"
+rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-8"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gcc"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cc"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/g++"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/g++-7"
+rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/g++-8"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-g++"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-c++"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/cpp"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cpp"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran"
+rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-7"
+rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-8"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-f95"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gfortran"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-fortran"
@@ -211,18 +215,21 @@ rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/mpirun"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/mpivars"
 
 # System-to-Conda command mirroring (link part)
-ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc"
-ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-7"
-ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gcc"
-ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cc"
-ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++"
-ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++-7"
-ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-g++"
-ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-c++"
-ln -s "$(which cpp-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/cpp"
-ln -s "$(which cpp-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cpp"
+ln -s "$(which gcc)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc"
+ln -s "$(which gcc)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-7"
+ln -s "$(which gcc)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-8"
+ln -s "$(which gcc)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gcc"
+ln -s "$(which gcc)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cc"
+ln -s "$(which g++)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++"
+ln -s "$(which g++)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++-7"
+ln -s "$(which g++)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++-8"
+ln -s "$(which g++)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-g++"
+ln -s "$(which g++)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-c++"
+ln -s "$(which cpp)" "$SELF_CONDA_ENV_PATH/aistack/bin/cpp"
+ln -s "$(which cpp)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cpp"
 ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran"
 ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-7"
+ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-8"
 ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-f95"
 ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gfortran"
 ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-fortran"
@@ -293,9 +300,9 @@ export MPI_CXX_COMPILER=mpicxx
 export MPI_Fortran_COMPILER=mpifort
 export MPI_FORTRAN_COMPILER=mpifort
 export MPI_FC_COMPILER=mpifort
-export CC=gcc-7
-export CXX=g++-7
-export FC=gfortran-7
+export CC=gcc
+export CXX=g++
+export FC=gfortran
 export CMAKE_C_COMPILER="$CC"
 export CMAKE_CXX_COMPILER="$CXX"
 export CMAKE_Fortran_COMPILER="$FC"
@@ -319,7 +326,7 @@ pip install --upgrade --no-deps git+https://github.com/twiecki/CythonGSL.git
 
 # Install global PIP dependencies that need additional flags
 echo ' '
-CC="gcc-7 -mavx2" pip install --upgrade --no-deps --force-reinstall pillow-simd
+CC="gcc-8 -mavx2" pip install --upgrade --no-deps --force-reinstall pillow-simd
 echo ' '
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 
@@ -427,7 +434,7 @@ export SELF_PREVIOUS_MAKEFLAGS="$MAKEFLAGS"
 export CHAINER_BUILD_CHAINERX=1
 export CHAINERX_BUILD_CUDA=1
 export MAKEFLAGS=-j8
-pip install --upgrade --no-deps --pre cupy-cuda92
+pip install --upgrade --no-deps --pre cupy-cuda100
 echo ' '
 pip install --upgrade --no-deps --pre ideep4py
 echo ' '
@@ -453,7 +460,7 @@ done
 
 ################################################################################
 # Manually install some PIP packages that require additional flags - 1st block
-pip install --upgrade --no-deps --pre mxnet-cu92mkl
+pip install --upgrade --no-deps --pre mxnet-cu100mkl
 echo ' '
 pip install --upgrade --no-deps --pre gluoncv
 echo ' '
@@ -795,7 +802,7 @@ echo 'Unity 3D Agents for ML & Marathon Agents successfully installed!'
 
 # PyTorch LibTorch for C++
 echo ' '
-wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/nightly/cu92/libtorch-shared-with-deps-latest.zip
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip
 unzip ./libtorch-shared-with-deps-latest.zip
 cd ./libtorch
 cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
