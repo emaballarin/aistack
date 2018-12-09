@@ -427,8 +427,6 @@ export SELF_PREVIOUS_MAKEFLAGS="$MAKEFLAGS"
 export CHAINER_BUILD_CHAINERX=1
 export CHAINERX_BUILD_CUDA=1
 export MAKEFLAGS=-j8
-export CUDNN_ROOT_DIR="/opt/cuda/"
-export CUDNN_ROOT_DIR="/usr/local/cuda"
 pip install --upgrade --no-deps --pre cupy-cuda92
 echo ' '
 pip install --upgrade --no-deps --pre ideep4py
@@ -444,7 +442,6 @@ echo ' '
 pip install --upgrade --no-deps --pre chainerui
 echo ' '
 export MAKEFLAGS="$SELF_PREVIOUS_MAKEFLAGS"
-export CUDNN_ROOT_DIR="/opt/cuda/"
 ################################################################################
 
 # Install PIP dependencies (in order) - 1st block
