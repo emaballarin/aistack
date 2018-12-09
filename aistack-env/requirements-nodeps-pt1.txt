@@ -9,7 +9,6 @@ torchfile
 graphviz
 pygraphviz
 pydot-ng
-git+https://github.com/pytorch/vision.git
 git+https://github.com/pytorch/audio.git
 git+https://github.com/pytorch/text.git
 git+https://github.com/pytorch/tnt.git

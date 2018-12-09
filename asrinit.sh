@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 1.7.0-001 (07/12/2018)  ##
+##  AIStack, v. 1.8.0-001 (09/12/2018)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -427,11 +427,13 @@ export SELF_PREVIOUS_MAKEFLAGS="$MAKEFLAGS"
 export CHAINER_BUILD_CHAINERX=1
 export CHAINERX_BUILD_CUDA=1
 export MAKEFLAGS=-j8
+export CUDNN_ROOT_DIR="/opt/cuda/"
+export CUDNN_ROOT_DIR="/usr/local/cuda"
 pip install --upgrade --no-deps --pre cupy-cuda92
 echo ' '
 pip install --upgrade --no-deps --pre ideep4py
 echo ' '
-pip install --upgrade --no-deps --pre chainer
+pip install --upgrade --no-deps --pre chainer --force
 echo ' '
 pip install --upgrade --no-deps --pre chainercv
 echo ' '
@@ -442,6 +444,7 @@ echo ' '
 pip install --upgrade --no-deps --pre chainerui
 echo ' '
 export MAKEFLAGS="$SELF_PREVIOUS_MAKEFLAGS"
+export CUDNN_ROOT_DIR="/opt/cuda/"
 ################################################################################
 
 # Install PIP dependencies (in order) - 1st block
@@ -811,6 +814,11 @@ echo ' '
 git clone --recursive https://github.com/Dyalog/dyalog-jupyter-kernel.git
 cp -R ./dyalog-jupyter-kernel/dyalog_kernel "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo 'Dyalog APL Jupyter Kernel package successfully installed!'
+
+echo ' '
+git clone --recursive https://github.com/nschaetti/Oger.git
+cp -R ./dyalog-jupyter-kernel/Oger "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo 'Oger successfully installed!'
 
 # END BLOCK: experimental packages
 

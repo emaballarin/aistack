@@ -430,7 +430,6 @@ git+https://github.com/alshedivat/keras-gp.git
 git+https://github.com/alshedivat/adios.git
 git+https://github.com/activatedgeek/torchrl.git
 avro
-apache-beam
 git+https://github.com/kubeflow/batch-predict.git
 git+https://github.com/activatedgeek/gym-2048.git
 git+https://github.com/alshedivat/lola.git
@@ -453,7 +452,6 @@ git+https://github.com/emaballarin/vadam.git
 hacking
 git+https://github.com/pfnet/optuna.git
 git+https://github.com/scopatz/w3g.git
-git+https://github.com/xdress/xdress.git
 git+https://github.com/BIDS/datarray.git
 git+https://github.com/arfc/annsa.git
 git+https://github.com/gabrieldemarmiesse/python-autopxd2.git
@@ -476,3 +474,12 @@ git+https://github.com/Scitator/rstools.git
 git+https://github.com/svenkreiss/databench.git
 git+https://github.com/svenkreiss/pysparkling.git
 git+https://github.com/svenkreiss/socialforce.git
+git+https://github.com/isadoranun/FATS.git
+https://storage.googleapis.com/jax-wheels/cuda92/jaxlib-0.1-py3-none-linux_x86_64.whl
+git+https://github.com/google/jax.git
+git+https://github.com/EpiSci/SafeAI.git
+python-cli-ui
+python-rapidjson
+git+https://github.com/MultiAgentLearning/playground.git
+git+https://github.com/pytorch/contrib.git
+git+https://github.com/opensistemas-hub/osbrain.git

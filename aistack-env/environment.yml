@@ -21,8 +21,8 @@ dependencies:
   - dask=1.0.0
   - dask-core=1.0.0
   - faiss-gpu=1.4.0
-  - fastai=1.0.33
-  - jupyterlab=0.35.3
+  - fastai=1.0.36
+  - jupyterlab=0.35.4
   - libgpuarray=0.7.6
   - mkl-dnn=0.14
   - numpy=1.15
@@ -609,3 +609,4 @@ dependencies:
   - cmd2
   - prettytable
   - cliff
+  - torchvision
