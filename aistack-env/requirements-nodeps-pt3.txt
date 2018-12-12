@@ -483,3 +483,5 @@ python-rapidjson
 git+https://github.com/MultiAgentLearning/playground.git
 git+https://github.com/pytorch/contrib.git
 git+https://github.com/opensistemas-hub/osbrain.git
+git+https://github.com/uber-research/atari-model-zoo.git
+git+https://github.com/uber-research/jpeg2dct.git

@@ -15,17 +15,18 @@ dependencies:
   - autograd=1.2
   - blas=1.0=mkl
   - boost-cpp=1.67
-  - catboost=0.11.1
+  - catboost=0.11.2
   - dask=1.0.0
   - dask-core=1.0.0
   - faiss-gpu=1.4.0
   - fastai=1.0.36
+  - intel-openmp=2019.1
   - jupyterlab=0.35.4
   - libgpuarray=0.7.6
   - mkl-dnn=0.14
   - numpy=1.15
   - opencv
-  - osqp=0.4.1
+  - osqp=0.5.0
   - pygpu=0.7.6
   - pymc3=3.5
   - pyqt=5
@@ -202,7 +203,6 @@ dependencies:
   - imageio
   - imagesize
   - incremental
-  - intel-openmp
   - intervals
   - invoke
   - ipdb
@@ -225,7 +225,6 @@ dependencies:
   - jinja2
   - jmespath
   - joblib
-  - jpeg
   - jsondiff
   - jsonpickle
   - jsonschema
@@ -255,7 +254,6 @@ dependencies:
   - libsodium
   - libssh2
   - libstdcxx-ng
-  - libtiff
   - libtool
   - libxcb
   - libxml2
@@ -440,7 +438,6 @@ dependencies:
   - python-gflags
   - python-libarchive-c
   - python-lmdb
-  - python-magic
   - python-slugify
   - pytoml
   - pytools
@@ -594,7 +591,6 @@ dependencies:
   - m2r
   - ad3-cpp
   - python-igraph
-  - dionysus
   - namedlist
   - backcall
   - octave_kernel
@@ -608,3 +604,6 @@ dependencies:
   - prettytable
   - cliff
   - torchvision
+  - thinc
+  - python-magic
+  - dionysus

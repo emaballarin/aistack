@@ -17,6 +17,7 @@ export PRE_CMAKE_FC_COMPILER="$CMAKE_FC_COMPILER"
 export PRE_cc="$cc"
 export PRE_cxx="$cxx"
 export PRE_fc="$fc"
+export PRE_LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
 
 # Set new necessary variables
 export MPI_C_COMPILER=mpicc
@@ -24,9 +25,9 @@ export MPI_CXX_COMPILER=mpicxx
 export MPI_Fortran_COMPILER=mpifort
 export MPI_FORTRAN_COMPILER=mpifort
 export MPI_FC_COMPILER=mpifort
-export CC=gcc
-export CXX=g++
-export FC=gfortran
+export CC=gcc-7
+export CXX=g++-7
+export FC=gfortran-7
 export CMAKE_C_COMPILER="$CC"
 export CMAKE_CXX_COMPILER="$CXX"
 export CMAKE_Fortran_COMPILER="$FC"
@@ -36,4 +37,4 @@ export cc="$CC"
 export cxx="$CXX"
 export fc="$FC"
 
-# Additional LD_PRELOAD flag will be eventually added after this line
+# Additional LD_PRELOAD or LD_LIBRARY_PATH flags will be eventually added after this line

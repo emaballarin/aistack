@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 2.0.0-001 (10/12/2018)  ##
+##  AIStack, v. 2.1.0-001 (12/12/2018)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -22,6 +22,7 @@
 # - Bash >= 4.0
 # - Anaconda Python Distribution >= 5.3 (or equivalent, i.e. miniconda)
 # - NVidia Graphics proprietary drivers >= 410 series
+# - NVidia CUDA 10 (9.2 works too, but it is unsupported)
 # - GNU Binutils
 # - GNU Compiler Suite v.7 (C/C++/Fortran)
 # - OpenMPI >= 3
@@ -52,6 +53,8 @@
 # - CERN's ROOT >= 6 (correctly installed and sourced)
 # - The ROS (Robotics Open Source) suite, 'Melodic' version
 # - Dyalog APL >= 16
+# - A directory containing the /lib/ directory of a functioning CUDA 9.2 install, without
+#   the .so files which do not contain at least two dots :)
 # - Optimization software, i.e.:
 #                                 * COIN-OR GLPK (recommended)
 #                                 * Gurobi (recommended)
@@ -75,6 +78,7 @@ export SELF_CEACT_COMMAND="activate"                        # Command used to ac
 export SELF_CONDA_ENV_PATH="$HOME/anaconda3/envs/"          # Path under which given command will create Anaconda environments (must be manually specified due to possible multiple conda environment folders)
 export SELF_MATLABROOT_BASEDIR="/usr/local/MATLAB/R2018b/"  # Base directory of a MATLAB installation (>= 2014a, licensed). Whatever, if unavailable.
 export SELF_TCMALLOC_INJECT="1"                             # 1 -> Preload TCMalloc in order to uniform Malloc(1) calls (recommended); 0 -> Do not preload TCMalloc (more stable, but prone to invalid free() with OpenCV/MxNet)
+export SELF_SCHIZOCUDA_MODE="1"                             # 1 -> Enable the hybrid CUDA 10 / CUDA 9.2 mode (i.e. Pytorch on CUDA 10 and TensorFlow on CUDA 9.2)
 
 # Configuration for CVXOPT
 export CVXOPT_GSL_LIB_DIR="/usr/lib/"           # Path to the directory that contains GNU Scientific Library shared libraries
@@ -85,6 +89,11 @@ export CVXOPT_DSDP_LIB_DIR="/usr/lib/"          # Path to the directory that con
 export CVXOPT_DSDP_INC_DIR="/usr/include/dsdp/" # Path to the directory that contains DSDP include files
 export CVXOPT_SUITESPARSE_LIB_DIR="/usr/lib/"   # Path to the directory that contains SuiteSparse shared libraries
 export CVXOPT_SUITESPARSE_INC_DIR="/usr/local/include/suitesparse/" # Path to the directory that contains SuiteSparse include files
+
+# Configuration for optional SCHIZOCUDA_MODE
+export SELF_SCHIZOCUDA_MODE_CU92F="/home/emaballarin/cuda92libstrip/"   # Path to a directory containing the /lib/ directory of a functioning CUDA 9.2 install, without
+#                                                                         the .so files which do not contain at least two dots.
+#                                                                         May cause damages if pointed to somewhere else. Don't do that!
 ########################################################################################################################
 ########################################################################################################################
 
@@ -140,8 +149,8 @@ ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/libjasper.so" "$SELF_CONDA_ENV_PATH/aist
 # Remove faulty/buggy Conda packages and force-reinstall others, if needed
 source $SELF_CEACT_COMMAND aistack
 echo ' '
-conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi cudatoolkit cudnn nvcc nvcc2 --force
-conda install -y boost-cpp==1.67 util-linux ipywebrtc libgcc=8 urllib3 libtool --force --no-deps
+conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi cudatoolkit cudnn nvcc nvcc2 jpeg libtiff --force
+conda install -y boost-cpp==1.67 util-linux ipywebrtc libgcc urllib3 libtool libjpeg-turbo --force --no-deps
 source deactivate
 
 # Fix Kerberos-related bug (MXNet)
@@ -215,16 +224,16 @@ rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/mpirun"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/mpivars"
 
 # System-to-Conda command mirroring (link part)
-ln -s "$(which gcc)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc"
-ln -s "$(which gcc)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-7"
-ln -s "$(which gcc)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-8"
-ln -s "$(which gcc)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gcc"
-ln -s "$(which gcc)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cc"
-ln -s "$(which g++)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++"
-ln -s "$(which g++)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++-7"
-ln -s "$(which g++)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++-8"
-ln -s "$(which g++)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-g++"
-ln -s "$(which g++)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-c++"
+ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc"
+ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-7"
+ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-8"
+ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gcc"
+ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cc"
+ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++"
+ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++-7"
+ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++-8"
+ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-g++"
+ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-c++"
 ln -s "$(which cpp)" "$SELF_CONDA_ENV_PATH/aistack/bin/cpp"
 ln -s "$(which cpp)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cpp"
 ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran"
@@ -289,6 +298,15 @@ if [ "$SELF_TCMALLOC_INJECT" = "1" ]; then
   echo "export LD_PRELOAD=\"$SELF_CONDA_ENV_PATH/aistack/lib/libtcmalloc_minimal.so\"" >> ./tweakenv-activate.sh
 fi
 
+# Catch Hybrid CUDA 10/9.2 mode
+if [ "$SELF_SCHIZOCUDA_MODE" = "1" ]; then
+  if [ "$SELF_SCHIZOCUDA_MODE_CU92F" = "UNSET" ]; then
+    unset SELF_SCHIZOCUDA_MODE_CU92F
+  else
+    echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$SELF_SCHIZOCUDA_MODE_CU92F\"" >> ./tweakenv-activate.sh
+  fi
+fi
+
 cd "$SELF_CONDA_ENV_PATH/aistack/etc/conda/deactivate.d"
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/tweakenv-deactivate.sh
 cd "$SELF_INTWDIR"
@@ -326,7 +344,7 @@ pip install --upgrade --no-deps git+https://github.com/twiecki/CythonGSL.git
 
 # Install global PIP dependencies that need additional flags
 echo ' '
-CC="gcc-8 -mavx2" pip install --upgrade --no-deps --force-reinstall pillow-simd
+CC="gcc-7 -mavx2" pip install --upgrade --no-deps --force-reinstall pillow-simd
 echo ' '
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 
