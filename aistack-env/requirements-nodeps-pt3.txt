@@ -485,3 +485,16 @@ git+https://github.com/pytorch/contrib.git
 git+https://github.com/opensistemas-hub/osbrain.git
 git+https://github.com/uber-research/atari-model-zoo.git
 git+https://github.com/uber-research/jpeg2dct.git
+git+https://github.com/diana-hep/excursion.git
+git+https://github.com/scikit-hep/histbook.git
+git+https://github.com/scikit-hep/awkward-array.git
+git+https://github.com/scikit-hep/iminuit.git
+git+https://github.com/scikit-hep/probfit.git
+git+https://github.com/scikit-hep/uproot-methods.git
+git+https://github.com/scikit-hep/uproot.git
+git+https://github.com/emaballarin/pgmult.git
+git+https://github.com/automl/gym-parameter-control.git
+git+https://github.com/automl/HpBandSter.git
+git+https://github.com/automl/Auto-PyTorch.git
+git+https://github.com/automl/GenericWrapper4AC.git
+dgl
