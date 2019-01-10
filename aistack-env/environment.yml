@@ -14,11 +14,11 @@ channels:
 dependencies:
   - blas=1.0=mkl
   - boost-cpp=1.67
-  - catboost=0.11.2
+  - catboost=0.12.1
   - dask=1.0.0
   - dask-core=1.0.0
   - faiss-gpu=1.4.0
-  - fastai=1.0.37
+  - fastai=1.0.39
   - intel-openmp=2019.1
   - jupyterlab=0.35.4
   - libgpuarray=0.7.6
@@ -27,13 +27,13 @@ dependencies:
   - opencv
   - osqp=0.5.0
   - pygpu=0.7.6
-  - pymc3=3.5
+  - pymc3=3.6
   - pyqt=5
   - python=3.6
   - pytorch=1
   - qt=5
-  - scikit-learn=0.20.1
-  - scipy=1.1
+  - scikit-learn=0.20.2
+  - scipy=1.2
   - statsmodels=0.9
   - tensorflow-gpu=1.12
   - theano=1.0.3
@@ -608,3 +608,5 @@ dependencies:
   - python-magic
   - dionysus
   - thriftpy
+  - daal4py
+  - nbtutor

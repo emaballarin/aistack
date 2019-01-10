@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 2.2.0-001 (13/12/2018)  ##
+##  AIStack, v. 2.3.0-001 (11/01/2019)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -9,7 +9,7 @@
 # following the principles of fast iterations, high performance, full control,
 # and minimal external (i.e. not automatically installed) dependencies.
 #
-# (c) 2018 Emanuele Ballarin <emanuele@ballarin.cc>
+# (c) 2019 Emanuele Ballarin <emanuele@ballarin.cc>
 # Released under the Apache License 2.0.
 ##
 #
@@ -872,6 +872,8 @@ jupyter nbextension enable --py ipyparallel
 jupyter nbextension install hinterland
 jupyter nbextension enable hinterland/hinterland
 jupyter nbextension enable --py qgrid
+jupyter nbextension install --overwrite --py nbtutor
+jupyter nbextension enable --py nbtutor
 jupyter serverextension enable --py ipyparallel
 jupyter serverextension enable --py jupyterlab
 jupyter serverextension enable nteract_on_jupyter
