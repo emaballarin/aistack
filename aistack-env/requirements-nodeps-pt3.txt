@@ -536,7 +536,6 @@ terminaltables
 git+https://github.com/open-mmlab/mmdetection.git
 git+https://github.com/victor-estrade/datawarehouse.git
 git+https://github.com/Arcady27/KaggleLib.git
-git+https://github.com/ignacio-rocco/cyvlfeat.git
 git+https://github.com/daniilidis-group/neural_renderer.git
 git+https://github.com/Arcady27/CythonXGB.git
 git+https://github.com/donlnz/nonconformist.git
@@ -576,3 +575,4 @@ backports.functools-lru-cache
 cheroot
 cherrypy
 git+https://github.com/clips/pattern.git
+git+https://github.com/yzhao062/pyod.git

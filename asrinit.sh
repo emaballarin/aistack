@@ -346,6 +346,8 @@ pip install --upgrade --no-deps git+https://github.com/twiecki/CythonGSL.git
 echo ' '
 CC="gcc-7 -mavx2" pip install --upgrade --no-deps --force-reinstall pillow-simd
 echo ' '
+# Not a duplicate: it is a form of safety-net in case of (frequent) download problems
+USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 
 # Install prerequisite libraries that need manual copy-paste
@@ -828,6 +830,7 @@ cd ../
 echo 'PyTorch libraries for C++ successfully installed!'
 
 # Catalyst, a RL/DL framework by Sergey Kolesnikov
+echo ' '
 git clone --recursive https://github.com/Scitator/catalyst.git
 cp -R ./catalyst "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 
