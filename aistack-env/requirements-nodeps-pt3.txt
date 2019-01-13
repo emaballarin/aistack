@@ -576,3 +576,4 @@ cheroot
 cherrypy
 git+https://github.com/clips/pattern.git
 git+https://github.com/yzhao062/pyod.git
+git+https://emaballarin@bitbucket.org/xfde/pycheck.git
