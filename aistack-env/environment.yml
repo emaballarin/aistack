@@ -592,7 +592,6 @@ dependencies:
   - ad3-cpp
   - python-igraph
   - namedlist
-  - backcall
   - octave_kernel
   - oct2py
   - crcmod
