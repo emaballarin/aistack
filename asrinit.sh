@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 2.4.0-001 (15/01/2019)  ##
+##  AIStack, v. 2.4.1-001 (18/01/2019)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -820,14 +820,14 @@ echo 'Unity 3D Agents for ML & Marathon Agents successfully installed!'
 # cd ../..
 # pip install --upgrade --no-deps "$ROBOSCHOOL_PATH"
 
-# PyTorch LibTorch for C++
-echo ' '
-wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip
-unzip ./libtorch-shared-with-deps-latest.zip
-cd ./libtorch
-cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
-cd ../
-echo 'PyTorch libraries for C++ successfully installed!'
+## PyTorch LibTorch for C++ (until a proper distribution - LibTorch 1.0 Stable with CUDA 10 for Linux - becomes available, leave it commented!)
+#echo ' '
+#wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/nightly/cu100/libtorch-shared-with-deps-latest.zip
+#unzip ./libtorch-shared-with-deps-latest.zip
+#cd ./libtorch
+#cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
+#cd ../
+#echo 'PyTorch libraries for C++ successfully installed!'
 
 # Catalyst, a RL/DL framework by Sergey Kolesnikov
 echo ' '

@@ -17,13 +17,13 @@ dependencies:
   - catboost=0.12.1.1
   - dask=1.0.0
   - dask-core=1.0.0
-  - faiss-gpu=1.4.0
-  - fastai=1.0.39
+  - faiss-gpu=1.5.0
+  - fastai=1.0.40
   - intel-openmp=2019.1
   - jupyterlab=0.35.4
   - libgpuarray=0.7.6
   - mkl-dnn=0.14
-  - numpy=1.15
+  - numpy=1.15.4
   - opencv
   - osqp=0.5.0
   - pygpu=0.7.6
