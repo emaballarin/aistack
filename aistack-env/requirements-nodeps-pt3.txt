@@ -603,3 +603,4 @@ git+https://github.com/tulip-control/dd.git
 git+https://github.com/tulip-control/omega.git
 git+https://github.com/slivingston/gr1py.git
 git+https://github.com/tulip-control/tulip-control.git
+git+https://github.com/slundberg/shap.git

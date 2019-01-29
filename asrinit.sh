@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 2.4.2-002 (18/01/2019)  ##
+##  AIStack, v. 2.4.4-001 (29/01/2019)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -344,7 +344,7 @@ pip install --upgrade --no-deps git+https://github.com/twiecki/CythonGSL.git
 
 # Install global PIP dependencies that need additional flags
 echo ' '
-CC="gcc-7 -mavx2" pip install --upgrade --no-deps --force-reinstall pillow-simd
+CC="gcc-7 -mavx2" pip install --no-cache-dir --upgrade --no-deps --force-reinstall --no-binary :all: --compile pillow-simd
 echo ' '
 # Not a duplicate: it is a form of safety-net in case of (frequent) download problems
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
