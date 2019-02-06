@@ -11,12 +11,13 @@ channels:
   - menpo
   - lukepfister
   - sbu-hpc
+  - fragcolor
 dependencies:
   - blas=1.0=mkl
   - boost-cpp=1.67
   - catboost=0.12.2
-  - dask=1.1
-  - dask-core=1.1
+  - dask=1.1.1
+  - dask-core=1.1.1
   - faiss-gpu=1.5
   - fastai=1.0.42
   - intel-openmp=2019.1
@@ -30,7 +31,7 @@ dependencies:
   - pymc3=3.6
   - pyqt=5
   - python=3.6
-  - pytorch=1
+  - pytorch=1.0.1
   - qt=5
   - scikit-learn=0.20.2
   - scipy=1.2
@@ -609,3 +610,4 @@ dependencies:
   - thriftpy
   - daal4py
   - nbtutor
+  - aten
