@@ -11,7 +11,6 @@ channels:
   - menpo
   - lukepfister
   - sbu-hpc
-  - fragcolor
 dependencies:
   - blas=1.0=mkl
   - boost-cpp=1.67
@@ -32,6 +31,7 @@ dependencies:
   - pyqt=5
   - python=3.6
   - pytorch=1.0.1
+  - cudatoolkit=10
   - qt=5
   - scikit-learn=0.20.2
   - scipy=1.2
@@ -331,13 +331,6 @@ dependencies:
   - olefile
   - openpyxl
   - openssl
-  - orange3
-  - orange3-bioinformatics
-  - orange3-geo
-  - orange3-imageanalytics
-  - orange3-network
-  - orange3-singlecell
-  - orange3-timeseries
   - ordered-set
   - oslo.config
   - oslo.i18n
@@ -610,4 +603,3 @@ dependencies:
   - thriftpy
   - daal4py
   - nbtutor
-  - aten

@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 2.5.0-001 (06/02/2019)  ##
+##  AIStack, v. 2.5.2-001 (09/02/2019)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -67,6 +67,8 @@
 #                                 * PDOS
 #                                 * Whatever compatible with PyOMO and/or MATLAB, if installed.
 ##
+
+# NOTE: Tensorflow is broken! :-(
 
 ##################################################
 ##            # User Configuration #            ##
@@ -150,7 +152,7 @@ ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/libjasper.so" "$SELF_CONDA_ENV_PATH/aist
 source $SELF_CEACT_COMMAND aistack
 echo ' '
 conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi cudatoolkit cudnn nvcc nvcc2 jpeg libtiff --force
-conda install -y boost-cpp==1.67 util-linux ipywebrtc libgcc urllib3 libtool libjpeg-turbo --force --no-deps
+conda install -y boost-cpp==1.67 util-linux libgcc urllib3 libtool libjpeg-turbo --force --no-deps
 source deactivate
 
 # Fix Kerberos-related bug (MXNet)
@@ -458,7 +460,7 @@ pip install --upgrade --no-deps --pre cupy-cuda100
 echo ' '
 pip install --upgrade --no-deps --pre ideep4py
 echo ' '
-pip install --upgrade --no-deps --pre chainer --force
+pip install --upgrade --no-deps --pre --force chainer==6.0.0b1
 echo ' '
 pip install --upgrade --no-deps --pre chainercv
 echo ' '

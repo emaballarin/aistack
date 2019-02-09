@@ -191,11 +191,7 @@ git+https://github.com/ml-jku/PlattScaling.git
 comet-ml
 git+https://github.com/broadinstitute/skopy.git
 git+https://github.com/broadinstitute/DeepProfiler.git
-git+https://github.com/biolab/orange3-conformal.git
-git+https://github.com/biolab/orange3-associate.git
-git+https://github.com/biolab/orange3-recommendation.git
 ufal.udpipe
-git+https://github.com/biolab/orange3-text.git
 git+https://github.com/lmjohns3/downhill.git
 git+https://github.com/wolever/parameterized.git
 git+https://github.com/lmjohns3/theanets.git
@@ -435,7 +431,6 @@ git+https://github.com/activatedgeek/gym-2048.git
 git+https://github.com/alshedivat/lola.git
 git+https://github.com/alexis-jacq/signals.git
 git+https://github.com/alexis-jacq/Mutual_Modelling.git
-git+https://github.com/chili-epfl/shape_learning.git
 git+https://github.com/chili-epfl/multimodal-feature-extraction-cli.git
 git+https://github.com/sanket-kamthe/gptf.git
 git+https://github.com/sklearn-theano/sklearn-theano.git
@@ -465,7 +460,7 @@ git+https://github.com/deepmind/interval-bound-propagation.git
 json_tricks
 schema
 pyhdfs
-git+https://github.com/Microsoft/nni.git
+nni
 git+https://github.com/burnash/gspread.git
 git+https://github.com/jostosh/df2gspread.git
 git+https://github.com/pymanopt/pymanopt.git
@@ -562,7 +557,7 @@ genty
 nose-timer
 git+https://github.com/facebookresearch/nevergrad.git
 git+https://github.com/maxpumperla/hyperas.git
-git+https://github.com/facebookresearch/qhoptim.git
+git+https://github.com/emaballarin/qhoptim.git
 progressbar33
 sgmllib3k
 feedparser
@@ -593,7 +588,8 @@ swiglpk
 pymprog
 astutils
 humanize
-git+https://github.com/python-control/Slycot.git
+scikit-build
+git+https://github.com/emaballarin/Slycot.git
 git+https://github.com/python-control/python-control.git
 git+https://github.com/tulip-control/polytope.git
 cysignals
@@ -604,3 +600,4 @@ git+https://github.com/tulip-control/omega.git
 git+https://github.com/slivingston/gr1py.git
 git+https://github.com/tulip-control/tulip-control.git
 git+https://github.com/slundberg/shap.git
+python-constraint
