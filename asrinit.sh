@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 2.5.2-001 (09/02/2019)  ##
+##  AIStack, v. 2.5.3-001 (09/02/2019)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -679,13 +679,13 @@ source $SELF_CEACT_COMMAND aistack
 
 cd "$SELF_INVOKE_DIR/aistack/aistack-env/gitpipdeps"
 
-# Install PIP packages that need particular install procedures
-git clone --recursive https://github.com/chobeat/hypothesis-csv.git
-cd hypothesis-csv
-cp "$SELF_INVOKE_DIR/aistack/aistack-env/dlfiles/5f8585f34e07e2c016fcb4b0b16c3243b41e9c3e.patch" ./
-git apply 5f8585f34e07e2c016fcb4b0b16c3243b41e9c3e.patch
-pip install --upgrade --no-deps .
-cd ../
+## Install PIP packages that need particular install procedures
+#git clone --recursive https://github.com/chobeat/hypothesis-csv.git
+#cd hypothesis-csv
+#cp "$SELF_INVOKE_DIR/aistack/aistack-env/dlfiles/5f8585f34e07e2c016fcb4b0b16c3243b41e9c3e.patch" ./
+#git apply 5f8585f34e07e2c016fcb4b0b16c3243b41e9c3e.patch
+#pip install --upgrade --no-deps .
+#cd ../
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
