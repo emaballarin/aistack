@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 2.5.3-001 (09/02/2019)  ##
+##  AIStack, v. 2.6.0-001 (10/02/2019)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -31,6 +31,7 @@
 # - Curl >= 7 with HTTPS support.
 # - WGet >= 1.19 with HTTPS support
 # - Git >= 2.18
+# - Google protocol buffers (protobuf/protoc) == 3.6.1
 #
 # SOFTWARE REQUIREMENTS (optional, installed system-wide):
 # - cmdSTAN (sourced)
@@ -53,8 +54,9 @@
 # - CERN's ROOT >= 6 (correctly installed and sourced)
 # - The ROS (Robotics Open Source) suite, 'Melodic' version
 # - Dyalog APL >= 16
-# - A directory containing the /lib/ directory of a functioning CUDA 9.2 install, without
-#   the .so files which do not contain at least two dots :)
+# - Google OR Tools for C/C++/Java/.NET
+# - A directory containing the /lib/ directory of a functioning CUDA 9.2/9.0 install,
+#   without the .so files which do not contain at least two dots :)
 # - Optimization software, i.e.:
 #                                 * COIN-OR GLPK (recommended)
 #                                 * Gurobi (recommended)
@@ -67,8 +69,6 @@
 #                                 * PDOS
 #                                 * Whatever compatible with PyOMO and/or MATLAB, if installed.
 ##
-
-# NOTE: Tensorflow is broken! :-(
 
 ##################################################
 ##            # User Configuration #            ##
@@ -93,7 +93,7 @@ export CVXOPT_SUITESPARSE_LIB_DIR="/usr/lib/"   # Path to the directory that con
 export CVXOPT_SUITESPARSE_INC_DIR="/usr/local/include/suitesparse/" # Path to the directory that contains SuiteSparse include files
 
 # Configuration for optional SCHIZOCUDA_MODE
-export SELF_SCHIZOCUDA_MODE_CU92F="/home/emaballarin/cuda92libstrip/"   # Path to a directory containing the /lib/ directory of a functioning CUDA 9.2 install, without
+export SELF_SCHIZOCUDA_MODE_CU92F="/home/emaballarin/cuda92libstrip/"   # Path to a directory containing the /lib/ directory of a functioning CUDA 9.2/9.0 install, without
 #                                                                         the .so files which do not contain at least two dots.
 #                                                                         May cause damages if pointed to somewhere else. Don't do that!
 ########################################################################################################################
@@ -351,6 +351,17 @@ echo ' '
 # Not a duplicate: it is a form of safety-net in case of (frequent) download problems
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
+
+# Install TensorFlow 1.2.x and dependencies (in case Conda install does not work) - comment out if unneeded
+conda remove -y tensorflow tensorflow-gpu protobuf --force
+pip install --upgrade --no-deps protobuf
+pip install --upgrade --no-deps ortools
+pip install --upgrade --no-deps google_pasta
+pip install --upgrade --no-deps git+https://github.com/keras-team/keras-applications.git
+pip install --upgrade --no-deps git+https://github.com/keras-team/keras-preprocessing.git
+pip install --upgrade --no-deps tensorboard
+pip install --upgrade --no-deps https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.12.0-cp36-cp36m-linux_x86_64.whl
+pip install --upgrade --no-deps tensorflow_estimator
 
 # Install prerequisite libraries that need manual copy-paste
 cd "$SELF_INVOKE_DIR/aistack/aistack-env/gitpipdeps"
