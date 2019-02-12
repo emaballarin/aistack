@@ -19,7 +19,7 @@ dependencies:
   - dask-core=1.1.1
   - dask=1.1.1
   - faiss-gpu=1.5
-  - fastai=1.0.42
+  - fastai=1.0.43
   - intel-openmp=2019.1
   - jupyterlab=0.35.4
   - libgpuarray=0.7.6
