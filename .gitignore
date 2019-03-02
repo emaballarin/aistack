@@ -2,11 +2,11 @@
 .directory
 
 # VSCode temp files
-.vscode/
-.vs/
+**/.vscode
+**/.vs
 
 # IntelliJ temp files
-.idea/
-.pycharm/
-.clion/
-.goland/
+**/.idea
+**/.pycharm
+**/.clion
+**/.goland

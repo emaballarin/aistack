@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 2.6.0-001 (10/02/2019)  ##
+##  AIStack, v. 2.6.2-001 (02/03/2019)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -471,7 +471,7 @@ pip install --upgrade --no-deps --pre cupy-cuda100
 echo ' '
 pip install --upgrade --no-deps --pre ideep4py
 echo ' '
-pip install --upgrade --no-deps --pre --force chainer==6.0.0b1
+pip install --upgrade --no-deps --pre --force chainer==6.0.0b3
 echo ' '
 pip install --upgrade --no-deps --pre chainercv
 echo ' '
