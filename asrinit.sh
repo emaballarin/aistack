@@ -352,7 +352,7 @@ echo ' '
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 
-# Install TensorFlow 1.2.x and dependencies (in case Conda install does not work) - comment out if unneeded
+# Install TensorFlow 1.13.1 and dependencies (in case Conda install does not work) - comment out if unneeded
 conda remove -y tensorflow tensorflow-gpu protobuf --force
 pip install --upgrade --no-deps protobuf
 pip install --upgrade --no-deps ortools
@@ -360,7 +360,7 @@ pip install --upgrade --no-deps google_pasta
 pip install --upgrade --no-deps git+https://github.com/keras-team/keras-applications.git
 pip install --upgrade --no-deps git+https://github.com/keras-team/keras-preprocessing.git
 pip install --upgrade --no-deps tensorboard
-pip install --upgrade --no-deps https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.12.0-cp36-cp36m-linux_x86_64.whl
+pip install --upgrade --no-deps tensorflow-gpu=1.13.1
 pip install --upgrade --no-deps tensorflow_estimator
 
 # Install prerequisite libraries that need manual copy-paste

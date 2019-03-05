@@ -604,3 +604,4 @@ python-constraint
 google_pasta
 tensorflow_estimator
 git+https://github.com/uber/ludwig.git
+git+https://github.com/facebookresearch/enorm.git
