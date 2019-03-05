@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 2.6.2-001 (02/03/2019)  ##
+##  AIStack, v. 2.6.3-001 (05/03/2019)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -360,7 +360,7 @@ pip install --upgrade --no-deps google_pasta
 pip install --upgrade --no-deps git+https://github.com/keras-team/keras-applications.git
 pip install --upgrade --no-deps git+https://github.com/keras-team/keras-preprocessing.git
 pip install --upgrade --no-deps tensorboard
-pip install --upgrade --no-deps tensorflow-gpu=1.13.1
+pip install --upgrade --no-deps tensorflow-gpu==1.13.1
 pip install --upgrade --no-deps tensorflow_estimator
 
 # Install prerequisite libraries that need manual copy-paste

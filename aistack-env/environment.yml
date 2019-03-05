@@ -24,7 +24,7 @@ dependencies:
   - jupyterlab=0.35.4
   - libgpuarray=0.7.6
   - mkl-dnn=0.14
-  - numpy=1.16.2
+  - numpy=1.15.4
   - osqp=0.5.0
   - pygpu=0.7.6
   - pymc3=3.6
@@ -32,7 +32,7 @@ dependencies:
   - python=3.6
   - pytorch=1.0.1
   - qt=5
-  - scikit-learn=0.20.3
+  - scikit-learn=0.20.2
   - scipy=1.2.1
   - statsmodels=0.9
   - tensorflow-gpu=1.12
