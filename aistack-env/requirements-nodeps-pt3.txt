@@ -144,7 +144,6 @@ git+https://github.com/mpld3/mplexporter.git
 git+https://github.com/automan000/VisdomPortal.git
 git+https://github.com/chovanecm/sacredboard.git
 git+https://github.com/chovanecm/python-genetic-algorithm.git
-tensorboard
 git+https://github.com/lebedov/scikit-cuda.git
 git+https://github.com/emaballarin/binet.git
 git+https://github.com/untom/biutils.git
@@ -605,3 +604,6 @@ google_pasta
 tensorflow_estimator
 git+https://github.com/uber/ludwig.git
 git+https://github.com/facebookresearch/enorm.git
+git+https://github.com/DeepX-inc/machina.git
+git+https://github.com/rflamary/POT.git
+git+https://github.com/dragonfly/dragonfly.git

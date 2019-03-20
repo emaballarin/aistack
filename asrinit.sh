@@ -1,6 +1,7 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 2.6.3-001 (05/03/2019)  ##
+##  AIStack, v. 2.7.0-001 (20/03/2019)  ##
+##  TensorFlow API v.1                  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -93,7 +94,7 @@ export CVXOPT_SUITESPARSE_LIB_DIR="/usr/lib/"   # Path to the directory that con
 export CVXOPT_SUITESPARSE_INC_DIR="/usr/local/include/suitesparse/" # Path to the directory that contains SuiteSparse include files
 
 # Configuration for optional SCHIZOCUDA_MODE
-export SELF_SCHIZOCUDA_MODE_CU92F="/home/emaballarin/cuda92libstrip/"   # Path to a directory containing the /lib/ directory of a functioning CUDA 9.2/9.0 install, without
+export SELF_SCHIZOCUDA_MODE_CU92F="/home/emaballarin/cuda92libstrip/"   # Path to a directory containing the /lib/ directory of a functioning CUDA 10.0/9.2/9.0 install, without
 #                                                                         the .so files which do not contain at least two dots.
 #                                                                         May cause damages if pointed to somewhere else. Don't do that!
 ########################################################################################################################
@@ -152,7 +153,7 @@ ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/libjasper.so" "$SELF_CONDA_ENV_PATH/aist
 source $SELF_CEACT_COMMAND aistack
 echo ' '
 conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi cudatoolkit cudnn nvcc nvcc2 jpeg libtiff --force
-conda install -y boost-cpp==1.67 util-linux libgcc urllib3 libtool libjpeg-turbo --force --no-deps
+conda install -y boost-cpp==1.67 util-linux libgcc urllib3 libtool libjpeg-turbo dionysus --force --no-deps
 source deactivate
 
 # Fix Kerberos-related bug (MXNet)
@@ -352,7 +353,7 @@ echo ' '
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 
-# Install TensorFlow 1.13.1 and dependencies (in case Conda install does not work) - comment out if unneeded
+# Install TensorFlow 1.13.1 and dependencies
 conda remove -y tensorflow tensorflow-gpu protobuf --force
 pip install --upgrade --no-deps protobuf
 pip install --upgrade --no-deps ortools
