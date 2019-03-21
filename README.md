@@ -15,7 +15,7 @@ While the relevant documentation is being written (and this README updated), you
 
 ---
 
-## What this repository is all about?
+## What is this repository all about?
 
 The place where `aistack` is usually developed, tested, maintained - and which sort of serves as a *ground truth implementation* is [here](https://github.com/emaballarin/emaballarin.github.io/tree/master/aistack). This way it is accessible through GitHub pages and served at [ballarin.cc](https://ballarin.cc/aistack/) for easier download and deployment (see above for instructions).
 
