@@ -404,7 +404,6 @@ git+https://github.com/mwhoffman/pygp.git
 git+https://github.com/udoniyor/projectb.git
 git+https://github.com/leonardblier/alrao.git
 git+https://github.com/ctallec/argload.git
-git+https://github.com/bamos/opt.py.git
 git+https://github.com/elfi-dev/elfi.git
 git+https://github.com/fvisin/dataset_loaders.git
 git+https://github.com/fvisin/main_loop_tf.git
@@ -607,3 +606,5 @@ git+https://github.com/facebookresearch/enorm.git
 git+https://github.com/DeepX-inc/machina.git
 git+https://github.com/rflamary/POT.git
 git+https://github.com/dragonfly/dragonfly.git
+GPUtil
+pykeops

@@ -14,7 +14,7 @@ channels:
 dependencies:
   - blas=1.0=mkl
   - boost-cpp=1.67
-  - catboost=0.13
+  - catboost=0.13.1
   - cudatoolkit=10
   - dask-core=1.1.4
   - dask=1.1.4

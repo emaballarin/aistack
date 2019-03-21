@@ -527,7 +527,7 @@ pip install --upgrade --no-deps --no-binary :all: lightgbm --install-option=--mp
 echo ' '
 
 # CudaMAT
-git clone --recursive https://github.com/cudamat/cudamat.git
+git clone --recursive https://github.com/emaballarin/cudamat.git
 cd ./cudamat
 pip install --upgrade --no-deps ./
 cd ../
