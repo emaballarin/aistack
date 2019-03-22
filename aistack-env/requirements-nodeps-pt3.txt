@@ -608,3 +608,10 @@ git+https://github.com/rflamary/POT.git
 git+https://github.com/dragonfly/dragonfly.git
 GPUtil
 pykeops
+git+https://github.com/robclewley/pydstool.git
+git+https://github.com/openai/blocksparse.git
+git+https://github.com/ahwillia/tensortools
+git+https://github.com/pydata/sparse.git
+git+https://github.com/kimjingu/nonnegfac-python.git
+python-pushover
+git+https://github.com/nirum/jetpack.git
