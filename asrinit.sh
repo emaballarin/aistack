@@ -153,7 +153,7 @@ ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/libjasper.so" "$SELF_CONDA_ENV_PATH/aist
 source $SELF_CEACT_COMMAND aistack
 echo ' '
 conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi cudatoolkit cudnn nvcc nvcc2 jpeg libtiff --force
-conda install -y boost-cpp==1.67 util-linux libgcc urllib3 libtool libjpeg-turbo dionysus --force --no-deps
+conda install -y boost-cpp==1.67 util-linux libgcc urllib3 libtool libjpeg-turbo --force --no-deps
 source deactivate
 
 # Fix Kerberos-related bug (MXNet)
@@ -472,7 +472,7 @@ pip install --upgrade --no-deps --pre cupy-cuda100
 echo ' '
 pip install --upgrade --no-deps --pre ideep4py
 echo ' '
-pip install --upgrade --no-deps --pre --force chainer==6.0.0b3
+pip install --upgrade --no-deps --pre --force chainer
 echo ' '
 pip install --upgrade --no-deps --pre chainercv
 echo ' '
@@ -698,6 +698,12 @@ cd "$SELF_INVOKE_DIR/aistack/aistack-env/gitpipdeps"
 #git apply 5f8585f34e07e2c016fcb4b0b16c3243b41e9c3e.patch
 #pip install --upgrade --no-deps .
 #cd ../
+
+echo ' '
+pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
+
+echo ' '
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4614/Python/h2o-3.23.0.4614-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -930,4 +936,16 @@ echo "Temporary, local files will now be removed..."
 rm -R -f "$SELF_INVOKE_DIR/aistack"
 rm -f "$SELF_INVOKE_DIR/asrinit.sh"
 echo "Done."
+echo ' '
+echo ' '
+echo ' '
+echo "Now you may need to manually install Chainer..."
+echo 'To do so, issue the following command-block:'
+echo ' '
+echo 'export CHAINER_BUILD_CHAINERX=1'
+echo 'export CHAINERX_BUILD_CUDA=1'
+echo 'export MAKEFLAGS=-j8'
+echo 'pip install --upgrade --no-deps --pre --force chainer'
+echo ' '
+echo ' '
 echo ' '
