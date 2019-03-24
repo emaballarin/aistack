@@ -629,3 +629,15 @@ infomap
 git+https://github.com/GiulioRossetti/cdlib.git
 ptr
 git+https://github.com/albertocasagrande/pyModelChecking.git
+configobj
+everett
+comet-git-pure
+comet-ml
+git+https://github.com/BBN-Q/macrospin_gpu.git
+git+https://github.com/BBN-Q/Adapt.git
+git+https://github.com/nucleic/atom.git
+git+https://github.com/BBN-Q/QGL.git
+git+https://github.com/BBN-Q/pyqgl2.git
+git+https://github.com/torchgan/torchgan.git
+git+https://github.com/williamFalcon/pytorch-complex-tensor.git
+git+https://github.com/williamFalcon/test-tube.git

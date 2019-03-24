@@ -1,7 +1,6 @@
 #!/bin/bash
 ##########################################
-##  AIStack, v. 2.7.0-001 (20/03/2019)  ##
-##  TensorFlow API v.1                  ##
+##  AIStack, v. 2.8.0-001 (24/03/2019)  ##
 ##########################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -225,6 +224,7 @@ rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/mpif90"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/mpifort"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/mpirun"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/mpivars"
+rm -f "$SELF_CONDA_ENV_PATH/aistack/compiler_compat/ld"
 
 # System-to-Conda command mirroring (link part)
 ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc"
@@ -287,6 +287,7 @@ ln -s "$(which mpif77)" "$SELF_CONDA_ENV_PATH/aistack/bin/mpif77"
 ln -s "$(which mpif90)" "$SELF_CONDA_ENV_PATH/aistack/bin/mpif90"
 ln -s "$(which mpifort)" "$SELF_CONDA_ENV_PATH/aistack/bin/mpifort"
 ln -s "$(which mpirun)" "$SELF_CONDA_ENV_PATH/aistack/bin/mpirun"
+ln -s "$(which ld)" "$SELF_CONDA_ENV_PATH/aistack/compiler_compat/ld"
 
 # Improve the Conda environment for AIStack
 mkdir -p "$SELF_CONDA_ENV_PATH/aistack/etc/conda/activate.d"
