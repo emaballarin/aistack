@@ -26,6 +26,7 @@ dependencies:
   - mkl-dnn=0.14
   - numpy=1.15.4
   - osqp=0.5.0
+  - pandas=0.24.2
   - pygpu=0.7.6
   - pymc3=3.6
   - pyqt=5
@@ -352,7 +353,6 @@ dependencies:
   - oslo.utils
   - overrides
   - packaging
-  - pandas
   - pandoc
   - pandocfilters
   - paramiko

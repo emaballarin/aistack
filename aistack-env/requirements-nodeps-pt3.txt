@@ -641,3 +641,9 @@ git+https://github.com/BBN-Q/pyqgl2.git
 git+https://github.com/torchgan/torchgan.git
 git+https://github.com/williamFalcon/pytorch-complex-tensor.git
 git+https://github.com/williamFalcon/test-tube.git
+git+https://github.com/Nico-Curti/Walkers.git
+art
+vulture
+bandit
+git+https://github.com/sepandhaghighi/pycm.git
+git+https://github.com/Nico-Curti/scorer.git

@@ -1,7 +1,7 @@
 #!/bin/bash
-##########################################
-##  AIStack, v. 2.8.0-001 (24/03/2019)  ##
-##########################################
+############################################
+###  AIStack, v. 2.8.1-001 (25/03/2019)  ###
+############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
 # at the broadest possible Machine Learning, Artificial Intelligence, Control
@@ -9,6 +9,7 @@
 # following the principles of fast iterations, high performance, full control,
 # and minimal external (i.e. not automatically installed) dependencies.
 #
+##
 # (c) 2019 Emanuele Ballarin <emanuele@ballarin.cc>
 # Released under the Apache License 2.0.
 ##
@@ -20,29 +21,30 @@
 # SOFTWARE REQUIREMENTS (mandatory, installed system-wide):
 # - Relatively recent Linux operating system (with glibc >= 2.17);
 # - Bash >= 4.0
-# - Anaconda Python Distribution >= 5.3 (or equivalent, i.e. miniconda)
-# - NVidia Graphics proprietary drivers >= 410 series
-# - NVidia CUDA 10 (9.2 works too, but it is unsupported)
-# - GNU Binutils
-# - GNU Compiler Suite v.7 (C/C++/Fortran)
+# - Anaconda Python Distribution >= 4.6 (or equivalent, i.e. miniconda)
+# - NVidia Graphics proprietary drivers >= 418 series
+# - NVidia CUDA 10.1 (10.0/9.2 work too, but they are unsupported)
+# - GNU Binutils >= 2.30 (EXCLUDED 2.31.0, but OK if >= 2.31.1)
+# - GNU Compiler Suite v.7 (C/C++)
+# - GNU Compiler Suite >= v.8 (C/C++/Fortran)
 # - OpenMPI >= 3
 # - OpenMP
 # - Kitware's CMAKE >= 3.11
 # - Curl >= 7 with HTTPS support.
 # - WGet >= 1.19 with HTTPS support
 # - Git >= 2.18
-# - Google protocol buffers (protobuf/protoc) == 3.6.1
+# - Google protocol buffers (protobuf/protoc) == 3.6.x
 #
 # SOFTWARE REQUIREMENTS (optional, installed system-wide):
-# - cmdSTAN (sourced)
+# - cmdSTAN (installed and sourced)
 # - SuiteSparse >= 5.2
 # - Dlib (C++ library)
 # - Dlib (Python 3 bindings)
 # - SWIG >= 3
 # - Elemental >= 0.87.7
-# - LighBGM (command line version and Python bindings)
+# - LighBGM (command line version)
 # - MuJoCo 1.9x, (fully set-up and licensed)
-# - MuJoCo 2.00, (fully set-up and licensed; if installed together with 1.9x give preference to 2.00)
+# - MuJoCo 2.00, (fully set-up and licensed; if installed together with 1.9x, give preference to 2.00)
 # - MATLAB >= 2014a (licensed)
 # - GNU Octave
 # - LibRAL (shared library)
@@ -50,13 +52,11 @@
 # - FLANN
 # - Facebook FAIR's FastText (shared libraries)
 # - Blizzard's StarCraft II Linux binaries for AI (installed in ~/)
-# - Unity3D engine for Linux (through the Unity Hub)
-# - CERN's ROOT >= 6 (correctly installed and sourced)
-# - The ROS (Robotics Open Source) suite, 'Melodic' version
+# - Unity3D engine for Linux (installed through the Unity Hub)
+# - CERN's ROOT >= 6 (installed and sourced)
 # - Dyalog APL >= 16
 # - Google OR Tools for C/C++/Java/.NET
-# - A directory containing the /lib/ directory of a functioning CUDA 9.2/9.0 install,
-#   without the .so files which do not contain at least two dots :)
+# - A directory containing the /lib/ directory of a functioning CUDA 9.2 and 10.0 install
 # - Optimization software, i.e.:
 #                                 * COIN-OR GLPK (recommended)
 #                                 * Gurobi (recommended)
@@ -80,7 +80,7 @@ export SELF_CEACT_COMMAND="activate"                        # Command used to ac
 export SELF_CONDA_ENV_PATH="$HOME/anaconda3/envs/"          # Path under which given command will create Anaconda environments (must be manually specified due to possible multiple conda environment folders)
 export SELF_MATLABROOT_BASEDIR="/usr/local/MATLAB/R2018b/"  # Base directory of a MATLAB installation (>= 2014a, licensed). Whatever, if unavailable.
 export SELF_TCMALLOC_INJECT="1"                             # 1 -> Preload TCMalloc in order to uniform Malloc(1) calls (recommended); 0 -> Do not preload TCMalloc (more stable, but prone to invalid free() with OpenCV/MxNet)
-export SELF_SCHIZOCUDA_MODE="1"                             # 1 -> Enable the hybrid CUDA 10 / CUDA 9.2 mode (i.e. Pytorch on CUDA 10 and TensorFlow on CUDA 9.2)
+export SELF_SCHIZOCUDA_MODE="1"                             # 1 -> Enable the hybrid CUDA 10.1 / CUDA 10.0 / CUDA 9.2 / CUDA 9.0 mode (i.e. Pytorch on CUDA 10.1 and TensorFlow on CUDA 9.2)
 
 # Configuration for CVXOPT
 export CVXOPT_GSL_LIB_DIR="/usr/lib/"           # Path to the directory that contains GNU Scientific Library shared libraries
@@ -94,8 +94,6 @@ export CVXOPT_SUITESPARSE_INC_DIR="/usr/local/include/suitesparse/" # Path to th
 
 # Configuration for optional SCHIZOCUDA_MODE
 export SELF_SCHIZOCUDA_MODE_CU92F="/home/emaballarin/cuda92libstrip/"   # Path to a directory containing the /lib/ directory of a functioning CUDA 10.0/9.2/9.0 install, without
-#                                                                         the .so files which do not contain at least two dots.
-#                                                                         May cause damages if pointed to somewhere else. Don't do that!
 ########################################################################################################################
 ########################################################################################################################
 
@@ -943,6 +941,7 @@ echo ' '
 echo "Now you may need to manually install Chainer..."
 echo 'To do so, issue the following command-block:'
 echo ' '
+echo 'source activate aistack'
 echo 'export CHAINER_BUILD_CHAINERX=1'
 echo 'export CHAINERX_BUILD_CUDA=1'
 echo 'export MAKEFLAGS=-j8'
