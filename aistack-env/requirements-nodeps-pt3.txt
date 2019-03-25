@@ -653,3 +653,4 @@ git+https://github.com/mvcisback/hypothesis-cfg.git
 pytest-flake8
 pytest-sugar
 git+https://github.com/mvcisback/py-metric-temporal-logic.git
+git+https://github.com/algofairness/BlackBoxAuditing.git
