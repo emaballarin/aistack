@@ -654,3 +654,9 @@ pytest-flake8
 pytest-sugar
 git+https://github.com/mvcisback/py-metric-temporal-logic.git
 git+https://github.com/algofairness/BlackBoxAuditing.git
+git+https://github.com/alan-turing-institute/sktime.git
+git+https://github.com/alan-turing-institute/skpro.git
+git+https://github.com/dfm/acor.git
+git+https://github.com/alan-turing-institute/topic-modelling-tools.git
+git+https://github.com/DiffusionMapsAcademics/pyDiffMap.git
+tati
