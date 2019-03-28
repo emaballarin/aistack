@@ -1,0 +1,24 @@
+From 4b95ec184c55cbd9de462ea2de8b8082cd35ab5d Mon Sep 17 00:00:00 2001
+From: Emanuele Ballarin <emanuele@ballarin.cc>
+Date: Thu, 28 Mar 2019 03:05:35 +0100
+Subject: [PATCH] Make installation AIStack-compatible
+
+---
+ setup.py | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index c340fa2..cc1d63f 100644
+--- a/setup.py
++++ b/setup.py
+@@ -23,9 +23,7 @@
+ def setup_package():
+     needs_sphinx = {'build_sphinx', 'upload_docs'}.intersection(sys.argv)
+     sphinx = ['sphinx'] if needs_sphinx else []
+-    setup(setup_requires=['pyscaffold>=3.0a0,<3.1a0'] + sphinx,
+-          entry_points=entry_points,
+-          use_pyscaffold=True)
++    setup(entry_points=entry_points)
+ 
+ 
+ if __name__ == "__main__":

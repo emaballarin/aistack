@@ -1,6 +1,7 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 2.8.1-001 (25/03/2019)  ###
+###  AIStack, v. 2.9.0-001 (28/03/2019)  ###
+###  Now featuring PyTorch Nightly 1.x   ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -112,7 +113,7 @@ cd "$SELF_INVOKE_DIR/aistack/aistack-env/dlfiles"
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/environment.yml
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/dot-condarc
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/c8c78db1d051c05b5f7e6b07f06bbd292a94b68b.patch
-wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/5f8585f34e07e2c016fcb4b0b16c3243b41e9c3e.patch
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/4b95ec184c55cbd9de462ea2de8b8082cd35ab5d.patch
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/ab190f5dffcfdae305a6be29145d4eec3464d956.patch
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/requirements-nodeps-pt1.txt
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/requirements-nodeps-pt1-bis.txt
@@ -691,12 +692,12 @@ source $SELF_CEACT_COMMAND aistack
 cd "$SELF_INVOKE_DIR/aistack/aistack-env/gitpipdeps"
 
 ## Install PIP packages that need particular install procedures
-#git clone --recursive https://github.com/chobeat/hypothesis-csv.git
-#cd hypothesis-csv
-#cp "$SELF_INVOKE_DIR/aistack/aistack-env/dlfiles/5f8585f34e07e2c016fcb4b0b16c3243b41e9c3e.patch" ./
-#git apply 5f8585f34e07e2c016fcb4b0b16c3243b41e9c3e.patch
-#pip install --upgrade --no-deps .
-#cd ../
+git clone --recursive https://github.com/chobeat/hypothesis-csv.git
+cd hypothesis-csv
+cp "$SELF_INVOKE_DIR/aistack/aistack-env/dlfiles/4b95ec184c55cbd9de462ea2de8b8082cd35ab5d.patch" ./
+git apply 4b95ec184c55cbd9de462ea2de8b8082cd35ab5d.patch
+pip install --upgrade --no-deps .
+cd ../
 
 echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
@@ -839,15 +840,6 @@ echo 'Unity 3D Agents for ML & Marathon Agents successfully installed!'
 # cd ../..
 # pip install --upgrade --no-deps "$ROBOSCHOOL_PATH"
 
-## PyTorch LibTorch for C++ (until a proper distribution - LibTorch 1.0 Stable with CUDA 10 for Linux - becomes available, leave it commented!)
-#echo ' '
-#wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/nightly/cu100/libtorch-shared-with-deps-latest.zip
-#unzip ./libtorch-shared-with-deps-latest.zip
-#cd ./libtorch
-#cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
-#cd ../
-#echo 'PyTorch libraries for C++ successfully installed!'
-
 # Catalyst, a RL/DL framework by Sergey Kolesnikov
 echo ' '
 git clone --recursive https://github.com/Scitator/catalyst.git
@@ -913,6 +905,39 @@ echo "OK!"
 echo ' '
 
 # DE-activate Conda environment
+source deactivate
+########################################################################################################################
+########################################################################################################################
+
+##
+## NIGHTLIFY PYTORCH + INSTALL LIBTORCH C++ (without breaking things) ##
+##
+source $SELF_CEACT_COMMAND aistack
+
+# Remove (old) PyTorch and affected dependencies
+conda remove -y pytorch _r-mutex cudatoolkit --force
+
+# Install (new, nightly) PyTorch
+conda install -y pytorch-nightly cudatoolkit=10.0 -c pytorch
+
+# Remove useless cuda-toolkit and _r-mutex
+conda remove -y _r-mutex cudatoolkit --force
+
+# Re-install _r-mutex
+conda install -y _r-mutex
+
+# Unpack and install LibTorch C++ libraries
+echo ' '
+rm -R -f ./PTLTDL
+mkdir ./PTLTDL
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/nightly/cu100/libtorch-shared-with-deps-latest.zip
+unzip ./libtorch-shared-with-deps-latest.zip
+cd ./libtorch
+cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
+cd ../
+echo 'PyTorch libraries for C++ successfully installed!'
+echo ' '
+
 source deactivate
 ########################################################################################################################
 ########################################################################################################################

@@ -660,3 +660,4 @@ git+https://github.com/dfm/acor.git
 git+https://github.com/alan-turing-institute/topic-modelling-tools.git
 git+https://github.com/DiffusionMapsAcademics/pyDiffMap.git
 tati
+git+https://github.com/minimaxir/automl-gs.git
