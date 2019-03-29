@@ -1,7 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 2.9.0-001 (28/03/2019)  ###
-###  Now featuring PyTorch Nightly 1.x   ###
+###  AIStack, v. 2.9.1-001 (29/03/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed

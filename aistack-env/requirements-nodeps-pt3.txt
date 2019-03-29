@@ -661,3 +661,8 @@ git+https://github.com/alan-turing-institute/topic-modelling-tools.git
 git+https://github.com/DiffusionMapsAcademics/pyDiffMap.git
 tati
 git+https://github.com/minimaxir/automl-gs.git
+git+https://github.com/deepmind/interval-bound-propagation.git
+git+https://github.com/google-research/morph-net.git
+git+https://github.com/google-research/disentanglement_lib.git
+git+https://github.com/google-research/tensorflow_constrained_optimization.git
+git+https://github.com/google-research/policy-learning-landscape.git
