@@ -673,3 +673,15 @@ git+https://github.com/pystruct/pyqpbo.git
 git+https://github.com/jmschrei/pomegranate.git
 git+https://github.com/jmschrei/apricot.git
 git+https://github.com/Kaggle/kaggle-api.git
+git+https://github.com/befelix/safe_learning.git
+git+https://github.com/befelix/SafeMDP.git
+git+https://github.com/befelix/autoexec.git
+git+https://github.com/befelix/SafeOpt.git
+git+https://github.com/BRML/climin.git
+git+https://github.com/sods/paramz.git
+git+https://github.com/numericalalgorithmsgroup/dfogn.git
+git+https://github.com/numericalalgorithmsgroup/pybobyqa.git
+git+https://github.com/numericalalgorithmsgroup/dfols.git
+git+https://github.com/quantling/pyndl.git
+git+https://github.com/mzwiessele/applygpy.git
+git+https://github.com/mzwiessele/SymDiffPy.git
