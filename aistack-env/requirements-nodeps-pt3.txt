@@ -666,3 +666,10 @@ git+https://github.com/google-research/morph-net.git
 git+https://github.com/google-research/disentanglement_lib.git
 git+https://github.com/google-research/tensorflow_constrained_optimization.git
 git+https://github.com/google-research/policy-learning-landscape.git
+git+https://github.com/larsmans/seqlearn.git
+thinqpbo
+git+https://github.com/Skielex/thinmaxflow.git
+git+https://github.com/pystruct/pyqpbo.git
+git+https://github.com/jmschrei/pomegranate.git
+git+https://github.com/jmschrei/apricot.git
+git+https://github.com/Kaggle/kaggle-api.git
