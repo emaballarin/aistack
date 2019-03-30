@@ -1,8 +1,6 @@
 unification
 git+https://github.com/pymc-devs/kanren.git
 git+https://github.com/logpy/logpy.git
-git+https://github.com/pymc-devs/pymc.git
-git+https://github.com/pymc-devs/pymc3.git
 git+https://github.com/pymc-devs/pymc3-experimental.git
 git+https://github.com/HIPS/autograd.git
 ptvsd
