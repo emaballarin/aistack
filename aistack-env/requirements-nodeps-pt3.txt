@@ -685,3 +685,4 @@ git+https://github.com/numericalalgorithmsgroup/dfols.git
 git+https://github.com/quantling/pyndl.git
 git+https://github.com/mzwiessele/applygpy.git
 git+https://github.com/mzwiessele/SymDiffPy.git
+git+https://github.com/JuliaPy/pyjulia.git

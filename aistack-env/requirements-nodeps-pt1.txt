@@ -1,3 +1,9 @@
+unification
+git+https://github.com/pymc-devs/kanren.git
+git+https://github.com/logpy/logpy.git
+git+https://github.com/pymc-devs/pymc.git
+git+https://github.com/pymc-devs/pymc3.git
+git+https://github.com/pymc-devs/pymc3-experimental.git
 git+https://github.com/HIPS/autograd.git
 ptvsd
 glfw
@@ -17,7 +23,7 @@ git+https://github.com/pytorch/ignite.git
 git+https://github.com/uber/pyro.git
 git+https://github.com/probtorch/probtorch.git
 git+https://github.com/mpi4py/mpi4py.git
-git+https://github.com/dnouri/skorch.git
+git+https://github.com/skorch-dev/skorch.git
 git+https://github.com/soravux/scoop.git
 git+https://github.com/DEAP/deap.git
 git+https://github.com/TeamHG-Memex/sklearn-crfsuite.git

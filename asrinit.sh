@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 2.9.1-001 (29/03/2019)  ###
+###  AIStack, v. 2.9.2-001 (30/03/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -286,6 +286,9 @@ ln -s "$(which mpif90)" "$SELF_CONDA_ENV_PATH/aistack/bin/mpif90"
 ln -s "$(which mpifort)" "$SELF_CONDA_ENV_PATH/aistack/bin/mpifort"
 ln -s "$(which mpirun)" "$SELF_CONDA_ENV_PATH/aistack/bin/mpirun"
 ln -s "$(which ld)" "$SELF_CONDA_ENV_PATH/aistack/compiler_compat/ld"
+
+# Hack for Theano
+ln -s "/usr/lib/libcudnn.so" "$SELF_CONDA_ENV_PATH/x86_64-conda_cos6-linux-gnu/sysroot/lib/libcudnn.so"
 
 # Improve the Conda environment for AIStack
 mkdir -p "$SELF_CONDA_ENV_PATH/aistack/etc/conda/activate.d"
@@ -702,7 +705,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4616/Python/h2o-3.23.0.4616-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4621/Python/h2o-3.23.0.4621-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git

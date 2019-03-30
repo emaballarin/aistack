@@ -16,19 +16,19 @@ dependencies:
   - boost-cpp=1.67
   - catboost=0.13.1
   - cudatoolkit=10
-  - dask-core=1.1.4
-  - dask=1.1.4
+  - dask-core=1.1.5
+  - dask=1.1.5
   - faiss-gpu=1.5
   - fastai=1.0.50.post1
   - intel-openmp=2019.1
   - jupyterlab=0.35.4
   - libgpuarray=0.7.6
   - mkl-dnn=0.14
+  - numba=0.43.1
   - numpy=1.15.4
   - osqp=0.5.0
   - pandas=0.24.2
   - pygpu=0.7.6
-  - pymc3=3.6
   - pyqt=5
   - python=3.6
   - pytorch=1.0.1
@@ -37,7 +37,7 @@ dependencies:
   - scipy=1.2.1
   - statsmodels=0.9
   - tensorflow-gpu=1.12
-  - theano=1.0.3
+  - theano=1.0.4
   - _ipyw_jlab_nb_ext_conf
   - absl-py
   - ad3-cpp
@@ -336,7 +336,6 @@ dependencies:
   - nose
   - nose2
   - notebook
-  - numba
   - numexpr
   - numpydoc
   - oct2py
