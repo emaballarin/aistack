@@ -637,7 +637,6 @@ git+https://github.com/BBN-Q/macrospin_gpu.git
 git+https://github.com/BBN-Q/Adapt.git
 git+https://github.com/nucleic/atom.git
 git+https://github.com/BBN-Q/QGL.git
-git+https://github.com/BBN-Q/pyqgl2.git
 git+https://github.com/torchgan/torchgan.git
 git+https://github.com/williamFalcon/pytorch-complex-tensor.git
 git+https://github.com/williamFalcon/test-tube.git
@@ -667,7 +666,6 @@ git+https://github.com/google-research/disentanglement_lib.git
 git+https://github.com/google-research/tensorflow_constrained_optimization.git
 git+https://github.com/google-research/policy-learning-landscape.git
 git+https://github.com/larsmans/seqlearn.git
-thinqpbo
 git+https://github.com/Skielex/thinmaxflow.git
 git+https://github.com/pystruct/pyqpbo.git
 git+https://github.com/jmschrei/pomegranate.git
@@ -686,3 +684,14 @@ git+https://github.com/quantling/pyndl.git
 git+https://github.com/mzwiessele/applygpy.git
 git+https://github.com/mzwiessele/SymDiffPy.git
 git+https://github.com/JuliaPy/pyjulia.git
+git+https://github.com/trevorcampbell/fishergp.git
+git+https://github.com/trevorcampbell/bayesian-coresets.git
+git+https://github.com/danielegrattarola/keras-gat.git
+git+https://github.com/danielegrattarola/spektral.git
+git+https://github.com/danielegrattarola/keras-l4.git
+git+https://github.com/danielegrattarola/deepRFS.git
+git+https://github.com/bintoro/overloading.py.git
+git+https://github.com/nvictus/priority-queue-dictionary.git
+git+https://github.com/wacabanga/reverseflow.git
+git+https://github.com/zenna/asl.git
+git+https://github.com/FrancescoSaverioZuppichini/mirror.git

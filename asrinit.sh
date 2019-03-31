@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 2.9.2-002 (30/03/2019)  ###
+###  AIStack, v. 2.9.3-001 (31/03/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -765,12 +765,6 @@ mkdir ./experimental
 cd ./experimental
 
 export SELF_PYVRS_EXP="$(python -c 'import sys; print(sys.version[0])').$(python -c 'import sys; print(sys.version[2])')"
-
-# Mirror (F. Zuppichini)
-echo ' '
-git clone --recursive https://github.com/FrancescoSaverioZuppichini/mirror.git
-cp -R ./mirror/mirror "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
-echo 'Mirror successfully installed!'
 
 # tfLego (F. Zuppichini)
 echo ' '
