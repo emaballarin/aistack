@@ -696,3 +696,4 @@ git+https://github.com/wacabanga/reverseflow.git
 git+https://github.com/zenna/asl.git
 git+https://github.com/FrancescoSaverioZuppichini/mirror.git
 git+https://github.com/MagicStack/immutables.git
+git+https://github.com/williamFalcon/pytorch-lightning.git
