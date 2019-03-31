@@ -695,3 +695,4 @@ git+https://github.com/nvictus/priority-queue-dictionary.git
 git+https://github.com/wacabanga/reverseflow.git
 git+https://github.com/zenna/asl.git
 git+https://github.com/FrancescoSaverioZuppichini/mirror.git
+git+https://github.com/MagicStack/immutables.git
