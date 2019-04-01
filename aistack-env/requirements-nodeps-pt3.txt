@@ -697,3 +697,15 @@ git+https://github.com/zenna/asl.git
 git+https://github.com/FrancescoSaverioZuppichini/mirror.git
 git+https://github.com/MagicStack/immutables.git
 git+https://github.com/williamFalcon/pytorch-lightning.git
+blinker
+git+https://github.com/idiap/importance-sampling.git
+git+https://github.com/Schoyen/quantum-systems.git
+git+https://github.com/Schoyen/ising-model.git
+git+https://github.com/pydata/sparse.git
+yajl
+git+https://github.com/linearlabstech/blox.git
+git+https://github.com/ysig/GraKeL.git
+git+https://github.com/spillai/pybot.git
+git+https://github.com/montefiore-ai/hypothesis.git
+git+https://github.com/amueller/dabl.git
+git+https://github.com/gbaydin/hypergradient-descent.git
