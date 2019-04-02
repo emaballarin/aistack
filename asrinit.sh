@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 2.9.4-001 (02/04/2019)  ###
+###  AIStack, v. 2.9.5-001 (02/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -81,6 +81,7 @@ export SELF_CONDA_ENV_PATH="$HOME/anaconda3/envs/"          # Path under which g
 export SELF_MATLABROOT_BASEDIR="/usr/local/MATLAB/R2018b/"  # Base directory of a MATLAB installation (>= 2014a, licensed). Whatever, if unavailable.
 export SELF_TCMALLOC_INJECT="1"                             # 1 -> Preload TCMalloc in order to uniform Malloc(1) calls (recommended); 0 -> Do not preload TCMalloc (more stable, but prone to invalid free() with OpenCV/MxNet)
 export SELF_SCHIZOCUDA_MODE="1"                             # 1 -> Enable the hybrid CUDA 10.1 / CUDA 10.0 / CUDA 9.2 / CUDA 9.0 mode (i.e. Pytorch on CUDA 10.1 and TensorFlow on CUDA 9.2)
+export SELF_DO_INJECT_LIBTORCH="1"                          # 1 -> Enable forceful injection of Pytorch C/C++ libraries system-wide
 
 # Configuration for CVXOPT
 export CVXOPT_GSL_LIB_DIR="/usr/lib/"           # Path to the directory that contains GNU Scientific Library shared libraries
@@ -94,6 +95,9 @@ export CVXOPT_SUITESPARSE_INC_DIR="/usr/local/include/suitesparse/" # Path to th
 
 # Configuration for optional SCHIZOCUDA_MODE
 export SELF_SCHIZOCUDA_MODE_CU92F="/home/emaballarin/cuda92libstrip/"   # Path to a directory containing the /lib/ directory of a functioning CUDA 10.0/9.2/9.0 install, without
+
+# Configuration for optional PyTorch Libraries (i.e. LibTorch) injection
+export SELF_LIBTORCH_ROOT_DIR="/opt/"                                   # The path inside which PyTorch libraries will be forcefully injected. Automatically deletes libtorch sub-directory beforehand.
 ########################################################################################################################
 ########################################################################################################################
 
@@ -317,6 +321,60 @@ wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --t
 cd "$SELF_INTWDIR"
 
 
+##
+## Fiddle with Anaconda for the last time: remove Conda-installed Tensorflow, replace PyTorch with PyTorch Nightly
+##
+
+source $SELF_CEACT_COMMAND aistack
+
+conda remove -y tensorflow tensorflow-gpu protobuf --force
+
+# Drop-in replace Protocol Buffers
+pip install --upgrade --no-deps protobuf
+
+# Remove (old) PyTorch and affected dependencies
+conda remove -y pytorch _r-mutex --force
+
+# Install (new, nightly) PyTorch
+conda install -y pytorch-nightly cudatoolkit=10.0.130 -c pytorch
+
+# Remove useless _r-mutex
+conda remove -y _r-mutex --force
+
+# Re-install _r-mutex
+conda install -y _r-mutex
+
+# Unpack and install LibTorch C++ libraries
+echo ' '
+rm -R -f ./PTLTDL
+mkdir ./PTLTDL
+cd ./PTLTDL
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/nightly/cu100/libtorch-shared-with-deps-latest.zip
+echo "Installing PyTorch libraries..."
+unzip ./libtorch-shared-with-deps-latest.zip
+cd ./libtorch
+cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
+cd ../
+echo 'OK!'
+echo ' '
+
+# Optionally inject unpacked LibTorch C++ libraries (as Super User)
+if [ "$SELF_DO_INJECT_LIBTORCH" = "1" ]; then
+  if [ "$SELF_LIBTORCH_ROOT_DIR" != "" ]; then
+    sudo rm -R -f "$SELF_LIBTORCH_ROOT_DIR/libtorch"
+    echo ' '
+    echo "Injecting PyTorch libraries..."
+    sudo cp -R -f ./libtorch "$SELF_LIBTORCH_ROOT_DIR"
+    echo "OK!"
+  fi
+fi
+
+cd ../
+source deactivate
+cd "$SELF_INTWDIR"
+########################################################################################################################
+########################################################################################################################
+
 # Export necessary environment variables
 export MPI_C_COMPILER=mpicc
 export MPI_CXX_COMPILER=mpicxx
@@ -355,8 +413,7 @@ echo ' '
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 
-# Install TensorFlow 1.13.1 and dependencies
-conda remove -y tensorflow tensorflow-gpu protobuf --force
+# Install TensorFlow 1.13.1 and dependencies (and reinstall Protobuf)
 pip install --upgrade --no-deps protobuf
 pip install --upgrade --no-deps ortools
 pip install --upgrade --no-deps google_pasta
@@ -705,7 +762,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4625/Python/h2o-3.25.0.4625-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4626/Python/h2o-3.25.0.4626-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -902,41 +959,6 @@ echo ' '
 
 # DE-activate Conda environment
 source deactivate
-########################################################################################################################
-########################################################################################################################
-
-##
-## NIGHTLIFY PYTORCH + INSTALL LIBTORCH C++ (without breaking things) ##
-##
-source $SELF_CEACT_COMMAND aistack
-
-# Remove (old) PyTorch and affected dependencies
-conda remove -y pytorch _r-mutex --force
-
-# Install (new, nightly) PyTorch
-conda install -y pytorch-nightly cudatoolkit=10.0.130 -c pytorch
-
-# Remove useless _r-mutex
-conda remove -y _r-mutex --force
-
-# Re-install _r-mutex
-conda install -y _r-mutex
-
-# Unpack and install LibTorch C++ libraries
-echo ' '
-rm -R -f ./PTLTDL
-mkdir ./PTLTDL
-wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/nightly/cu100/libtorch-shared-with-deps-latest.zip
-unzip ./libtorch-shared-with-deps-latest.zip
-cd ./libtorch
-cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
-cd ../
-echo 'PyTorch libraries for C++ successfully installed!'
-echo ' '
-
-source deactivate
-########################################################################################################################
-########################################################################################################################
 
 #########################
 ## CONCLUSIVE MESSAGES ##

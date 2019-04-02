@@ -709,3 +709,6 @@ git+https://github.com/spillai/pybot.git
 git+https://github.com/montefiore-ai/hypothesis.git
 git+https://github.com/amueller/dabl.git
 git+https://github.com/gbaydin/hypergradient-descent.git
+git+https://github.com/SauceCat/PDPbox.git
+git+https://github.com/GilesStrong/lumin.git
+git+https://github.com/facebookresearch/PyTorch-BigGraph.git
