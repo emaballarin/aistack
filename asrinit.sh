@@ -149,7 +149,7 @@ ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/libjasper.so" "$SELF_CONDA_ENV_PATH/aist
 # Remove faulty/buggy Conda packages and force-reinstall others, if needed
 source $SELF_CEACT_COMMAND aistack
 echo ' '
-conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi cudatoolkit cudnn nvcc nvcc2 jpeg libtiff --force
+conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi jpeg libtiff --force
 conda install -y boost-cpp==1.67 util-linux libgcc urllib3 libtool libjpeg-turbo --force --no-deps
 source deactivate
 
@@ -288,7 +288,7 @@ ln -s "$(which mpirun)" "$SELF_CONDA_ENV_PATH/aistack/bin/mpirun"
 ln -s "$(which ld)" "$SELF_CONDA_ENV_PATH/aistack/compiler_compat/ld"
 
 # Hack for Theano
-ln -s "/usr/lib/libcudnn.so" "$SELF_CONDA_ENV_PATH/x86_64-conda_cos6-linux-gnu/sysroot/lib/libcudnn.so"
+#ln -s "/usr/lib/libcudnn.so" "$SELF_CONDA_ENV_PATH/x86_64-conda_cos6-linux-gnu/sysroot/lib/libcudnn.so"
 
 # Improve the Conda environment for AIStack
 mkdir -p "$SELF_CONDA_ENV_PATH/aistack/etc/conda/activate.d"
@@ -705,7 +705,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4622/Python/h2o-3.23.0.4622-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4625/Python/h2o-3.25.0.4625-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -911,13 +911,13 @@ source deactivate
 source $SELF_CEACT_COMMAND aistack
 
 # Remove (old) PyTorch and affected dependencies
-conda remove -y pytorch _r-mutex cudatoolkit --force
+conda remove -y pytorch _r-mutex --force
 
 # Install (new, nightly) PyTorch
-conda install -y pytorch-nightly cudatoolkit=10.0 -c pytorch
+conda install -y pytorch-nightly cudatoolkit=10.0.130 -c pytorch
 
-# Remove useless cuda-toolkit and _r-mutex
-conda remove -y _r-mutex cudatoolkit --force
+# Remove useless _r-mutex
+conda remove -y _r-mutex --force
 
 # Re-install _r-mutex
 conda install -y _r-mutex

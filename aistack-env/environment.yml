@@ -15,11 +15,11 @@ dependencies:
   - blas=1.0=mkl
   - boost-cpp=1.67
   - catboost=0.13.1
-  - cudatoolkit=10
+  - cudatoolkit=10.0.130
   - dask-core=1.1.5
   - dask=1.1.5
   - faiss-gpu=1.5
-  - fastai=1.0.50.post1
+  - fastai=1.0.51
   - intel-openmp=2019.1
   - jupyterlab=0.35.4
   - libgpuarray=0.7.6
