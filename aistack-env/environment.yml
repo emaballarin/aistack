@@ -287,6 +287,7 @@ dependencies:
   - markdown
   - markupsafe
   - matplotlib
+  - maven
   - mccabe
   - memory_profiler
   - metakernel
@@ -547,6 +548,8 @@ dependencies:
   - testfixtures
   - testpath
   - thinc
+  - thrift
+  - thrift-cpp
   - thriftpy
   - tinydb
   - tk
