@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 2.9.5-002 (03/04/2019)  ###
+###  AIStack, v. 2.9.6-001 (03/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -101,7 +101,7 @@ export SELF_SCHIZOCUDA_MODE_CU92F="/home/emaballarin/cuda92libstrip/"   # Path t
 export SELF_LIBTORCH_ROOT_DIR="/opt/"                                   # The path inside which PyTorch libraries will be forcefully injected. Automatically deletes libtorch sub-directory beforehand.
 
 # Configuration for CUDA Band-Aid
-export SELF_CUDA_BANDAID_FAKEROOT="/home/emaballarin/Downloads/PUTROOT/"  # The path to the artfully-crafted CUDA Band-Aid
+export SELF_CUDA_BANDAID_FAKEROOT="/opt/portablecuda/10.0.130/"         # The path to the artfully-crafted CUDA Band-Aid (CUDA+CUDNN+NCCL, relinked)
 ########################################################################################################################
 ########################################################################################################################
 
@@ -348,9 +348,13 @@ conda remove -y _r-mutex cudatoolkit cudnn nccl nccl2 --force
 if [ "$SELF_APPLY_CUDA_BANDAID" = "1" ]; then
   if [ "$SELF_CUDA_BANDAID_FAKEROOT" != "" ]; then
     echo ' '
+    export SELF_CALLDIR_CUDA_BANDAID="$(pwd)"
     echo "Appying the CUDA Band-Aid..."
     cp -R -np $SELF_CUDA_BANDAID_FAKEROOT/* "$SELF_CONDA_ENV_PATH/aistack/"
-    ln -s ../../../lib64/libcudnn.so "$SELF_CONDA_ENV_PATH/x86_64-conda_cos6-linux-gnu/sysroot/lib/libcudnn.so"
+    ln -s ../../../lib64/libcudnn.so "$SELF_CONDA_ENV_PATH/aistack/x86_64-conda_cos6-linux-gnu/sysroot/lib/libcudnn.so"
+    cd "$SELF_CONDA_ENV_PATH/aistack/etc/conda/activate.d"
+    echo "export CUDA_HOME=\"$SELF_CONDA_ENV_PATH/aistack/\"" >> ./tweakenv-activate.sh
+    cd "$SELF_CALLDIR_CUDA_BANDAID"
     echo "OK!"
     echo ' '
   fi
@@ -777,7 +781,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4626/Python/h2o-3.25.0.4626-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4627/Python/h2o-3.25.0.4627-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git

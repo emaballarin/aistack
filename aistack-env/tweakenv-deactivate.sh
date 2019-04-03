@@ -18,10 +18,10 @@ export cc="$PRE_cc"
 export cxx="$PRE_cxx"
 export fc="$PRE_fc"
 export LD_LIBRARY_PATH="$PRE_LD_LIBRARY_PATH"
+export CUDA_HOME="$PRE_CUDA_HOME"
 
-# Unset (eventually) overridden LD_PRELOAD or LD_LIBRARY_PATH flags
+# Unset (eventually) overridden LD_PRELOAD
 unset LD_PRELOAD
-unset PRE_LD_LIBRARY_PATH
 
 # Remove now useless variables
 unset PRE_MPI_C_COMPILER
@@ -40,3 +40,5 @@ unset PRE_CMAKE_FC_COMPILER
 unset PRE_cc
 unset PRE_cxx
 unset PRE_fc
+unset PRE_LD_LIBRARY_PATH
+unset PRE_CUDA_HOME

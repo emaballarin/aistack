@@ -714,3 +714,12 @@ git+https://github.com/GilesStrong/lumin.git
 git+https://github.com/facebookresearch/PyTorch-BigGraph.git
 git+https://github.com/facebookresearch/Horizon.git
 git+https://github.com/navneet-nmk/pytorch-rl.git
+git+https://github.com/ajalt/fuckitpy.git
+git+https://github.com/d6t/d6tflow.git
+git+https://github.com/andrix/python-snappy.git
+git+https://github.com/d6t/d6tstack.git
+git+https://github.com/jpadilla/pyjwt.git
+git+https://github.com/d6t/d6tpipe.git
+git+https://github.com/jamesturk/jellyfish.git
+git+https://github.com/d6t/d6tjoin.git
+git+https://github.com/AIRLab-POLIMI/mushroom.git

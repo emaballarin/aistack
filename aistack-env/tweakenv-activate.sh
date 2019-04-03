@@ -18,6 +18,7 @@ export PRE_cc="$cc"
 export PRE_cxx="$cxx"
 export PRE_fc="$fc"
 export PRE_LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
+export PRE_CUDA_HOME="$CUDA_HOME"
 
 # Set new necessary variables
 export MPI_C_COMPILER=mpicc
@@ -37,4 +38,4 @@ export cc="$CC"
 export cxx="$CXX"
 export fc="$FC"
 
-# Additional LD_PRELOAD or LD_LIBRARY_PATH flags will be eventually added after this line
+# Additional LD_PRELOAD or LD_LIBRARY_PATH or CUDA_HOME flags will be eventually added after this line
