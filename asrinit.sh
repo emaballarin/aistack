@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 2.9.5-001 (02/04/2019)  ###
+###  AIStack, v. 2.9.5-002 (03/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -82,6 +82,7 @@ export SELF_MATLABROOT_BASEDIR="/usr/local/MATLAB/R2018b/"  # Base directory of 
 export SELF_TCMALLOC_INJECT="1"                             # 1 -> Preload TCMalloc in order to uniform Malloc(1) calls (recommended); 0 -> Do not preload TCMalloc (more stable, but prone to invalid free() with OpenCV/MxNet)
 export SELF_SCHIZOCUDA_MODE="1"                             # 1 -> Enable the hybrid CUDA 10.1 / CUDA 10.0 / CUDA 9.2 / CUDA 9.0 mode (i.e. Pytorch on CUDA 10.1 and TensorFlow on CUDA 9.2)
 export SELF_DO_INJECT_LIBTORCH="1"                          # 1 -> Enable forceful injection of Pytorch C/C++ libraries system-wide
+export SELF_APPLY_CUDA_BANDAID="1"                          # 1 -> A dirty hack if system-CUDA is not 10.0.x
 
 # Configuration for CVXOPT
 export CVXOPT_GSL_LIB_DIR="/usr/lib/"           # Path to the directory that contains GNU Scientific Library shared libraries
@@ -98,6 +99,9 @@ export SELF_SCHIZOCUDA_MODE_CU92F="/home/emaballarin/cuda92libstrip/"   # Path t
 
 # Configuration for optional PyTorch Libraries (i.e. LibTorch) injection
 export SELF_LIBTORCH_ROOT_DIR="/opt/"                                   # The path inside which PyTorch libraries will be forcefully injected. Automatically deletes libtorch sub-directory beforehand.
+
+# Configuration for CUDA Band-Aid
+export SELF_CUDA_BANDAID_FAKEROOT="/home/emaballarin/Downloads/PUTROOT/"  # The path to the artfully-crafted CUDA Band-Aid
 ########################################################################################################################
 ########################################################################################################################
 
@@ -339,7 +343,18 @@ conda remove -y pytorch _r-mutex --force
 conda install -y pytorch-nightly cudatoolkit=10.0.130 -c pytorch
 
 # Remove useless _r-mutex
-conda remove -y _r-mutex --force
+conda remove -y _r-mutex cudatoolkit cudnn nccl nccl2 --force
+
+if [ "$SELF_APPLY_CUDA_BANDAID" = "1" ]; then
+  if [ "$SELF_CUDA_BANDAID_FAKEROOT" != "" ]; then
+    echo ' '
+    echo "Appying the CUDA Band-Aid..."
+    cp -R -np $SELF_CUDA_BANDAID_FAKEROOT/* "$SELF_CONDA_ENV_PATH/aistack/"
+    ln -s ../../../lib64/libcudnn.so "$SELF_CONDA_ENV_PATH/x86_64-conda_cos6-linux-gnu/sysroot/lib/libcudnn.so"
+    echo "OK!"
+    echo ' '
+  fi
+fi
 
 # Re-install _r-mutex
 conda install -y _r-mutex
