@@ -18,7 +18,7 @@ dependencies:
   - cudatoolkit=10.0.130
   - dask-core=1.1.5
   - dask=1.1.5
-  - faiss-gpu=1.5
+  - faiss-gpu=1.5.1
   - fastai=1.0.51
   - intel-openmp=2019.1
   - jupyterlab=0.35.4

@@ -723,3 +723,8 @@ git+https://github.com/d6t/d6tpipe.git
 git+https://github.com/jamesturk/jellyfish.git
 git+https://github.com/d6t/d6tjoin.git
 git+https://github.com/AIRLab-POLIMI/mushroom.git
+git+https://github.com/JamesBrofos/Sif.git
+git+https://github.com/JamesBrofos/Stein.git
+git+https://github.com/JamesBrofos/Thor.git
+git+https://github.com/MFreidank/causality.git
+git+https://github.com/MFreidank/pysgmcmc@pytorch
