@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 2.9.7-001 (05/04/2019)  ###
+###  AIStack, v. 2.9.7-002 (06/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -781,7 +781,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4627/Python/h2o-3.25.0.4627-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4629/Python/h2o-3.25.0.4629-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -868,54 +868,6 @@ echo 'FasterAI successfully installed!'
 echo ' '
 pip install --upgrade --no-deps --extra-index-url https://developer.download.nvidia.com/compute/redist nvidia-dali
 echo 'NVIDIA DALI successfully installed!'
-
-# marathon-envs (download)
-echo ' '
-git clone --recursive https://github.com/Unity-Technologies/marathon-envs.git
-
-# Unity 3D agents for ML (download)
-echo ' '
-git clone --recursive https://github.com/Unity-Technologies/ml-agents.git
-
-# marathon-envs (install)
-cp -R ./marathon-envs/MarathonEnvs ./ml-agents/UnitySDK/Assets/
-cp ./marathon-envs/config/marathon_envs_config.yaml ./ml-agents/UnitySDK/Assets/config/
-
-# Unity 3D agents for ML (install)
-echo ' '
-cd ./ml-agents
-# Not a duplicate!
-cd ./ml-agents
-pip install --upgrade --no-deps ./
-cd ..
-echo ' '
-cd ./gym-unity
-pip install --upgrade --no-deps ./
-cd ..
-# Not a duplicate!
-cd ..
-echo 'Unity 3D Agents for ML & Marathon Agents successfully installed!'
-
-# # OpenAI Roboschool
-# echo ' '
-# git clone --recursive https://github.com/openai/roboschool.git
-# cd roboschool
-# git checkout newer_bullet_lib
-# cd ../
-# export ROBOSCHOOL_PATH="$(pwd)/roboschool"
-# git clone --recursive https://github.com/bulletphysics/bullet3
-# mkdir bullet3/build
-# cd bullet3/build
-# cmake -DBUILD_SHARED_LIBS=ON -DUSE_DOUBLE_PRECISION=1 -DCMAKE_INSTALL_PREFIX:PATH=$ROBOSCHOOL_PATH/roboschool/cpp-household/bullet_local_install -DBUILD_CPU_DEMOS=OFF -DBUILD_BULLET2_DEMOS=OFF -DBUILD_EXTRAS=ON -DBUILD_UNIT_TESTS=OFF -DBUILD_CLSOCKET=OFF -DBUILD_ENET=OFF -DBUILD_OPENGL3_DEMOS=OFF ../
-# make -j8
-# make install
-# cd ../..
-# pip install --upgrade --no-deps "$ROBOSCHOOL_PATH"
-
-# Catalyst, a RL/DL framework by Sergey Kolesnikov
-echo ' '
-git clone --recursive https://github.com/Scitator/catalyst.git
-cp -R ./catalyst "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 
 # Dyalog APL Kernel for Jupyter (package)
 echo ' '
