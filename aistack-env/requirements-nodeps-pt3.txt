@@ -744,3 +744,5 @@ git+https://github.com/ferrine/gelato.git
 git+https://github.com/rushter/heamy.git
 git+https://github.com/casperkaae/parmesan.git
 git+https://github.com/openai/roboschool.git
+git+https://github.com/MelkoCollective/Pepinillo.git
+git+https://github.com/sphinxteam/dnner.git
