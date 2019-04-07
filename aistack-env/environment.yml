@@ -11,6 +11,7 @@ channels:
   - menpo
   - lukepfister
   - sbu-hpc
+  - pyviz
 dependencies:
   - blas=1.0=mkl
   - boost-cpp=1.67
@@ -201,6 +202,7 @@ dependencies:
   - h5py
   - hdf5
   - heapdict
+  - holoviews
   - html5lib
   - httplib2
   - hyperlink
@@ -357,6 +359,7 @@ dependencies:
   - packaging
   - pandoc
   - pandocfilters
+  - param
   - paramiko
   - paramz
   - parmetis

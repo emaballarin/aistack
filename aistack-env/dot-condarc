@@ -12,3 +12,4 @@ channels:
   - menpo
   - lukepfister
   - sbu-hpc
+  - pyviz

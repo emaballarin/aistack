@@ -746,3 +746,12 @@ git+https://github.com/casperkaae/parmesan.git
 git+https://github.com/openai/roboschool.git
 git+https://github.com/MelkoCollective/Pepinillo.git
 git+https://github.com/sphinxteam/dnner.git
+git+https://github.com/BayesWatch/context-budget.git
+git+https://github.com/BayesWatch/sequential-imagenet-dataloader.git
+git+https://bitbucket.org/muxas/maxvolpy
+git+https://github.com/rballester/tntorch.git
+git+https://github.com/Luolc/AdaBound.git
+git+https://github.com/zh217/torch-dct.git
+git+https://github.com/gngdb/pytorch-acdc.git
+git+https://github.com/gngdb/holo-nets.git
+git+https://github.com/gngdb/variational-dropout.git

@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 2.9.7-003 (07/04/2019)  ###
+###  AIStack, v. 2.9.7-004 (07/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -925,6 +925,7 @@ jupyter labextension install dask-labextension
 jupyter labextension install @jupyterlab/git
 jupyter labextension install jupyterlab_bokeh
 jupyter labextension install qgrid
+jupyter labextension install @pyviz/jupyterlab_pyviz
 echo "OK!"
 echo ' '
 
