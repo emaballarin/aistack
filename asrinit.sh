@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 2.9.7-004 (07/04/2019)  ###
+###  AIStack, v. 2.9.8-001 (09/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -159,6 +159,8 @@ source $SELF_CEACT_COMMAND aistack
 echo ' '
 conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi jpeg libtiff --force
 conda install -y boost-cpp==1.67 util-linux libgcc urllib3 libtool libjpeg-turbo --force --no-deps
+# NOTE: PyDAAL is deprecated. Putting it here as a band-aid.
+conda install -y pydaal --force --no-deps
 source deactivate
 
 # Fix Kerberos-related bug (MXNet)
@@ -331,10 +333,10 @@ cd "$SELF_INTWDIR"
 
 source $SELF_CEACT_COMMAND aistack
 
-conda remove -y tensorflow tensorflow-gpu protobuf --force
+#conda remove -y tensorflow tensorflow-gpu protobuf --force
 
 # Drop-in replace Protocol Buffers
-pip install --upgrade --no-deps protobuf
+#pip install --upgrade --no-deps protobuf
 
 # Remove (old) PyTorch and affected dependencies
 conda remove -y pytorch _r-mutex --force
@@ -342,7 +344,7 @@ conda remove -y pytorch _r-mutex --force
 # Install (new, nightly) PyTorch
 conda install -y pytorch-nightly cudatoolkit=10.0.130 -c pytorch
 
-# Remove useless _r-mutex
+# Remove useless _r-mutex and other stuff
 conda remove -y _r-mutex cudatoolkit cudnn nccl nccl2 --force
 
 if [ "$SELF_APPLY_CUDA_BANDAID" = "1" ]; then
@@ -433,14 +435,14 @@ USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderma
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 
 # Install TensorFlow 1.13.1 and dependencies (and reinstall Protobuf)
-pip install --upgrade --no-deps protobuf
+#pip install --upgrade --no-deps protobuf
 pip install --upgrade --no-deps ortools
 pip install --upgrade --no-deps google_pasta
 pip install --upgrade --no-deps git+https://github.com/keras-team/keras-applications.git
 pip install --upgrade --no-deps git+https://github.com/keras-team/keras-preprocessing.git
-pip install --upgrade --no-deps tensorboard
-pip install --upgrade --no-deps tensorflow-gpu==1.13.1
-pip install --upgrade --no-deps tensorflow_estimator
+#pip install --upgrade --no-deps tensorboard
+#pip install --upgrade --no-deps tensorflow-gpu==1.13.1
+#pip install --upgrade --no-deps tensorflow_estimator
 
 # Install prerequisite libraries that need manual copy-paste
 cd "$SELF_INVOKE_DIR/aistack/aistack-env/gitpipdeps"
@@ -781,7 +783,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4631/Python/h2o-3.25.0.4631-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4632/Python/h2o-3.25.0.4632-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git

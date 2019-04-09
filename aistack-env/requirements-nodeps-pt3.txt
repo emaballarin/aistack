@@ -755,3 +755,13 @@ git+https://github.com/zh217/torch-dct.git
 git+https://github.com/gngdb/pytorch-acdc.git
 git+https://github.com/gngdb/holo-nets.git
 git+https://github.com/gngdb/variational-dropout.git
+git+https://github.com/mohawkjohn/pyquat.git
+git+https://github.com/gboeing/pynamical.git
+git+https://github.com/audreyr/binaryornot.git
+git+https://github.com/hackebrot/poyo.git
+git+https://github.com/hackebrot/jinja2-time.git
+git+https://github.com/audreyr/cookiecutter.git
+git+https://github.com/projectmesa/mesa.git
+git+https://github.com/timothyb0912/pylogit.git
+git+https://github.com/PIQuIL/QuCumber.git
+git+https://github.com/numenta/nupic.torch.git

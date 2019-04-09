@@ -21,12 +21,12 @@ dependencies:
   - dask=1.1.5
   - faiss-gpu=1.5.1
   - fastai=1.0.51
-  - intel-openmp=2019.1
+  - intel-openmp=2019
   - jupyterlab=0.35.4
   - libgpuarray=0.7.6
   - mkl-dnn=0.14
   - numba=0.43.1
-  - numpy=1.15.4
+  - numpy=1.16.2
   - osqp=0.5.0
   - pandas=0.24.2
   - pygpu=0.7.6
@@ -39,7 +39,8 @@ dependencies:
   - scikit-learn=0.20.3
   - scipy=1.2.1
   - statsmodels=0.9
-  - tensorflow-gpu=1.12
+  - tensorflow-gpu=1.13
+  - tensorflow-estimator=1.13
   - theano=1.0.4
   - _ipyw_jlab_nb_ext_conf
   - absl-py
@@ -415,7 +416,6 @@ dependencies:
   - pycparser
   - pycrypto
   - pycuda
-  - pydaal
   - pydot
   - pydotplus
   - pyemd
@@ -546,6 +546,7 @@ dependencies:
   - tbb
   - tbb4py
   - tblib
+  - tensorboard
   - termcolor
   - terminado
   - testfixtures
