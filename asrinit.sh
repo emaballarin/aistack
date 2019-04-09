@@ -191,6 +191,9 @@ rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-f95"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gfortran"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-fortran"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/curl"
+## FIXME!
+rm -f "$SELF_CONDA_ENV_PATH/aistack/lib/libcurl.so.4.5.0"
+## END.
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/krb5kdc"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/krb5-send-pr"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/krb5-config"
@@ -256,6 +259,9 @@ ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-li
 ln -s "$(which cmake)" "$SELF_CONDA_ENV_PATH/aistack/bin/cmake"
 ln -s "$(which ccmake)" "$SELF_CONDA_ENV_PATH/aistack/bin/ccmake"
 ln -s "$(which curl)" "$SELF_CONDA_ENV_PATH/aistack/bin/curl"
+## FIXME!
+ln -s "/usr/lib/libcurl.so.4.5.0" "$SELF_CONDA_ENV_PATH/aistack/lib/libcurl.so.4.5.0"
+## END.
 ln -s "$(which krb5kdc)" "$SELF_CONDA_ENV_PATH/aistack/bin/krb5kdc"
 ln -s "$(which krb5-send-pr)" "$SELF_CONDA_ENV_PATH/aistack/bin/krb5-send-pr"
 ln -s "$(which krb5-config)" "$SELF_CONDA_ENV_PATH/aistack/bin/krb5-config"
@@ -955,14 +961,14 @@ echo "Done."
 echo ' '
 echo ' '
 echo ' '
-echo "Now you may need to manually install Chainer..."
-echo 'To do so, issue the following command-block:'
-echo ' '
-echo 'source activate aistack'
-echo 'export CHAINER_BUILD_CHAINERX=1'
-echo 'export CHAINERX_BUILD_CUDA=1'
-echo 'export MAKEFLAGS=-j8'
-echo 'pip install --upgrade --no-deps --pre --force chainer'
-echo ' '
-echo ' '
-echo ' '
+#echo "Now you may need to manually install Chainer..."
+#echo 'To do so, issue the following command-block:'
+#echo ' '
+#echo 'source activate aistack'
+#echo 'export CHAINER_BUILD_CHAINERX=1'
+#echo 'export CHAINERX_BUILD_CUDA=1'
+#echo 'export MAKEFLAGS=-j8'
+#echo 'pip install --upgrade --no-deps --pre --force chainer'
+#echo ' '
+#echo ' '
+#echo ' '

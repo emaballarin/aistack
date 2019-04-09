@@ -733,7 +733,7 @@ git+https://github.com/catalyst-team/safitty.git
 git+https://github.com/catalyst-team/catalyst.git
 readme2tex
 git+https://github.com/geoopt/geoopt.git
-git+https://github.com/ferrine/hyrnn.git
+git+https://github.com/emaballarin/hyrnn.git
 ordereddict
 git+https://github.com/bw2/ConfigArgParse.git
 strconv
@@ -765,3 +765,4 @@ git+https://github.com/projectmesa/mesa.git
 git+https://github.com/timothyb0912/pylogit.git
 git+https://github.com/PIQuIL/QuCumber.git
 git+https://github.com/numenta/nupic.torch.git
+git+https://github.com/johannfaouzi/pyts.git
