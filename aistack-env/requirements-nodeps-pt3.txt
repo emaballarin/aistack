@@ -766,3 +766,11 @@ git+https://github.com/timothyb0912/pylogit.git
 git+https://github.com/PIQuIL/QuCumber.git
 git+https://github.com/numenta/nupic.torch.git
 git+https://github.com/johannfaouzi/pyts.git
+aiohttp
+async-timeout
+multidict
+oauthlib
+yarl
+git+https://github.com/WolframResearch/WolframClientForPython.git
+git+https://github.com/peterwittek/ncpol2sdpa.git
+git+https://github.com/emaballarin/somoclu-python.git

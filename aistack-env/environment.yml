@@ -13,6 +13,7 @@ channels:
   - sbu-hpc
   - pyviz
 dependencies:
+  - absl-py=0.7.1
   - blas=1.0=mkl
   - boost-cpp=1.67
   - catboost=0.13.1
@@ -43,7 +44,6 @@ dependencies:
   - tensorflow-estimator=1.13
   - theano=1.0.4
   - _ipyw_jlab_nb_ext_conf
-  - absl-py
   - ad3-cpp
   - aenum
   - affine
