@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 2.9.9-001 (12/04/2019)  ###
+###  AIStack, v. 3.0.0-001 (13/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -46,6 +46,7 @@
 # - MuJoCo 1.9x, (fully set-up and licensed)
 # - MuJoCo 2.00, (fully set-up and licensed; if installed together with 1.9x, give preference to 2.00)
 # - MATLAB >= 2014a (licensed)
+# - Wolfram Mathematica >= 13
 # - GNU Octave
 # - LibRAL (shared library)
 # - UDPipe
@@ -82,7 +83,7 @@ export SELF_MATLABROOT_BASEDIR="/usr/local/MATLAB/R2018b/"  # Base directory of 
 export SELF_TCMALLOC_INJECT="1"                             # 1 -> Preload TCMalloc in order to uniform Malloc(1) calls (recommended); 0 -> Do not preload TCMalloc (more stable, but prone to invalid free() with OpenCV/MxNet)
 export SELF_SCHIZOCUDA_MODE="1"                             # 1 -> Enable the hybrid CUDA 10.1 / CUDA 10.0 / CUDA 9.2 / CUDA 9.0 mode (i.e. Pytorch on CUDA 10.1 and TensorFlow on CUDA 9.2)
 export SELF_DO_INJECT_LIBTORCH="1"                          # 1 -> Enable forceful injection of Pytorch C/C++ libraries system-wide
-export SELF_APPLY_CUDA_BANDAID="1"                          # 1 -> A dirty hack if system-CUDA is not 10.0.x
+export SELF_APPLY_CUDA_BANDAID="1"                          # 1 -> A dirty hack if system-CUDA is not 10.0.x (if in doubt, set to 0 BUT must have CUDA 10.0.x installed system-wide!)
 
 # Configuration for CVXOPT
 export CVXOPT_GSL_LIB_DIR="/usr/lib/"           # Path to the directory that contains GNU Scientific Library shared libraries
@@ -191,9 +192,7 @@ rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-f95"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gfortran"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-fortran"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/curl"
-## FIXME!
 rm -f "$SELF_CONDA_ENV_PATH/aistack/lib/libcurl.so.4.5.0"
-## END.
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/krb5kdc"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/krb5-send-pr"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/krb5-config"
@@ -259,9 +258,7 @@ ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-li
 ln -s "$(which cmake)" "$SELF_CONDA_ENV_PATH/aistack/bin/cmake"
 ln -s "$(which ccmake)" "$SELF_CONDA_ENV_PATH/aistack/bin/ccmake"
 ln -s "$(which curl)" "$SELF_CONDA_ENV_PATH/aistack/bin/curl"
-## FIXME!
 ln -s "/usr/lib/libcurl.so.4.5.0" "$SELF_CONDA_ENV_PATH/aistack/lib/libcurl.so.4.5.0"
-## END.
 ln -s "$(which krb5kdc)" "$SELF_CONDA_ENV_PATH/aistack/bin/krb5kdc"
 ln -s "$(which krb5-send-pr)" "$SELF_CONDA_ENV_PATH/aistack/bin/krb5-send-pr"
 ln -s "$(which krb5-config)" "$SELF_CONDA_ENV_PATH/aistack/bin/krb5-config"
@@ -789,7 +786,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4635/Python/h2o-3.25.0.4635-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4636/Python/h2o-3.25.0.4636-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -961,14 +958,14 @@ echo "Done."
 echo ' '
 echo ' '
 echo ' '
-#echo "Now you may need to manually install Chainer..."
-#echo 'To do so, issue the following command-block:'
-#echo ' '
-#echo 'source activate aistack'
-#echo 'export CHAINER_BUILD_CHAINERX=1'
-#echo 'export CHAINERX_BUILD_CUDA=1'
-#echo 'export MAKEFLAGS=-j8'
-#echo 'pip install --upgrade --no-deps --pre --force chainer'
-#echo ' '
-#echo ' '
-#echo ' '
+echo "Now you may need to manually install Chainer..."
+echo 'To do so, issue the following command-block:'
+echo ' '
+echo 'source activate aistack'
+echo 'export CHAINER_BUILD_CHAINERX=1'
+echo 'export CHAINERX_BUILD_CUDA=1'
+echo 'export MAKEFLAGS=-j8'
+echo 'pip install --upgrade --no-deps --pre --force chainer'
+echo ' '
+echo ' '
+echo ' '

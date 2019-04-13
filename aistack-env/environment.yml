@@ -427,6 +427,7 @@ dependencies:
   - pymongo
   - pymysql
   - pynacl
+  - pynfft
   - pyomo
   - pyomo.extras
   - pyopengl

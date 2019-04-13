@@ -774,3 +774,9 @@ yarl
 git+https://github.com/WolframResearch/WolframClientForPython.git
 git+https://github.com/peterwittek/ncpol2sdpa.git
 git+https://github.com/emaballarin/somoclu-python.git
+pymorton
+git+https://github.com/pietromarchesi/pidpy.git
+git+https://github.com/pharmbio/sciluigi.git
+git+https://github.com/pietromarchesi/p_utils.git
+ephem
+git+https://github.com/achael/eht-imaging.git
