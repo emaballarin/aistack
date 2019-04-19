@@ -193,6 +193,7 @@ wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --t
 cd "$SELFTF2_CONDA_ENV_PATH/tf2-aistack/etc/conda/deactivate.d"
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/tf2/tf2-tweakenv-deactivate.sh
 
+cd "$SELFTF2_BASEDIR"
 echo ' '
 
 if [ "$SELFTF2_APPLY_CUDA_BANDAID" = "1" ]; then
@@ -212,6 +213,8 @@ if [ "$SELFTF2_APPLY_CUDA_BANDAID" = "1" ]; then
 fi
 
 # PIP Install (pre-TF2)
+cd "$SELFTF2_BASEDIR"
+echo ' '
 source $SELFTF2_CEACT_COMMAND tf2-aistack
 for reqline in $(cat pip-deps1.txt)
 do
@@ -221,6 +224,8 @@ done
 source deactivate
 
 # Install TF2
+cd "$SELFTF2_BASEDIR"
+echo ' '
 source $SELFTF2_CEACT_COMMAND tf2-aistack
 #pip install --upgrade --no-deps https://github.com/inoryy/tensorflow-optimized-wheels/releases/download/v2.0.0a0/tensorflow-2.0.0a0-cp37-cp37m-linux_x86_64.whl
 pip install --upgrade --no-deps tf-nightly-gpu-2.0-preview
