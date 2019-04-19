@@ -1,0 +1,10 @@
+ssl_verify: true
+changeps1: true
+channels:
+  - defaults
+  - conda-forge
+  - intel
+  - menpo
+  - lukepfister
+  - sbu-hpc
+  - pyviz

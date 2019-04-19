@@ -1,0 +1,6 @@
+ortools
+gin-config
+google_pasta
+git+https://github.com/keras-team/keras-applications.git
+git+https://github.com/keras-team/keras-preprocessing.git
+tb-nightly
