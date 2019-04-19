@@ -1,4 +1,4 @@
-tensorflow-probability-gpu
+tensorflow-probability
 tensorflow-lattice-gpu
 git+https://github.com/tensorflow/lucid.git
 git+https://github.com/keras-team/keras-applications.git
@@ -70,7 +70,7 @@ git+https://github.com/tensorlayer/tensorlayer.git
 cocos2d
 mazeexp
 git+https://github.com/reinforceio/tensorforce.git
-dm-sonnet-gpu
+git+https://github.com/deepmind/sonnet.git
 git+https://github.com/openai/retro.git
 git+https://github.com/deepmind/dm_control.git
 git+https://github.com/deepmind/pycolab.git
@@ -85,7 +85,7 @@ git+https://github.com/mila-udem/blocks-extras.git
 git+https://github.com/mila-udem/platoon.git
 git+https://github.com/IndicoDataSolutions/cuboid.git
 randomgen
-foolbox
+git+https://github.com/bethgelab/foolbox.git
 autocorrect
 git+https://github.com/dustinvtran/bayesrl.git
 git+https://github.com/pablodecm/kernelflow.git

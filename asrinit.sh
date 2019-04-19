@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.0.0-001 (13/04/2019)  ###
+###  AIStack, v. 3.1.0-001 (20/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -249,12 +249,12 @@ ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux
 ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-c++"
 ln -s "$(which cpp)" "$SELF_CONDA_ENV_PATH/aistack/bin/cpp"
 ln -s "$(which cpp)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cpp"
-ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran"
-ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-7"
-ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-8"
-ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-f95"
-ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gfortran"
-ln -s "$(which gfortran)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-fortran"
+ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran"
+ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-7"
+ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-8"
+ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-f95"
+ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gfortran"
+ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-fortran"
 ln -s "$(which cmake)" "$SELF_CONDA_ENV_PATH/aistack/bin/cmake"
 ln -s "$(which ccmake)" "$SELF_CONDA_ENV_PATH/aistack/bin/ccmake"
 ln -s "$(which curl)" "$SELF_CONDA_ENV_PATH/aistack/bin/curl"
@@ -335,6 +335,9 @@ cd "$SELF_INTWDIR"
 ##
 
 source $SELF_CEACT_COMMAND aistack
+
+# Install optimized TensorFlow wheels (remove conda duplicates)
+conda remove -y tensorflow tensorflow-base tensorflow-estimator tensorflow-gpu --force
 
 #conda remove -y tensorflow tensorflow-gpu protobuf --force
 
@@ -438,11 +441,15 @@ USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderma
 USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderman/pypolyagamma.git
 
 # Install TensorFlow 1.13.1 and dependencies (and reinstall Protobuf)
+# Install optimized TensorFlow wheels (actually install)
 #pip install --upgrade --no-deps protobuf
 pip install --upgrade --no-deps ortools
 pip install --upgrade --no-deps google_pasta
 pip install --upgrade --no-deps git+https://github.com/keras-team/keras-applications.git
 pip install --upgrade --no-deps git+https://github.com/keras-team/keras-preprocessing.git
+pip install --upgrade --no-deps tensorboard
+pip install --upgrade https://github.com/inoryy/tensorflow-optimized-wheels/releases/download/v1.13.1/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl
+pip install --upgrade --no-deps tensorflow_estimator
 #pip install --upgrade --no-deps tensorboard
 #pip install --upgrade --no-deps tensorflow-gpu==1.13.1
 #pip install --upgrade --no-deps tensorflow_estimator
@@ -786,7 +793,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4636/Python/h2o-3.25.0.4636-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4643/Python/h2o-3.25.0.4643-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -936,6 +943,17 @@ echo ' '
 
 # DE-activate Conda environment
 source deactivate
+
+
+##########################
+##    TENSORFLOW 2.0    ##
+##########################
+echo ' '
+# Fully self-contained!
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/tf2/tf2-init.sh
+./tf2-init.sh
+echo ' '
+
 
 #########################
 ## CONCLUSIVE MESSAGES ##
