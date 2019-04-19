@@ -23,8 +23,8 @@ export SELFTF2_BASEDIR="$(pwd)"
 conda env remove -y -n tf2-aistack-old
 rm -R -f "$SELF_CONDA_ENV_PATH/tf2-aistack-old"
 mv "$SELF_CONDA_ENV_PATH/tf2-aistack" "$SELF_CONDA_ENV_PATH/tf2-aistack-old"
-conda env remove -y -n aistack
-rm -R -f "$SELF_CONDA_ENV_PATH/aistack"
+conda env remove -y -n tf2-aistack
+rm -R -f "$SELF_CONDA_ENV_PATH/tf2-aistack"
 echo ' '
 
 # Download necessary files
