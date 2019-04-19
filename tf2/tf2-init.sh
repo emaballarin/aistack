@@ -51,6 +51,8 @@ rm -R -f "$SELFTF2_CONDA_ENV_PATH/tf2-aistack/bin/../lib/libk5crypto.so.3"
 rm -R -f "$SELFTF2_CONDA_ENV_PATH/tf2-aistack/bin/../lib/libcom_err.so.3"
 ln -s "/usr/lib/libcom_err.so" "$SELFTF2_CONDA_ENV_PATH/tf2-aistack/bin/../lib/libcom_err.so.3"
 
+mkdir -p "$SELFTF2_CONDA_ENV_PATH/tf2-aistack/bin/"
+
 # System-to-Conda command mirroring (remove part)
 rm -f "$SELFTF2_CONDA_ENV_PATH/tf2-aistack/bin/cmake"
 rm -f "$SELFTF2_CONDA_ENV_PATH/tf2-aistack/bin/ccmake"
