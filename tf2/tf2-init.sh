@@ -2,14 +2,19 @@
 ##############################################
 ### AIStack, TensorFlow 2.0 initialization ###
 ##############################################
-## This file is called by some other one as:
-## ./tf2-init.sh
+##
+# (c) 2019 Emanuele Ballarin <emanuele@ballarin.cc>
+# Released under the Apache License 2.0.
+##
+# This file is called by some other one as:
+# ./tf2-init.sh
+##
 
 # General configuration (edit as needed!)
 export SELFTF2_CEACT_COMMAND="activate"                 # Command used to activate conda environments (usually "activate" as in "source activate ...")
 export SELFTF2_CONDA_ENV_PATH="$HOME/anaconda3/envs/"   # Path under which given command will create Anaconda environments (must be manually specified due to possible multiple conda environment folders)
+export SELFTF2_APPLY_CUDA_BANDAID="1"                   # 1 -> A dirty hack if system-CUDA is not 10.0.x (if in doubt, set to 0 BUT must have CUDA 10.0.x installed system-wide!)
 export SELFTF2_CUDA_BANDAID_FAKEROOT="/opt/portablecuda/10.0.130/" # The path to the artfully-crafted CUDA Band-Aid (CUDA+CUDNN+NCCL, relinked)
-export SELFTF2_APPLY_CUDA_BANDAID="1"
 
 # Become location-aware
 export SELFTF2_CALLDIR="$(pwd)"

@@ -1,6 +1,7 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.1.0-001 (20/04/2019)  ###
+###  AIStack, v. 3.1.0-002 (20/04/2019)  ###
+###  (now featuring TensorFlow 2 too!)   ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -84,6 +85,7 @@ export SELF_TCMALLOC_INJECT="1"                             # 1 -> Preload TCMal
 export SELF_SCHIZOCUDA_MODE="1"                             # 1 -> Enable the hybrid CUDA 10.1 / CUDA 10.0 / CUDA 9.2 / CUDA 9.0 mode (i.e. Pytorch on CUDA 10.1 and TensorFlow on CUDA 9.2)
 export SELF_DO_INJECT_LIBTORCH="1"                          # 1 -> Enable forceful injection of Pytorch C/C++ libraries system-wide
 export SELF_APPLY_CUDA_BANDAID="1"                          # 1 -> A dirty hack if system-CUDA is not 10.0.x (if in doubt, set to 0 BUT must have CUDA 10.0.x installed system-wide!)
+export SELF_INSTALL_TF2_ENV="1"                             # 1 -> Create a new Conda environment containing a working TensorFlow 2.0 Alpha release and tooling
 
 # Configuration for CVXOPT
 export CVXOPT_GSL_LIB_DIR="/usr/lib/"           # Path to the directory that contains GNU Scientific Library shared libraries
@@ -948,11 +950,13 @@ source deactivate
 ##########################
 ##    TENSORFLOW 2.0    ##
 ##########################
-echo ' '
-# Fully self-contained!
-wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/tf2/tf2-init.sh
-./tf2-init.sh
-echo ' '
+if [ "$SELF_INSTALL_TF2_ENV" = "1" ]; then
+  echo ' '
+  # Fully self-contained!
+  wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/tf2/tf2-init.sh
+  ./tf2-init.sh
+  echo ' '
+fi
 
 
 #########################
