@@ -7,7 +7,6 @@ Please, do yourself a favour: do not try to install `aistack` by using this repo
 Provided that you have already installed all the required (and, eventually, optional) dependencies, just do:
 ```
 wget https://ballarin.cc/aistack/asrinit.sh
-chmod +x ./asrinit.sh
 ./asrinit.sh
 ```
 
