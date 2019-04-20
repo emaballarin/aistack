@@ -1,7 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.1.2-002 (20/04/2019)  ###
-###  (now featuring TensorFlow 2 too!)   ###
+###  AIStack, v. 3.1.3-001 (20/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -795,7 +794,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4643/Python/h2o-3.25.0.4643-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4644/Python/h2o-3.25.0.4644-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git

@@ -53,6 +53,7 @@ funcsigs
 git+https://github.com/TeamHG-Memex/tensorboard_logger.git
 git+https://github.com/Shmuma/ptan.git
 ray
+ray
 git+https://github.com/ray-project/raynomics.git
 git+https://github.com/abarker/strip-hints.git
 modin
@@ -485,7 +486,6 @@ git+https://github.com/scikit-hep/probfit.git
 git+https://github.com/scikit-hep/uproot-methods.git
 git+https://github.com/scikit-hep/uproot.git
 git+https://github.com/emaballarin/pgmult.git
-git+https://github.com/automl/gym-parameter-control.git
 git+https://github.com/automl/HpBandSter.git
 git+https://github.com/automl/Auto-PyTorch.git
 git+https://github.com/automl/GenericWrapper4AC.git
@@ -800,6 +800,6 @@ git+https://github.com/tensorflow/mesh.git
 tensorflow_federated
 git+https://github.com/ray-project/raynomics.git
 git+https://github.com/wuhuikai/FastFCN.git
-ray
 https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.7.0.dev2-cp36-cp36m-manylinux1_x86_64.whl
 git+https://github.com/tensorflow/privacy.git
+git+https://github.com/pymc-learn/pymc-learn.git
