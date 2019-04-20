@@ -802,3 +802,4 @@ git+https://github.com/ray-project/raynomics.git
 git+https://github.com/wuhuikai/FastFCN.git
 ray
 https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.7.0.dev2-cp36-cp36m-manylinux1_x86_64.whl
+git+https://github.com/tensorflow/privacy.git
