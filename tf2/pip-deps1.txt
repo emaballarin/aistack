@@ -1,3 +1,5 @@
+flatbuffers
+funcsigs
 ortools
 gin-config
 google_pasta
