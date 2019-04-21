@@ -52,8 +52,10 @@ git+https://github.com/ShangtongZhang/DeepRL.git
 funcsigs
 git+https://github.com/TeamHG-Memex/tensorboard_logger.git
 git+https://github.com/Shmuma/ptan.git
+redis
 ray
 ray
+redis
 git+https://github.com/ray-project/raynomics.git
 git+https://github.com/abarker/strip-hints.git
 modin
@@ -782,6 +784,7 @@ ephem
 git+https://github.com/achael/eht-imaging.git
 arpeggio
 git+https://github.com/stefano-bragaglia/DePYsible.git
+pip
 git+https://github.com/CannyLab/flux.git
 git+https://github.com/CannyLab/rinokeras.git
 w3lib
@@ -790,6 +793,7 @@ requests-file
 tldextract
 git+https://github.com/tryolabs/requestium.git
 git+https://github.com/tryolabs/luminoth.git
+git+https://github.com/bethgelab/defensive-distillation.git
 git+https://github.com/bethgelab/defensive-distillation.git
 git+https://github.com/locuslab/convex_adversarial.git
 git+https://github.com/bethgelab/decompose.git

@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.1.6-001 (21/04/2019)  ###
+###  AIStack, v. 3.1.6-002 (21/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -34,6 +34,7 @@
 # - WGet >= 1.19 with HTTPS support
 # - Git >= 2.18
 # - Google protocol buffers (protobuf/protoc) == 3.6.x
+# - Google JSONnet
 #
 # SOFTWARE REQUIREMENTS (optional, installed system-wide):
 # - cmdSTAN (installed and sourced)
@@ -338,12 +339,12 @@ cd "$SELF_INTWDIR"
 source $SELF_CEACT_COMMAND aistack
 
 # Install optimized TensorFlow wheels (remove conda duplicates)
-conda remove -y tensorflow tensorflow-base tensorflow-estimator tensorflow-gpu --force
+conda remove -y tensorflow tensorflow-base tensorflow-estimator tensorflow-gpu protobuf --force
 
 #conda remove -y tensorflow tensorflow-gpu protobuf --force
 
 # Drop-in replace Protocol Buffers
-#pip install --upgrade --no-deps protobuf
+pip install --upgrade --no-deps protobuf
 
 # Remove (old) PyTorch and affected dependencies
 conda remove -y pytorch _r-mutex --force
@@ -449,7 +450,7 @@ pip install --upgrade --no-deps google_pasta
 pip install --upgrade --no-deps git+https://github.com/keras-team/keras-applications.git
 pip install --upgrade --no-deps git+https://github.com/keras-team/keras-preprocessing.git
 pip install --upgrade --no-deps tensorboard
-pip install --upgrade https://github.com/inoryy/tensorflow-optimized-wheels/releases/download/v1.13.1/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl
+pip install --upgrade --no-deps https://github.com/inoryy/tensorflow-optimized-wheels/releases/download/v1.13.1/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl
 pip install --upgrade --no-deps tensorflow_estimator
 #pip install --upgrade --no-deps tensorboard
 #pip install --upgrade --no-deps tensorflow-gpu==1.13.1
@@ -794,7 +795,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4644/Python/h2o-3.25.0.4644-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4645/Python/h2o-3.25.0.4645-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -953,6 +954,7 @@ if [ "$SELF_INSTALL_TF2_ENV" = "1" ]; then
   echo ' '
   # Fully self-contained!
   wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/tf2/tf2-init.sh
+  chmod +x ./tf2-init.sh
   ./tf2-init.sh
   echo ' '
 fi

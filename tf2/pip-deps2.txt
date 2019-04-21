@@ -20,8 +20,10 @@ pyrsistent
 qgrid
 nbtutor
 nteract-on-jupyter
+redis
 ray
 ray
+redis
 https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.7.0.dev2-cp37-cp37m-manylinux1_x86_64.whl
 git+https://github.com/pymc-learn/pymc-learn.git
 git+https://github.com/keras-team/keras.git

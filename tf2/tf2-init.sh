@@ -7,6 +7,7 @@
 # Released under the Apache License 2.0.
 ##
 # This file is called by some other one as:
+# chmod +x ./tf2-init.sh
 # ./tf2-init.sh
 ##
 
