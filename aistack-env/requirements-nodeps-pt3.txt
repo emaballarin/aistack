@@ -848,3 +848,17 @@ git+https://github.com/naturomics/CapsLayer.git
 git+https://github.com/renqianluo/DLT2T.git
 git+https://github.com/ianare/exif-py.git
 git+https://github.com/zihangdai/datautils.git
+keyring
+python-telegram-bot
+yagmail
+git+https://github.com/huggingface/knockknock.git
+git+https://github.com/huggingface/pytorch-pretrained-BERT.git
+libsixel-python
+git+https://github.com/huggingface/pytorch-pretrained-BigGAN.git
+jsonnet
+word2number
+editdistance
+conllu
+flaky
+responses
+git+https://github.com/allenai/allennlp.git
