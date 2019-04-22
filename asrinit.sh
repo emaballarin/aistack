@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.1.6-002 (21/04/2019)  ###
+###  AIStack, v. 3.1.7-001 (22/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -86,6 +86,7 @@ export SELF_SCHIZOCUDA_MODE="1"                             # 1 -> Enable the hy
 export SELF_DO_INJECT_LIBTORCH="1"                          # 1 -> Enable forceful injection of Pytorch C/C++ libraries system-wide
 export SELF_APPLY_CUDA_BANDAID="1"                          # 1 -> A dirty hack if system-CUDA is not 10.0.x (if in doubt, set to 0 BUT must have CUDA 10.0.x installed system-wide!)
 export SELF_INSTALL_TF2_ENV="1"                             # 1 -> Create a new Conda environment containing a working TensorFlow 2.0 Alpha release and tooling
+export SELF_PYTORCH_NIGHTLIFY="0"                           # 1 -> Use PyTorch nightly; 0 -> Use PyTorch stable (recommended!).
 
 # Configuration for CVXOPT
 export CVXOPT_GSL_LIB_DIR="/usr/lib/"           # Path to the directory that contains GNU Scientific Library shared libraries
@@ -333,7 +334,7 @@ cd "$SELF_INTWDIR"
 
 
 ##
-## Fiddle with Anaconda for the last time: remove Conda-installed Tensorflow, replace PyTorch with PyTorch Nightly
+## Fiddle with Anaconda for the last time: remove Conda-installed Tensorflow; replace PyTorch with PyTorch Nightly
 ##
 
 source $SELF_CEACT_COMMAND aistack
@@ -341,16 +342,24 @@ source $SELF_CEACT_COMMAND aistack
 # Install optimized TensorFlow wheels (remove conda duplicates)
 conda remove -y tensorflow tensorflow-base tensorflow-estimator tensorflow-gpu protobuf --force
 
-#conda remove -y tensorflow tensorflow-gpu protobuf --force
-
 # Drop-in replace Protocol Buffers
 pip install --upgrade --no-deps protobuf
 
 # Remove (old) PyTorch and affected dependencies
 conda remove -y pytorch _r-mutex --force
 
-# Install (new, nightly) PyTorch
-conda install -y pytorch-nightly cudatoolkit=10.0.130 -c pytorch
+# INSTALL THE "FINAL" VERSION OF PYTORCH
+echo ' '
+echo "Installing PyTorch (for real, this time!)..."
+if [ "$SELF_PYTORCH_NIGHTLIFY" = "1" ]; then
+  conda install -y pytorch-nightly cudatoolkit=10.0.130 -c pytorch
+elif [ "$SELF_PYTORCH_NIGHTLIFY" = "0" ]; then
+  conda install -y pytorch=1.0.1 cudatoolkit=10.0.130 -c pytorch
+else
+  echo "Invalid value specified for SELF_PYTORCH_NIGHTLIFY. Assuming 0 (stable version)."
+  conda install -y pytorch=1.0.1 cudatoolkit=10.0.130 -c pytorch
+fi
+echo ' '
 
 # Remove useless _r-mutex and other stuff
 conda remove -y _r-mutex cudatoolkit cudnn nccl nccl2 --force
@@ -373,30 +382,43 @@ fi
 # Re-install _r-mutex
 conda install -y _r-mutex
 
-# Unpack and install LibTorch C++ libraries
+# Install (eventually) PyTorch libraries
 echo ' '
-rm -R -f ./PTLTDL
-mkdir ./PTLTDL
-cd ./PTLTDL
-wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/nightly/cu100/libtorch-shared-with-deps-latest.zip
-echo "Installing PyTorch libraries..."
-unzip ./libtorch-shared-with-deps-latest.zip
-cd ./libtorch
-cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
-cd ../
-echo 'OK!'
-echo ' '
+echo "Installing PyTorch libraries (if any)..."
+if [ "$SELF_PYTORCH_NIGHTLIFY" = "1" ]; then
+  echo "INSTALLING: YES."
+  # Unpack and install LibTorch C++ libraries
+  echo ' '
+  rm -R -f ./PTLTDL
+  mkdir ./PTLTDL
+  cd ./PTLTDL
+  wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/nightly/cu100/libtorch-shared-with-deps-latest.zip
+  echo "Installing PyTorch libraries..."
+  unzip ./libtorch-shared-with-deps-latest.zip
+  cd ./libtorch
+  cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
+  cd ../
+  echo 'OK!'
+  echo ' '
 
-# Optionally inject unpacked LibTorch C++ libraries (as Super User)
-if [ "$SELF_DO_INJECT_LIBTORCH" = "1" ]; then
-  if [ "$SELF_LIBTORCH_ROOT_DIR" != "" ]; then
-    sudo rm -R -f "$SELF_LIBTORCH_ROOT_DIR/libtorch"
-    echo ' '
-    echo "Injecting PyTorch libraries..."
-    sudo cp -R -f ./libtorch "$SELF_LIBTORCH_ROOT_DIR"
-    echo "OK!"
+  # Optionally inject unpacked LibTorch C++ libraries (as Super User)
+  if [ "$SELF_DO_INJECT_LIBTORCH" = "1" ]; then
+    if [ "$SELF_LIBTORCH_ROOT_DIR" != "" ]; then
+      sudo rm -R -f "$SELF_LIBTORCH_ROOT_DIR/libtorch"
+      echo ' '
+      echo "Injecting PyTorch libraries..."
+      sudo cp -R -f ./libtorch "$SELF_LIBTORCH_ROOT_DIR"
+      echo "OK!"
+    fi
   fi
+elif [ "$SELF_PYTORCH_NIGHTLIFY" = "0" ]; then
+  echo "INSTALLING: NO."
+else
+  echo "Invalid value specified for SELF_PYTORCH_NIGHTLIFY. Assuming 0 (stable version)."
+  echo "INSTALLING: NO."
 fi
+
+echo ' '
 
 cd ../
 source deactivate
@@ -444,7 +466,6 @@ USE_OPENMP=True pip install --upgrade --no-deps git+https://github.com/slinderma
 
 # Install TensorFlow 1.13.1 and dependencies (and reinstall Protobuf)
 # Install optimized TensorFlow wheels (actually install)
-#pip install --upgrade --no-deps protobuf
 pip install --upgrade --no-deps ortools
 pip install --upgrade --no-deps google_pasta
 pip install --upgrade --no-deps git+https://github.com/keras-team/keras-applications.git
@@ -452,9 +473,6 @@ pip install --upgrade --no-deps git+https://github.com/keras-team/keras-preproce
 pip install --upgrade --no-deps tensorboard
 pip install --upgrade --no-deps https://github.com/inoryy/tensorflow-optimized-wheels/releases/download/v1.13.1/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl
 pip install --upgrade --no-deps tensorflow_estimator
-#pip install --upgrade --no-deps tensorboard
-#pip install --upgrade --no-deps tensorflow-gpu==1.13.1
-#pip install --upgrade --no-deps tensorflow_estimator
 
 # Install prerequisite libraries that need manual copy-paste
 cd "$SELF_INVOKE_DIR/aistack/aistack-env/gitpipdeps"
@@ -811,7 +829,9 @@ export MN_BUILD=boost
 git clone --recursive https://github.com/peter-ch/MultiNEAT.git
 cd MultiNEAT
 python setup.py build_ext
+python setup.py install
 pip install --upgrade --no-deps .
+pip install --upgrade --no-deps --force-reinstall .
 export MN_BUILD="$SELF_PREV_MNBUILD"
 cd ../
 echo ' '
@@ -893,6 +913,30 @@ echo ' '
 git clone --recursive https://github.com/nschaetti/Oger.git
 cp -R ./dyalog-jupyter-kernel/Oger "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo 'Oger successfully installed!'
+
+### NEAT STUFF (still part of experimental packages) ###
+
+echo ' '
+git clone --recursive https://github.com/uber-research/PyTorch-NEAT.git
+cd ./PyTorch-NEAT
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait ead150a2f00136f6c72dee81f17b7851fa4286d9.patch
+git apply ./ead150a2f00136f6c72dee81f17b7851fa4286d9.patch
+cp -R ./pytorch_neat "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+cd ..
+echo 'Uber`s PyTorch NEAT successfully installed!'
+
+echo ' '
+git clone --recursive https://github.com/crisbodnar/TensorFlow-NEAT.git
+cp -R ./TensorFlow-NEAT/tf_neat "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo 'TensorFlow Eager NEAT successfully installed!'
+
+echo ' '
+git clone --recursive https://github.com/flxsosa/DeepHyperNEAT.git
+rm -R -f ./DeepHyperNEAT/reports ./DeepHyperNEAT/.gitignore ./DeepHyperNEAT/.gitignore
+cp -R ./DeepHyperNEAT "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo 'DeepHyperNEAT successfully installed!'
+
+### ### ### ### ###
 
 # END BLOCK: experimental packages
 

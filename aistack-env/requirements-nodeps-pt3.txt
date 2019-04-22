@@ -866,3 +866,5 @@ conllu
 flaky
 responses
 git+https://github.com/allenai/allennlp.git
+git+https://github.com/ukuleleplayer/pureples.git
+git+https://github.com/ddehueck/pytorch-neat.git
