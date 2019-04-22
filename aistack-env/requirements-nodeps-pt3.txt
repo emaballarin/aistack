@@ -793,8 +793,6 @@ requests-file
 tldextract
 git+https://github.com/tryolabs/requestium.git
 git+https://github.com/tryolabs/luminoth.git
-git+https://github.com/bethgelab/defensive-distillation.git
-git+https://github.com/bethgelab/defensive-distillation.git
 git+https://github.com/locuslab/convex_adversarial.git
 git+https://github.com/bethgelab/decompose.git
 git+https://github.com/tensorflow/agents.git

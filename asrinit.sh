@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.1.7-001 (22/04/2019)  ###
+###  AIStack, v. 3.1.7-002 (22/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -919,7 +919,7 @@ echo 'Oger successfully installed!'
 echo ' '
 git clone --recursive https://github.com/uber-research/PyTorch-NEAT.git
 cd ./PyTorch-NEAT
-wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait ead150a2f00136f6c72dee81f17b7851fa4286d9.patch
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/ead150a2f00136f6c72dee81f17b7851fa4286d9.patch
 git apply ./ead150a2f00136f6c72dee81f17b7851fa4286d9.patch
 cp -R ./pytorch_neat "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 cd ..
@@ -1025,14 +1025,11 @@ echo "Done."
 echo ' '
 echo ' '
 echo ' '
-echo "Now you may need to manually install Chainer..."
-echo 'To do so, issue the following command-block:'
-echo ' '
-echo 'source activate aistack'
-echo 'export CHAINER_BUILD_CHAINERX=1'
-echo 'export CHAINERX_BUILD_CUDA=1'
-echo 'export MAKEFLAGS=-j8'
-echo 'pip install --upgrade --no-deps --pre --force chainer'
+echo "Applying fix-ups..."
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/fixups.sh
+chmod +x ./fixups.sh
+./fixups.sh
+echo "OK."
 echo ' '
 echo ' '
 echo ' '
