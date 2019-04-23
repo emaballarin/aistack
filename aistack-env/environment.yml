@@ -15,7 +15,7 @@ channels:
 dependencies:
   - absl-py=0.7.1
   - blas=1.0=mkl
-  - boost-cpp=1.67
+  - boost-cpp=1.69
   - catboost=0.14.2
   - cudatoolkit=10.0.130
   - dask-core=1.2.0
@@ -27,7 +27,7 @@ dependencies:
   - libgpuarray=0.7.6
   - mkl-dnn=0.14
   - numba=0.43.1
-  - numpy=1.16.2
+  - numpy=1.16.3
   - osqp=0.5.0
   - pandas=0.24.2
   - pygpu=0.7.6

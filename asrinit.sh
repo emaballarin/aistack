@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.1.7-002 (22/04/2019)  ###
+###  AIStack, v. 3.1.7-003 (23/04/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -813,7 +813,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4645/Python/h2o-3.25.0.4645-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4646/Python/h2o-3.25.0.4646-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -1004,6 +1004,15 @@ if [ "$SELF_INSTALL_TF2_ENV" = "1" ]; then
 fi
 
 
+# FIXUPS
+echo ' '
+echo "Applying fix-ups..."
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/fixups.sh
+chmod +x ./fixups.sh
+./fixups.sh
+echo "OK."
+echo ' '
+
 #########################
 ## CONCLUSIVE MESSAGES ##
 #########################
@@ -1022,14 +1031,5 @@ echo "Temporary, local files will now be removed..."
 rm -R -f "$SELF_INVOKE_DIR/aistack"
 rm -f "$SELF_INVOKE_DIR/asrinit.sh"
 echo "Done."
-echo ' '
-echo ' '
-echo ' '
-echo "Applying fix-ups..."
-wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/fixups.sh
-chmod +x ./fixups.sh
-./fixups.sh
-echo "OK."
-echo ' '
 echo ' '
 echo ' '
