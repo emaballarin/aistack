@@ -15,7 +15,7 @@ channels:
 dependencies:
   - absl-py=0.7.1
   - blas=1.0=mkl
-  - boost-cpp=1.69
+  - boost-cpp=1.67
   - catboost=0.14.2
   - cudatoolkit=10.0.130
   - dask-core=1.2.0
