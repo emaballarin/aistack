@@ -80,7 +80,7 @@
 # General configuration
 export SELF_CEACT_COMMAND="activate"                        # Command used to activate conda environments (usually "activate" as in "source activate ...")
 export SELF_CONDA_ENV_PATH="$HOME/anaconda3/envs/"          # Path under which given command will create Anaconda environments (must be manually specified due to possible multiple conda environment folders)
-export SELF_MATLABROOT_BASEDIR="/usr/local/MATLAB/R2018b/"  # Base directory of a MATLAB installation (>= 2014a, licensed). Whatever, if unavailable.
+export SELF_MATLABROOT_BASEDIR="/usr/local/MATLAB/R2019a/"  # Base directory of a MATLAB installation (>= 2014a, licensed). Whatever, if unavailable.
 export SELF_TCMALLOC_INJECT="1"                             # 1 -> Preload TCMalloc in order to uniform Malloc(1) calls (recommended); 0 -> Do not preload TCMalloc (more stable, but prone to invalid free() with OpenCV/MxNet)
 export SELF_SCHIZOCUDA_MODE="1"                             # 1 -> Enable the hybrid CUDA 10.1 / CUDA 10.0 / CUDA 9.2 / CUDA 9.0 mode (i.e. Pytorch on CUDA 10.1 and TensorFlow on CUDA 9.2)
 export SELF_DO_INJECT_LIBTORCH="1"                          # 1 -> Enable forceful injection of Pytorch C/C++ libraries system-wide
@@ -813,7 +813,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4646/Python/h2o-3.25.0.4646-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4647/Python/h2o-3.25.0.4647-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -1003,16 +1003,6 @@ if [ "$SELF_INSTALL_TF2_ENV" = "1" ]; then
   echo ' '
 fi
 
-
-# FIXUPS
-echo ' '
-echo "Applying fix-ups..."
-wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/fixups.sh
-chmod +x ./fixups.sh
-./fixups.sh
-echo "OK."
-echo ' '
-
 #########################
 ## CONCLUSIVE MESSAGES ##
 #########################
@@ -1031,5 +1021,20 @@ echo "Temporary, local files will now be removed..."
 rm -R -f "$SELF_INVOKE_DIR/aistack"
 rm -f "$SELF_INVOKE_DIR/asrinit.sh"
 echo "Done."
+echo ' '
+echo ' '
+echo ' '
+echo "You may need to reinstall Chainer and JSONnet."
+echo "Just run the following code block in the terminal:"
+#
+echo 'source activate aistack'
+echo 'export CHAINER_BUILD_CHAINERX=1'
+echo 'export CHAINERX_BUILD_CUDA=1'
+echo 'export MAKEFLAGS=-j8'
+echo 'pip install --upgrade --no-deps --pre --force chainer'
+echo 'pip install --upgrade --no-deps jsonnet'
+echo 'source deactivate'
+#
+echo ' '
 echo ' '
 echo ' '

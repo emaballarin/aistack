@@ -260,6 +260,7 @@ git+https://github.com/luispedro/mahotas.git
 pennylane
 pennylane-sf
 git+https://github.com/OpenMined/PySyft.git
+git+https://github.com/OpenMined/Grid.git
 git+https://github.com/jvmancuso/safe-grid-agents.git
 projectq
 git+https://github.com/ProjectQ-Framework/FermiLib.git
@@ -867,3 +868,10 @@ git+https://github.com/allenai/allennlp.git
 git+https://github.com/ukuleleplayer/pureples.git
 git+https://github.com/ddehueck/pytorch-neat.git
 git+https://github.com/senarvi/theanolm.git
+git+https://github.com/unixpickle/xformer.git
+git+https://github.com/unixpickle/uber-ga.git
+git+https://github.com/unixpickle/treeagent-py.git
+git+https://github.com/unixpickle/spherenet.git
+git+https://github.com/unixpickle/hopfield.git
+git+https://github.com/google-research/morph-net.git
+git+https://github.com/google-research/planet.git
