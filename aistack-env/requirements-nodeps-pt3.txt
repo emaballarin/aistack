@@ -875,3 +875,4 @@ git+https://github.com/unixpickle/spherenet.git
 git+https://github.com/unixpickle/hopfield.git
 git+https://github.com/google-research/morph-net.git
 git+https://github.com/google-research/planet.git
+tensorflow-ranking
