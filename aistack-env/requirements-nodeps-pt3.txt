@@ -876,3 +876,12 @@ git+https://github.com/unixpickle/hopfield.git
 git+https://github.com/google-research/morph-net.git
 git+https://github.com/google-research/planet.git
 tensorflow-ranking
+git+https://github.com/ratschlab/SOM-VAE.git
+colored-traceback
+git+https://github.com/blei-lab/edward.git
+git+https://github.com/ratschlab/ratschlab-common.git
+nose-exclude
+databricks-cli
+mleap
+querystring_parser
+git+https://github.com/mlflow/mlflow.git
