@@ -589,7 +589,7 @@ pymprog
 astutils
 humanize
 scikit-build
-git+https://github.com/emaballarin/Slycot.git
+slycot
 git+https://github.com/python-control/python-control.git
 git+https://github.com/tulip-control/polytope.git
 cysignals
@@ -885,3 +885,17 @@ databricks-cli
 mleap
 querystring_parser
 git+https://github.com/mlflow/mlflow.git
+git+https://github.com/mwydmuch/ViZDoom.git
+git+https://github.com/mwydmuch/extremeText.git
+git+https://github.com/pierreablin/mmica.git
+git+https://github.com/pierreablin/autoptim.git
+mne
+git+https://github.com/pierreablin/faster-ica.git
+git+https://github.com/pierreablin/picard.git
+git+https://github.com/pierreablin/qndiag.git
+git+https://github.com/nadavbh12/VQ-VAE.git
+git+https://github.com/bskinn/pent.git
+git+https://github.com/haasad/PyPardisoProject.git
+git+https://github.com/cmrivers/epipy.git
+cairocffi
+git+https://github.com/rlpy/rlpy.git
