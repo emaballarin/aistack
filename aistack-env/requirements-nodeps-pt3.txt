@@ -899,3 +899,8 @@ git+https://github.com/haasad/PyPardisoProject.git
 git+https://github.com/cmrivers/epipy.git
 cairocffi
 git+https://github.com/rlpy/rlpy.git
+nilearn
+git+https://github.com/flennerhag/mlens.git
+git+https://github.com/flennerhag/popsearch.git
+git+https://github.com/skggm/skggm.git
+git+https://github.com/vecxoz/vecstack.git
