@@ -904,3 +904,10 @@ git+https://github.com/flennerhag/mlens.git
 git+https://github.com/flennerhag/popsearch.git
 git+https://github.com/skggm/skggm.git
 git+https://github.com/vecxoz/vecstack.git
+pandas-datareader
+git+https://github.com/RJT1990/pyflux.git
+PTable
+git+https://github.com/koulanurag/gym_x.git
+git+https://github.com/Ema93sh/pytorch-saliency.git
+git+https://github.com/koulanurag/conformal.git
+git+https://github.com/bayespy/bayespy.git
