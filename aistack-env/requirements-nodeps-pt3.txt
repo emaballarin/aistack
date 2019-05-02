@@ -933,3 +933,5 @@ git+https://github.com/pytorch/botorch.git
 git+https://github.com/facebook/Ax.git
 git+https://github.com/minimaxir/gpt-2-simple.git
 git+https://github.com/fancompute/neuroptica.git
+git+https://github.com/jeanfeydy/geomloss.git
+git+https://github.com/JustinLovinger/optimal.git
