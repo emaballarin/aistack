@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.1.10-001 (30/04/2019)  ###
+###  AIStack, v. 3.2.0-001 (02/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -354,10 +354,10 @@ echo "Installing PyTorch (for real, this time!)..."
 if [ "$SELF_PYTORCH_NIGHTLIFY" = "1" ]; then
   conda install -y pytorch-nightly cudatoolkit=10.0.130 -c pytorch
 elif [ "$SELF_PYTORCH_NIGHTLIFY" = "0" ]; then
-  conda install -y pytorch=1.0.1 cudatoolkit=10.0.130 -c pytorch
+  conda install -y pytorch=1.1 cudatoolkit=10.0.130 -c pytorch
 else
   echo "Invalid value specified for SELF_PYTORCH_NIGHTLIFY. Assuming 0 (stable version)."
-  conda install -y pytorch=1.0.1 cudatoolkit=10.0.130 -c pytorch
+  conda install -y pytorch=1.1 cudatoolkit=10.0.130 -c pytorch
 fi
 echo ' '
 
@@ -814,7 +814,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4653/Python/h2o-3.25.0.4653-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4656/Python/h2o-3.25.0.4656-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
