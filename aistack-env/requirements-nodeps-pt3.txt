@@ -951,3 +951,5 @@ git+https://github.com/Microsoft/pytorch_od.git
 git+https://github.com/Microsoft/qmt.git
 git+https://github.com/facebookresearch/kbc.git
 git+https://github.com/deepmind/spectral_inference_networks.git
+recordio
+rarfile
