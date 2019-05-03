@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.2.1-001 (02/05/2019)  ###
+###  AIStack, v. 3.2.2-001 (03/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -938,6 +938,12 @@ cp -R ./DeepHyperNEAT "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/si
 echo 'DeepHyperNEAT successfully installed!'
 
 ### ### ### ### ###
+
+echo ' '
+git clone --recursive https://github.com/google-research/google-research.git
+cp -R ./google-research "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo 'Google AI Research Internal Open Codebase successfully installed! [aistack]'
+echo ' '
 
 # END BLOCK: experimental packages
 

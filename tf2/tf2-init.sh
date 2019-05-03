@@ -251,6 +251,20 @@ do
 done
 source deactivate
 
+# EXPERIMENTAL PACKAGES
+source $SELFTF2_CEACT_COMMAND tf2-aistack
+
+export SELFTF2_PYVRS_EXP="$(python -c 'import sys; print(sys.version[0])').$(python -c 'import sys; print(sys.version[2])')"
+
+echo ' '
+git clone --recursive https://github.com/google-research/google-research.git
+cp -R ./google-research "$SELFTF2_CONDA_ENV_PATH/aistack/lib/python$SELFTF2_PYVRS_EXP/site-packages/"
+echo 'Google AI Research Internal Open Codebase successfully installed! [aistack]'
+echo ' '
+
+source deactivate
+# END BLOCK: experimental packages
+
 # Jupyter(lab) extensions
 source $SELFTF2_CEACT_COMMAND tf2-aistack
 sudo ipcluster nbextension enable

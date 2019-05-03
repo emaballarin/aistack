@@ -471,7 +471,7 @@ git+https://github.com/svenkreiss/databench.git
 git+https://github.com/svenkreiss/pysparkling.git
 git+https://github.com/svenkreiss/socialforce.git
 git+https://github.com/isadoranun/FATS.git
-https://storage.googleapis.com/jax-wheels/cuda100/jaxlib-0.1.12-cp36-none-linux_x86_64.whl
+https://storage.googleapis.com/jax-wheels/cuda100/jaxlib-0.1.13-cp36-none-linux_x86_64.whl
 git+https://github.com/google/jax.git
 git+https://github.com/EpiSci/SafeAI.git
 python-cli-ui
@@ -938,3 +938,16 @@ git+https://github.com/JustinLovinger/optimal.git
 git+https://github.com/mariogeiger/se3cnn.git
 git+https://github.com/mariogeiger/hessian.git
 git+https://github.com/mariogeiger/Abstract-Algebra.git
+git+https://github.com/bamos/setGPU.git
+git+https://github.com/cvxgrp/cvxstrat.git
+git+https://github.com/cvxgrp/diffcp.git
+git+https://github.com/cvxgrp/dmcp.git
+git+https://github.com/cvxgrp/ncvx.git
+git+https://github.com/cvxgrp/qcqp.git
+git+https://github.com/Microsoft/SparseSC.git
+git+https://github.com/Microsoft/MMdnn.git
+git+https://github.com/Microsoft/onnxconverter-common.git
+git+https://github.com/Microsoft/pytorch_od.git
+git+https://github.com/Microsoft/qmt.git
+git+https://github.com/facebookresearch/kbc.git
+git+https://github.com/deepmind/spectral_inference_networks.git
