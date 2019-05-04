@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.3.0-001 (03/05/2019)  ###
+###  AIStack, v. 3.3.1-001 (04/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -303,8 +303,27 @@ ln -s "$(which mpifort)" "$SELF_CONDA_ENV_PATH/aistack/bin/mpifort"
 ln -s "$(which mpirun)" "$SELF_CONDA_ENV_PATH/aistack/bin/mpirun"
 ln -s "$(which ld)" "$SELF_CONDA_ENV_PATH/aistack/compiler_compat/ld"
 
-# Hack for Theano
-#ln -s "/usr/lib/libcudnn.so" "$SELF_CONDA_ENV_PATH/x86_64-conda_cos6-linux-gnu/sysroot/lib/libcudnn.so"
+###
+# Hacks for Theano forward-compatibility
+mkdir -p ./bandfixes
+cd ./bandfixes
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/bandfixes/dnn.py
+chmod +x ./dnn.py
+mkdir -p "$SELF_CONDA_ENV_PATH/aistack/lib/python3.6/site-packages/theano/gpuarray"
+cp -f ./dnn.py "$SELF_CONDA_ENV_PATH/aistack/lib/python3.6/site-packages/theano/gpuarray/"
+cd ../
+###
+
+###
+# Inject libhdfs.so (from Apache Hadoop 3.1.x)
+mkdir -p ./bandfixes
+cd ./bandfixes
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/bandfixes/libhdfs.so.0.0.0
+mkdir -p "$SELF_CONDA_ENV_PATH/aistack/lib/"
+cp -f ./libhdfs.so.0.0.0 "$SELF_CONDA_ENV_PATH/aistack/lib/"
+ln -s -f "$SELF_CONDA_ENV_PATH/aistack/lib/libhdfs.so.0.0.0" "$SELF_CONDA_ENV_PATH/aistack/lib/libhdfs.so"
+cd ../
+###
 
 # Improve the Conda environment for AIStack
 mkdir -p "$SELF_CONDA_ENV_PATH/aistack/etc/conda/activate.d"
@@ -633,8 +652,8 @@ cd ../
 echo ' '
 
 # BoostGDB
-#pip install --upgrade --no-deps --no-binary :all: lightgbm --install-option=--mpi --install-option=--gpu --install-option=--hdfs
-pip install --upgrade --no-deps --no-binary :all: lightgbm --install-option=--mpi --install-option=--gpu
+pip install --upgrade --no-deps --no-binary --force :all: lightgbm --install-option=--mpi --install-option=--gpu
+pip install --upgrade --no-deps --no-binary --force :all: lightgbm --install-option=--mpi --install-option=--gpu --install-option=--hdfs
 echo ' '
 
 # CudaMAT
@@ -814,7 +833,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4658/Python/h2o-3.25.0.4658-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4659/Python/h2o-3.25.0.4659-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
