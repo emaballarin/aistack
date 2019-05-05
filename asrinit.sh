@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.3.1-001 (04/05/2019)  ###
+###  AIStack, v. 3.4.0-001 (05/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -35,6 +35,7 @@
 # - Git >= 2.18
 # - Google protocol buffers (protobuf/protoc) == 3.6.x
 # - Google JSONnet
+# - Rigetti Forest SDK (bare-bones, added to path)
 #
 # SOFTWARE REQUIREMENTS (optional, installed system-wide):
 # - cmdSTAN (installed and sourced)
@@ -405,14 +406,14 @@ conda install -y _r-mutex
 echo ' '
 echo "Installing PyTorch libraries (if any)..."
 if [ "$SELF_PYTORCH_NIGHTLIFY" = "1" ]; then
-  echo "INSTALLING: YES."
+  echo "INSTALLING: YES (Nightly)."
   # Unpack and install LibTorch C++ libraries
   echo ' '
   rm -R -f ./PTLTDL
   mkdir ./PTLTDL
   cd ./PTLTDL
   wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/nightly/cu100/libtorch-shared-with-deps-latest.zip
-  echo "Installing PyTorch libraries..."
+  echo "Installing PyTorch libraries (Nightly)..."
   unzip ./libtorch-shared-with-deps-latest.zip
   cd ./libtorch
   cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
@@ -425,13 +426,37 @@ if [ "$SELF_PYTORCH_NIGHTLIFY" = "1" ]; then
     if [ "$SELF_LIBTORCH_ROOT_DIR" != "" ]; then
       sudo rm -R -f "$SELF_LIBTORCH_ROOT_DIR/libtorch"
       echo ' '
-      echo "Injecting PyTorch libraries..."
+      echo "Injecting PyTorch libraries (Nightly)..."
       sudo cp -R -f ./libtorch "$SELF_LIBTORCH_ROOT_DIR"
       echo "OK!"
     fi
   fi
 elif [ "$SELF_PYTORCH_NIGHTLIFY" = "0" ]; then
-  echo "INSTALLING: NO."
+  echo "INSTALLING: YES (Stable)."
+  # Unpack and install LibTorch C++ libraries
+  echo ' '
+  rm -R -f ./PTLTDL
+  mkdir ./PTLTDL
+  cd ./PTLTDL
+  wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://download.pytorch.org/libtorch/cu100/libtorch-shared-with-deps-latest.zip
+  echo "Installing PyTorch libraries (Stable)..."
+  unzip ./libtorch-shared-with-deps-latest.zip
+  cd ./libtorch
+  cp -R -np ./* "$SELF_CONDA_ENV_PATH/aistack/"
+  cd ../
+  echo 'OK!'
+  echo ' '
+
+  # Optionally inject unpacked LibTorch C++ libraries (as Super User)
+  if [ "$SELF_DO_INJECT_LIBTORCH" = "1" ]; then
+    if [ "$SELF_LIBTORCH_ROOT_DIR" != "" ]; then
+      sudo rm -R -f "$SELF_LIBTORCH_ROOT_DIR/libtorch"
+      echo ' '
+      echo "Injecting PyTorch libraries (Stable)..."
+      sudo cp -R -f ./libtorch "$SELF_LIBTORCH_ROOT_DIR"
+      echo "OK!"
+    fi
+  fi
 else
   echo "Invalid value specified for SELF_PYTORCH_NIGHTLIFY. Assuming 0 (stable version)."
   echo "INSTALLING: NO."
