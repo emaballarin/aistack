@@ -23,7 +23,7 @@ dependencies:
   - faiss-gpu=1.5.1
   - fastai=1.0.52
   - intel-openmp=2019
-  - jupyterlab=0.35.5
+  - jupyterlab=0.35.6
   - libgpuarray=0.7.6
   - mkl-dnn=0.14
   - numba=0.43.1

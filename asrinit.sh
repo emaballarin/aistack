@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.4.0-001 (05/05/2019)  ###
+###  AIStack, v. 3.5.0-001 (06/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -33,6 +33,7 @@
 # - Curl >= 7 with HTTPS support.
 # - WGet >= 1.19 with HTTPS support
 # - Git >= 2.18
+# - pkg-config
 # - Google protocol buffers (protobuf/protoc) == 3.6.x
 # - Google JSONnet
 # - Rigetti Forest SDK (bare-bones, added to path)
@@ -70,7 +71,13 @@
 #                                 * SCS (recommended)
 #                                 * IBM CPLEX
 #                                 * PDOS
-#                                 * Whatever compatible with PyOMO and/or MATLAB, if installed.
+#                                 * Whatever compatible with PyOMO and/or MATLAB, if installed
+# - All the necessary (or wanted, if optional) dependencies for the non-python components of FEniCS, i.e.:
+#                                 * METIS & ParMETIS (recommended)
+#                                 * SCOTCH & PT-SCOTCH (recommended)
+#                                 * SuiteSparse >= 5.x (recommended)
+#                                 * PETSc (recommended)
+#                                 * SLEPc (optional)
 ##
 
 ##################################################
@@ -364,6 +371,10 @@ conda remove -y tensorflow tensorflow-base tensorflow-estimator tensorflow-gpu p
 
 # Drop-in replace Protocol Buffers
 pip install --upgrade --no-deps protobuf
+
+# Fix the ruamel.yaml problem
+conda remove -y ruamel_yaml --force
+pip install --upgrade --no-deps ruamel_yaml
 
 # Remove (old) PyTorch and affected dependencies
 conda remove -y pytorch _r-mutex --force
@@ -677,8 +688,7 @@ cd ../
 echo ' '
 
 # BoostGDB
-pip install --upgrade --no-deps --no-binary --force :all: lightgbm --install-option=--mpi --install-option=--gpu
-pip install --upgrade --no-deps --no-binary --force :all: lightgbm --install-option=--mpi --install-option=--gpu --install-option=--hdfs
+pip install --force --upgrade --no-deps --no-binary :all: lightgbm --install-option=--mpi --install-option=--gpu
 echo ' '
 
 # CudaMAT
@@ -858,7 +868,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4659/Python/h2o-3.25.0.4659-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4661/Python/h2o-3.25.0.4661-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -1086,6 +1096,13 @@ echo 'pip install --upgrade --no-deps --pre --force chainer'
 echo 'pip install --upgrade --no-deps jsonnet'
 echo 'source deactivate'
 #
+echo ' '
+echo ' '
+echo ' '
+echo "You may also need to install manually:"
+echo " - Dolfin (with Python bindings), part of the FEniCS suite;"
+echo " - mshr (with Python bindings), optional, part of the FEniCS suite;"
+echo "in order to be able to use the Python-FEniCS suite just installed."
 echo ' '
 echo ' '
 echo ' '
