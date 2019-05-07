@@ -986,3 +986,11 @@ slepc4py
 git+https://github.com/funsim/moola.git
 git+https://bitbucket.org/dolfin-adjoint/pyadjoint.git
 git+https://github.com/pbarkm/torch-fenics.git
+PyOpenGL-Accelerate
+git+https://github.com/pemami4911/POMDPy.git
+git+https://github.com/alykhantejani/nninit.git
+git+https://github.com/amzn/MXFusion.git
+git+https://github.com/amzn/emukit.git
+git+https://github.com/amzn/xfer.git
+git+https://github.com/vu-aml/adlib.git
+git+https://github.com/nitred/sparsex.git
