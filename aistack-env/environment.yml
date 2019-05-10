@@ -18,8 +18,8 @@ dependencies:
   - boost-cpp=1.67
   - catboost=0.14.2
   - cudatoolkit=10.0.130
-  - dask-core=1.2.0
-  - dask=1.2.0
+  - dask-core=1.2.2
+  - dask=1.2.2
   - faiss-gpu=1.5.1
   - fastai=1.0.52
   - intel-openmp=2019

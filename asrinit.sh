@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.5.1-001 (07/05/2019)  ###
+###  AIStack, v. 3.6.0-001 (10/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -868,7 +868,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4661/Python/h2o-3.25.0.4661-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4665/Python/h2o-3.25.0.4665-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -997,9 +997,23 @@ echo ' '
 git clone --recursive https://github.com/google-research/google-research.git
 cp -R ./google-research "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo 'Google AI Research Internal Open Codebase successfully installed! [aistack]'
+
 echo ' '
+git clone --recursive https://github.com/MatthewJA/Inverse-Reinforcement-Learning.git
+mv ./Inverse-Reinforcement-Learning/irl ./Inverse-Reinforcement-Learning/matthewja-irl
+cp -R ./Inverse-Reinforcement-Learning/matthewja-irl "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo 'Matthew Alger InverseRL Toolbox successfully installed!'
+
+echo ' '
+git clone --recursive https://github.com/VowpalWabbit/estimators.git
+mv ./estimators ./vw-estimators
+touch ./vw-estimators/__init__.py
+echo "# Just make it importable!" >> ./vw-estimators/__init__.py
+cp -R ./vw-estimators "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo 'Vowpal Wabbit RL estimators successfully installed!'
 
 # END BLOCK: experimental packages
+echo ' '
 
 
 cd "$SELF_INVOKE_DIR/aistack/aistack-env"
@@ -1050,6 +1064,15 @@ echo ' '
 
 # DE-activate Conda environment
 source deactivate
+
+# Tweak to make the Python-in-CondaEnv callable from outside directly
+export SELF_PRECALL_PYCALLABLE="$(pwd)"
+cd "$SELF_CONDA_ENV_PATH/aistack/bin"
+mkdir -p ./aistack-callable
+cd ./aistack-callable
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/bandfixes/python
+sed -i "s/X@X@X@XX@XX@XX@XX@XX@XX@XX@XX@XX@XX/$SELF_CONDA_ENV_PATH\/aistack\/bin\/python/g" ./python
+cd "$SELF_PRECALL_PYCALLABLE"
 
 
 ##########################
@@ -1102,7 +1125,7 @@ echo ' '
 echo "You may also need to install manually:"
 echo " - Dolfin (with Python bindings), part of the FEniCS suite;"
 echo " - mshr (with Python bindings), optional, part of the FEniCS suite;"
-echo "in order to be able to use the Python-FEniCS suite just installed."
+echo " - Vowpal Wabbit Python bindings;"
 echo ' '
 echo ' '
 echo ' '

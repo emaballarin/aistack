@@ -38,4 +38,7 @@ export cc="$CC"
 export cxx="$CXX"
 export fc="$FC"
 
+# Numpy + MKL fix (e.g. for Dolfin)
+export NPY_MKL_FORCE_INTEL=1
+
 # Additional LD_PRELOAD or LD_LIBRARY_PATH or CUDA_HOME flags will be eventually added after this line

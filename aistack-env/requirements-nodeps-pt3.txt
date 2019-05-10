@@ -994,3 +994,14 @@ git+https://github.com/amzn/emukit.git
 git+https://github.com/amzn/xfer.git
 git+https://github.com/vu-aml/adlib.git
 git+https://github.com/nitred/sparsex.git
+pkgconfig
+git+https://github.com/tensorflow/graphics.git
+git+https://github.com/rizar/systematic-generalization-sqoop.git
+git+https://github.com/maximecb/gym-minigrid.git
+git+https://github.com/maximecb/gym-miniworld.git
+git+https://github.com/lcswillems/torch-ac.git
+git+https://github.com/maximecb/gym-memory.git
+git+https://github.com/duckietown/duckietown-slimremote.git
+git+https://github.com/duckietown/gym-duckietown.git
+git+https://github.com/duckietown/gym-duckietown-agent.git
+git+https://github.com/rizar/prototypical-networks.git

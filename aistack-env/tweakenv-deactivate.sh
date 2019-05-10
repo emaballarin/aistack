@@ -42,3 +42,4 @@ unset PRE_cxx
 unset PRE_fc
 unset PRE_LD_LIBRARY_PATH
 unset PRE_CUDA_HOME
+unset NPY_MKL_FORCE_INTEL

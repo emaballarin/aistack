@@ -196,8 +196,8 @@ mkdir -p ./bandfixes
 cd ./bandfixes
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/bandfixes/dnn.py
 chmod +x ./dnn.py
-mkdir -p "$SELF_CONDA_ENV_PATH/tf2-aistack/lib/python3.7/site-packages/theano/gpuarray"
-cp -f ./dnn.py "$SELF_CONDA_ENV_PATH/tf2-aistack/lib/python3.7/site-packages/theano/gpuarray/dnn.py"
+mkdir -p "$SELFTF2_CONDA_ENV_PATH/tf2-aistack/lib/python3.7/site-packages/theano/gpuarray"
+cp -f ./dnn.py "$SELFTF2_CONDA_ENV_PATH/tf2-aistack/lib/python3.7/site-packages/theano/gpuarray/dnn.py"
 cd ../
 ###
 
@@ -295,6 +295,16 @@ jupyter labextension install @jupyter-widgets/jupyterlab-manager
 jupyter labextension install jupyterlab_bokeh
 jupyter labextension install @pyviz/jupyterlab_pyviz
 source deactivate
+
+# Tweak to make the Python-in-CondaEnv callable from outside directly
+export SELFTF2_PRECALL_PYCALLABLE="$(pwd)"
+cd "$SELFTF2_CONDA_ENV_PATH/aistack/bin"
+mkdir -p ./aistack-callable
+cd ./aistack-callable
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/bandfixes/python
+sed -i "s/aistack/tf2-aistack/g" ./python
+sed -i "s/X@X@X@XX@XX@XX@XX@XX@XX@XX@XX@XX@XX/$SELFTF2_CONDA_ENV_PATH\/tf2-aistack\/bin\/python/g" ./python
+cd "$SELFTF2_PRECALL_PYCALLABLE"
 
 # Final band-aids and fixes
 # Nothing
