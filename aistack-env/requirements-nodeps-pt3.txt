@@ -1005,3 +1005,7 @@ git+https://github.com/duckietown/duckietown-slimremote.git
 git+https://github.com/duckietown/gym-duckietown.git
 git+https://github.com/duckietown/gym-duckietown-agent.git
 git+https://github.com/rizar/prototypical-networks.git
+git+https://github.com/fpom/snakes.git
+git+https://github.com/mauriceling/copads.git
+git+https://github.com/mauriceling/dose.git
+qsharp

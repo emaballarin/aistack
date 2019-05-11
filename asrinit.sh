@@ -1,13 +1,16 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.6.0-001 (10/05/2019)  ###
+###  AIStack, v. 3.6.1-001 (11/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
 # at the broadest possible Machine Learning, Artificial Intelligence, Control
 # and Optimization (and the interplay between them) research audience, developed
 # following the principles of fast iterations, high performance, full control,
-# and minimal external (i.e. not automatically installed) dependencies.
+# and minimal(1) external (i.e. not automatically installed) dependencies.
+#
+# (1) What once was - indeed - minimal, then became larger and larger. Still,
+# it's the `most minimal` possible for the given, broad, requirements.
 #
 ##
 # (c) 2019 Emanuele Ballarin <emanuele@ballarin.cc>
@@ -37,6 +40,7 @@
 # - Google protocol buffers (protobuf/protoc) == 3.6.x
 # - Google JSONnet
 # - Rigetti Forest SDK (bare-bones, added to path)
+# - Microsoft Q# infrastructure (and related dependencies)
 #
 # SOFTWARE REQUIREMENTS (optional, installed system-wide):
 # - cmdSTAN (installed and sourced)
@@ -1108,9 +1112,10 @@ echo "Done."
 echo ' '
 echo ' '
 echo ' '
-echo "You may need to reinstall Chainer and JSONnet."
-echo "Just run the following code block in the terminal:"
-#
+echo '#########################################################################'
+echo ' '
+echo 'You may need to reinstall Chainer and JSONnet.'
+echo 'Just run the following code block in the terminal:'
 echo 'source activate aistack'
 echo 'export CHAINER_BUILD_CHAINERX=1'
 echo 'export CHAINERX_BUILD_CUDA=1'
@@ -1118,14 +1123,17 @@ echo 'export MAKEFLAGS=-j8'
 echo 'pip install --upgrade --no-deps --pre --force chainer'
 echo 'pip install --upgrade --no-deps jsonnet'
 echo 'source deactivate'
-#
+echo ' '
+echo '#########################################################################'
 echo ' '
 echo ' '
+echo '#########################################################################'
 echo ' '
 echo "You may also need to install manually:"
 echo " - Dolfin (with Python bindings), part of the FEniCS suite;"
 echo " - mshr (with Python bindings), optional, part of the FEniCS suite;"
 echo " - Vowpal Wabbit Python bindings;"
 echo ' '
+echo '#########################################################################'
 echo ' '
 echo ' '
