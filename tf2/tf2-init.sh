@@ -298,12 +298,13 @@ source deactivate
 
 # Tweak to make the Python-in-CondaEnv callable from outside directly
 export SELFTF2_PRECALL_PYCALLABLE="$(pwd)"
-cd "$SELFTF2_CONDA_ENV_PATH/aistack/bin"
+cd "$SELFTF2_CONDA_ENV_PATH/tf2-aistack/bin"
 mkdir -p ./aistack-callable
 cd ./aistack-callable
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/bandfixes/python
 sed -i "s/aistack/tf2-aistack/g" ./python
 sed -i "s/X@X@X@XX@XX@XX@XX@XX@XX@XX@XX@XX@XX/$SELFTF2_CONDA_ENV_PATH\/tf2-aistack\/bin\/python/g" ./python
+chmod +x ./python
 cd "$SELFTF2_PRECALL_PYCALLABLE"
 
 # Final band-aids and fixes

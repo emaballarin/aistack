@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.6.2-001 (11/05/2019)  ###
+###  AIStack, v. 3.6.3-001 (12/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -10,7 +10,7 @@
 # and minimal(1) external (i.e. not automatically installed) dependencies.
 #
 # (1) What once was - indeed - minimal, then became larger and larger. Still,
-# it's the `most minimal` possible for the given, broad, requirements.
+# it's the `most minimal` possible for the given, very broad, requirements.
 #
 ##
 # (c) 2019 Emanuele Ballarin <emanuele@ballarin.cc>
@@ -872,7 +872,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4665/Python/h2o-3.25.0.4665-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4666/Python/h2o-3.25.0.4666-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -1016,6 +1016,19 @@ echo "# Just make it importable!" >> ./vw-estimators/__init__.py
 cp -R ./vw-estimators "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo 'Vowpal Wabbit RL estimators successfully installed!'
 
+# Amazon Meta-Learning
+echo ' '
+git clone --recursive https://github.com/amzn/metalearn-leap.git
+cd ./metalearn-leap/src
+cd ./leap
+pip install --upgrade --no-deps ./
+cd ..
+cd ./maml
+pip install --upgrade --no-deps ./
+cd ..
+cd ../
+cd ../
+
 # END BLOCK: experimental packages
 echo ' '
 
@@ -1076,6 +1089,7 @@ mkdir -p ./aistack-callable
 cd ./aistack-callable
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/bandfixes/python
 sed -i "s/X@X@X@XX@XX@XX@XX@XX@XX@XX@XX@XX@XX/$SELF_CONDA_ENV_PATH\/aistack\/bin\/python/g" ./python
+chmod +x ./python
 cd "$SELF_PRECALL_PYCALLABLE"
 
 
@@ -1132,8 +1146,14 @@ echo ' '
 echo "You may also need to install manually:"
 echo " - Dolfin (with Python bindings), part of the FEniCS suite;"
 echo " - mshr (with Python bindings), optional, part of the FEniCS suite;"
-echo " - Vowpal Wabbit Python bindings;"
+echo " - Vowpal Wabbit Python bindings."
+echo "We have already cloned the necessary repositories for you! ;-)"
 echo ' '
 echo '#########################################################################'
+echo ' '
+git clone --recursive https://bitbucket.org/fenics-project/dolfin.git
+git clone --recursive https://bitbucket.org/fenics-project/mshr.git
+git clone --recursive https://github.com/VowpalWabbit/vowpal_wabbit.git
+echo ' '
 echo ' '
 echo ' '

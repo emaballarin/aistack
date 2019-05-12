@@ -926,7 +926,6 @@ git+https://github.com/msmbuilder/vde.git
 git+https://github.com/msmbuilder/osprey.git
 git+https://github.com/rmcgibbo/logsumexp.git
 git+https://github.com/glm-tools/pyglmnet.git
-git+https://github.com/facebookresearch/SparseConvNet.git
 git+https://github.com/imageio/imageio-ffmpeg.git
 git+https://github.com/facebookresearch/habitat-api.git
 git+https://github.com/pytorch/botorch.git
@@ -1010,4 +1009,3 @@ git+https://github.com/mauriceling/copads.git
 git+https://github.com/mauriceling/dose.git
 qsharp
 git+https://github.com/XanaduAI/PennyLane-qsharp.git
-git+https://github.com/ORNL-QCI/xacc-vqe-bayesopt.git
