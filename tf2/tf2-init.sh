@@ -294,6 +294,9 @@ jupyter labextension install qgrid
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 jupyter labextension install jupyterlab_bokeh
 jupyter labextension install @pyviz/jupyterlab_pyviz
+# Twice, because the first time it likely fails (no rational reason why!)
+jupyter labextension install nbgather
+jupyter labextension install nbgather
 source deactivate
 
 # Tweak to make the Python-in-CondaEnv callable from outside directly
@@ -303,7 +306,7 @@ mkdir -p ./aistack-callable
 cd ./aistack-callable
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/bandfixes/python
 sed -i "s/aistack/tf2-aistack/g" ./python
-sed -i "s/X@X@X@XX@XX@XX@XX@XX@XX@XX@XX@XX@XX/$SELFTF2_CONDA_ENV_PATH\/tf2-aistack\/bin\/python/g" ./python
+sed -i "s/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/$SELFTF2_CONDA_ENV_PATH\/tf2-aistack\/bin\/python/g" ./python
 chmod +x ./python
 cd "$SELFTF2_PRECALL_PYCALLABLE"
 

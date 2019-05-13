@@ -1,4 +1,4 @@
 #!/bin/zsh
 source activate aistack > /dev/null 2>&1
-X@X@X@XX@XX@XX@XX@XX@XX@XX@XX@XX@XX "$@"
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "$@"
 source deactivate > /dev/null 2>&1

@@ -1009,3 +1009,4 @@ git+https://github.com/mauriceling/copads.git
 git+https://github.com/mauriceling/dose.git
 qsharp
 git+https://github.com/XanaduAI/PennyLane-qsharp.git
+git+https://github.com/microsoft/EconML.git

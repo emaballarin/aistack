@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.6.3-001 (12/05/2019)  ###
+###  AIStack, v. 3.6.4-001 (13/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -872,7 +872,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4666/Python/h2o-3.25.0.4666-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4667/Python/h2o-3.25.0.4667-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -1076,6 +1076,9 @@ jupyter labextension install @jupyterlab/git
 jupyter labextension install jupyterlab_bokeh
 jupyter labextension install qgrid
 jupyter labextension install @pyviz/jupyterlab_pyviz
+# Twice, because the first time it likely fails (no rational reason why!)
+jupyter labextension install nbgather
+jupyter labextension install nbgather
 echo "OK!"
 echo ' '
 
@@ -1088,7 +1091,7 @@ cd "$SELF_CONDA_ENV_PATH/aistack/bin"
 mkdir -p ./aistack-callable
 cd ./aistack-callable
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/bandfixes/python
-sed -i "s/X@X@X@XX@XX@XX@XX@XX@XX@XX@XX@XX@XX/$SELF_CONDA_ENV_PATH\/aistack\/bin\/python/g" ./python
+sed -i "s/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/$SELF_CONDA_ENV_PATH\/aistack\/bin\/python/g" ./python
 chmod +x ./python
 cd "$SELF_PRECALL_PYCALLABLE"
 
@@ -1146,14 +1149,12 @@ echo ' '
 echo "You may also need to install manually:"
 echo " - Dolfin (with Python bindings), part of the FEniCS suite;"
 echo " - mshr (with Python bindings), optional, part of the FEniCS suite;"
-echo " - Vowpal Wabbit Python bindings."
 echo "We have already cloned the necessary repositories for you! ;-)"
 echo ' '
 echo '#########################################################################'
 echo ' '
 git clone --recursive https://bitbucket.org/fenics-project/dolfin.git
 git clone --recursive https://bitbucket.org/fenics-project/mshr.git
-git clone --recursive https://github.com/VowpalWabbit/vowpal_wabbit.git
 echo ' '
 echo ' '
 echo ' '
