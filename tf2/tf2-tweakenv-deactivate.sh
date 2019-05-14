@@ -10,3 +10,4 @@ unset LD_PRELOAD
 # Remove now useless variables
 unset PRE_LD_LIBRARY_PATH
 unset PRE_CUDA_HOME
+unset NPY_MKL_FORCE_INTEL

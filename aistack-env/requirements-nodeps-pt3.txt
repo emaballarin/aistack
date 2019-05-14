@@ -1010,3 +1010,8 @@ git+https://github.com/mauriceling/dose.git
 qsharp
 git+https://github.com/XanaduAI/PennyLane-qsharp.git
 git+https://github.com/microsoft/EconML.git
+git+https://github.com/davidenunes/exp.git
+git+https://github.com/davidenunes/tensorx.git
+bidict
+git+https://github.com/davidenunes/deepsign.git
+git+https://bitbucket.org/vitalab/vitalabai_public.git

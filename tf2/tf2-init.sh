@@ -305,8 +305,11 @@ cd "$SELFTF2_CONDA_ENV_PATH/tf2-aistack/bin"
 mkdir -p ./aistack-callable
 cd ./aistack-callable
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/bandfixes/python
+
 sed -i "s/aistack/tf2-aistack/g" ./python
-sed -i "s/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/$SELFTF2_CONDA_ENV_PATH\/tf2-aistack\/bin\/python/g" ./python
+SED_SUBF2="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+SED_SUBT2="$SELFTF2_CONDA_ENV_PATH/tf2-aistack/bin/python"
+sed -i "s@$SED_SUBF2@$SED_SUBT2@" ./python
 chmod +x ./python
 cd "$SELFTF2_PRECALL_PYCALLABLE"
 

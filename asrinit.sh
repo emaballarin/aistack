@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.6.4-001 (13/05/2019)  ###
+###  AIStack, v. 3.6.5-001 (14/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -872,7 +872,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4667/Python/h2o-3.25.0.4667-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4668/Python/h2o-3.25.0.4668-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -1016,6 +1016,27 @@ echo "# Just make it importable!" >> ./vw-estimators/__init__.py
 cp -R ./vw-estimators "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo 'Vowpal Wabbit RL estimators successfully installed!'
 
+# Tensor2Robot (Alphabet/Google)
+echo ' '
+git clone --recursive https://github.com/google-research/tensor2robot.git
+cp -R ./tensor2robot "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo 'Alphabet tensor2robot successfully installed!'
+
+# MetaOptNet
+git clone --recursive https://github.com/kjunelee/MetaOptNet.git
+cp -R ./MetaOptNet "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo 'MetaOptNet successfully installed!'
+
+# LoveLab (dimensionality)
+echo ' '
+git clone --recursive https://github.com/lovelabUCL/dimensionality.git
+cd ./dimensionality/Python/FunctionalDimensionality
+pip install --upgrade --no-deps ./
+cd ..
+cd ..
+cd ..
+echo 'LoveLab Dimensionality successfully installed!'
+
 # Amazon Meta-Learning
 echo ' '
 git clone --recursive https://github.com/amzn/metalearn-leap.git
@@ -1023,11 +1044,14 @@ cd ./metalearn-leap/src
 cd ./leap
 pip install --upgrade --no-deps ./
 cd ..
+echo 'Amazon Leap MetaLearner successfully installed!'
+echo ' '
 cd ./maml
 pip install --upgrade --no-deps ./
 cd ..
 cd ../
 cd ../
+echo 'Amazon MAML successfully installed!'
 
 # END BLOCK: experimental packages
 echo ' '
@@ -1091,7 +1115,9 @@ cd "$SELF_CONDA_ENV_PATH/aistack/bin"
 mkdir -p ./aistack-callable
 cd ./aistack-callable
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/bandfixes/python
-sed -i "s/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/$SELF_CONDA_ENV_PATH\/aistack\/bin\/python/g" ./python
+SED_SUBF1="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+SED_SUBT1="$SELF_CONDA_ENV_PATH/aistack/bin/python"
+sed -i "s@$SED_SUBF1@$SED_SUBT1@" ./python
 chmod +x ./python
 cd "$SELF_PRECALL_PYCALLABLE"
 
@@ -1133,6 +1159,7 @@ echo '#########################################################################'
 echo ' '
 echo 'You may need to reinstall Chainer and JSONnet.'
 echo 'Just run the following code block in the terminal:'
+echo ' '
 echo 'source activate aistack'
 echo 'export CHAINER_BUILD_CHAINERX=1'
 echo 'export CHAINERX_BUILD_CUDA=1'
@@ -1150,6 +1177,17 @@ echo "You may also need to install manually:"
 echo " - Dolfin (with Python bindings), part of the FEniCS suite;"
 echo " - mshr (with Python bindings), optional, part of the FEniCS suite;"
 echo "We have already cloned the necessary repositories for you! ;-)"
+echo ' '
+echo 'Just run the following code block in the terminal, after the cloning occurs:'
+echo ' '
+echo 'source activate aistack'
+echo 'cd ./dolfin/python'
+echo 'pip install --upgrade --no-deps ./'
+echo 'cd ..'
+echo 'cd ..'
+echo 'cd ./mshr/python'
+echo 'pip install --upgrade --no-deps ./'
+echo 'source deactivate'
 echo ' '
 echo '#########################################################################'
 echo ' '
