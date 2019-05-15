@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.6.5-001 (14/05/2019)  ###
+###  AIStack, v. 3.7.0-001 (15/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -872,7 +872,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4668/Python/h2o-3.25.0.4668-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4669/Python/h2o-3.25.0.4669-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -970,7 +970,7 @@ echo 'Dyalog APL Jupyter Kernel package successfully installed!'
 
 echo ' '
 git clone --recursive https://github.com/nschaetti/Oger.git
-cp -R ./dyalog-jupyter-kernel/Oger "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+cp -R ./Oger "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo 'Oger successfully installed!'
 
 ### NEAT STUFF (still part of experimental packages) ###
@@ -1023,6 +1023,7 @@ cp -R ./tensor2robot "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/sit
 echo 'Alphabet tensor2robot successfully installed!'
 
 # MetaOptNet
+echo ' '
 git clone --recursive https://github.com/kjunelee/MetaOptNet.git
 cp -R ./MetaOptNet "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo 'MetaOptNet successfully installed!'
@@ -1052,6 +1053,42 @@ cd ..
 cd ../
 cd ../
 echo 'Amazon MAML successfully installed!'
+
+# Overwrite Microsoft project Malmo (gym env version)
+echo ' '
+git clone --recursive https://github.com/microsoft/malmo.git
+cd ./malmo/MalmoEnv/
+pip install --upgrade --no-deps ./
+cd ..
+cd ..
+echo 'MalmoEnv successfully updated!'
+
+# Lambert ELM
+echo ' '
+git clone --recursive https://github.com/dclambert/Python-ELM.git
+touch ./Python-ELM/__init__.py
+echo "# Just make it importable!" >> ./Python-ELM/__init__.py
+cp -R ./Python-ELM "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/dclambert-elm"
+echo 'Lambert^s ELM successfully installed!'
+
+# pyESN
+echo ' '
+git clone --recursive https://github.com/cknd/pyESN.git
+touch ./pyESN/__init__.py
+echo "# Just make it importable!" >> ./pyESN/__init__.py
+cp -R ./pyESN "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo 'pyESN successfully installed!'
+
+# EasyESN
+git clone --recursive https://github.com/kalekiu/easyesn.git
+pip install --upgrade --no-deps ./easyesn/src/easyesn/
+echo 'EasyESN successfully installed!'
+
+# Bee (LSN)
+echo ' '
+git clone --recursive https://github.com/ricardodeazambuja/Bee.git
+pip install --upgrade --no-deps ./Bee/BEE/
+echo 'Bee successfully installed!'
 
 # END BLOCK: experimental packages
 echo ' '
