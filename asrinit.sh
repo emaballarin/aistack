@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.7.0-001 (15/05/2019)  ###
+###  AIStack, v. 3.7.1-001 (16/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -872,7 +872,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4669/Python/h2o-3.25.0.4669-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4670/Python/h2o-3.25.0.4670-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -1079,8 +1079,8 @@ echo "# Just make it importable!" >> ./pyESN/__init__.py
 cp -R ./pyESN "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo 'pyESN successfully installed!'
 
-# EasyESN
-git clone --recursive https://github.com/kalekiu/easyesn.git
+# EasyESN - tweaked
+git clone --recursive https://github.com/emaballarin/easyesn.git
 pip install --upgrade --no-deps ./easyesn/src/easyesn/
 echo 'EasyESN successfully installed!'
 
@@ -1089,6 +1089,27 @@ echo ' '
 git clone --recursive https://github.com/ricardodeazambuja/Bee.git
 pip install --upgrade --no-deps ./Bee/BEE/
 echo 'Bee successfully installed!'
+
+echo ' '
+git clone --recursive https://github.com/filipradenovic/cnnimageretrieval-pytorch.git
+cp -R ./cnnimageretrieval-pytorch/cirtorch "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo 'CIRTorch successfully installed!'
+
+# chimera0 (manual fiddling!)
+echo ' '
+git clone --recursive https://github.com/chimera0/accel-brain-code.git
+## pygan
+cd ./Generative-Adversarial-Networks
+pip install --upgrade --no-deps ./
+cd ..
+## pyqlearning
+cd ./Reinforcement-Learning
+pip install --upgrade --no-deps ./
+cd ..
+## pydbm
+cd ./Deep-Learning-by-means-of-Design-Pattern
+pip install --upgrade --no-deps ./
+cd ..
 
 # END BLOCK: experimental packages
 echo ' '
