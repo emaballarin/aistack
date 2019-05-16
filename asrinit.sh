@@ -836,6 +836,9 @@ echo ' '
 
 # DYNET
 pip install --upgrade --no-deps git+https://github.com/clab/dynet#egg=dynet
+
+#DWave drivers
+pip install --upgrade --extra-index-url https://pypi.dwavesys.com/simple --no-deps dwave-drivers
 ################################################################################
 
 cd "$SELF_INVOKE_DIR/aistack/aistack-env/dlfiles"
@@ -859,6 +862,9 @@ source deactivate
 source $SELF_CEACT_COMMAND aistack
 
 cd "$SELF_INVOKE_DIR/aistack/aistack-env/gitpipdeps"
+
+# XACC
+pip install --upgrade --no-deps --force-reinstall xacc
 
 ## Install PIP packages that need particular install procedures
 git clone --recursive https://github.com/chobeat/hypothesis-csv.git
