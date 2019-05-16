@@ -1117,6 +1117,9 @@ cd ./Deep-Learning-by-means-of-Design-Pattern
 pip install --upgrade --no-deps ./
 cd ..
 
+# QUPa
+pip install --upgrade --no-deps --force https://try.quadrant.ai/hubfs/QuPA/qupa-0.1+tf16-py2.py3-none-linux_x86_64.whl
+
 # END BLOCK: experimental packages
 echo ' '
 
