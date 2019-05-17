@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.7.1-001 (16/05/2019)  ###
+###  AIStack, v. 3.8.1-001 (18/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -1105,19 +1105,20 @@ echo 'CIRTorch successfully installed!'
 echo ' '
 git clone --recursive https://github.com/chimera0/accel-brain-code.git
 ## pygan
-cd ./Generative-Adversarial-Networks
+cd ./accel-brain-code/Generative-Adversarial-Networks
 pip install --upgrade --no-deps ./
-cd ..
+cd ../..
 ## pyqlearning
-cd ./Reinforcement-Learning
+cd ./accel-brain-code/Reinforcement-Learning
 pip install --upgrade --no-deps ./
-cd ..
+cd ../..
 ## pydbm
-cd ./Deep-Learning-by-means-of-Design-Pattern
+cd ./accel-brain-code/Deep-Learning-by-means-of-Design-Pattern
 pip install --upgrade --no-deps ./
-cd ..
+cd ../..
 
 # QUPa
+echo ' '
 pip install --upgrade --no-deps --force https://try.quadrant.ai/hubfs/QuPA/qupa-0.1+tf16-py2.py3-none-linux_x86_64.whl
 
 # END BLOCK: experimental packages
@@ -1224,7 +1225,7 @@ echo ' '
 echo ' '
 echo '#########################################################################'
 echo ' '
-echo 'You may need to reinstall Chainer and JSONnet.'
+echo 'You may need to reinstall Chainer, Hafnian and JSONnet.'
 echo 'Just run the following code block in the terminal:'
 echo ' '
 echo 'source activate aistack'
@@ -1233,6 +1234,7 @@ echo 'export CHAINERX_BUILD_CUDA=1'
 echo 'export MAKEFLAGS=-j8'
 echo 'pip install --upgrade --no-deps --pre --force chainer'
 echo 'pip install --upgrade --no-deps jsonnet'
+echo 'pip install --upgrade --no-deps git+https://github.com/XanaduAI/hafnian.git'
 echo 'source deactivate'
 echo ' '
 echo '#########################################################################'

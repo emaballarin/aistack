@@ -733,6 +733,7 @@ git+https://github.com/JamesBrofos/Thor.git
 git+https://github.com/MFreidank/causality.git
 git+https://github.com/MFreidank/pysgmcmc@pytorch
 git+https://github.com/ajkxyz/jpeg4py.git
+crc32c
 git+https://github.com/catalyst-team/safitty.git
 git+https://github.com/catalyst-team/catalyst.git
 readme2tex
@@ -1009,7 +1010,6 @@ git+https://github.com/mauriceling/copads.git
 git+https://github.com/mauriceling/dose.git
 qsharp
 git+https://github.com/XanaduAI/PennyLane-qsharp.git
-git+https://github.com/microsoft/EconML.git
 git+https://github.com/davidenunes/exp.git
 git+https://github.com/davidenunes/tensorx.git
 bidict
@@ -1059,6 +1059,7 @@ pyNCSre
 git+https://github.com/nmi-lab/NSAT.git
 git+https://github.com/ricardodeazambuja/tinyik.git
 tensorflow-model-optimization
+sqlbag
 snips-nlu-utils
 snips-nlu-parsers
 git+https://github.com/snipsco/snips-nlu-metrics.git
@@ -1111,7 +1112,7 @@ git+https://github.com/timsainb/noisereduce.git
 git+https://github.com/dwavesystems/dimod.git
 git+https://github.com/dwavesystems/dwave_networkx.git
 git+https://github.com/dwavesystems/homebase.git
-plucky
+git+https://github.com/randomir/plucky.git
 git+https://github.com/dwavesystems/dwave-cloud-client.git
 minorminer
 git+https://github.com/dwavesystems/dwave-neal.git
@@ -1135,5 +1136,12 @@ git+https://github.com/dwavesystems/migra.git
 git+https://github.com/dwavesystems/dwave_embedding_utilities.git
 git+https://github.com/dwavesystems/schemainspect.git
 git+https://github.com/dwavesystems/dwave_micro_client_dimod.git
-git+https://github.com/dwavesystems/dwave_sapi_dimod.git
 git+https://github.com/lanl/qmasm.git
+git+https://github.com/XanaduAI/blackbird.git
+git+https://github.com/XanaduAI/pennylane.git
+git+https://github.com/XanaduAI/QMLT.git
+git+https://github.com/XanaduAI/pennylane-pq.git
+git+https://github.com/XanaduAI/pennylane-sf.git
+git+https://github.com/XanaduAI/SFOpenBoson.git
+git+https://github.com/hagberg/planarity.git
+git+https://github.com/BloodAxe/pytorch-toolbelt.git
