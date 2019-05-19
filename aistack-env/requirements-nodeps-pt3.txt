@@ -1084,7 +1084,6 @@ git+https://github.com/theislab/batchglm.git
 git+https://github.com/theislab/diffxpy.git
 git+https://github.com/Avsecz/kopt.git
 git+https://github.com/theislab/dca.git
-git+https://github.com/theislab/scvelo.git
 git+https://github.com/chanzuckerberg/idseq-cli.git
 git+https://github.com/kundajelab/tfmodisco.git
 git+https://github.com/kundajelab/abstention.git
@@ -1145,3 +1144,12 @@ git+https://github.com/XanaduAI/pennylane-sf.git
 git+https://github.com/XanaduAI/SFOpenBoson.git
 git+https://github.com/hagberg/planarity.git
 git+https://github.com/BloodAxe/pytorch-toolbelt.git
+git+https://github.com/lucianopaz/compress_pickle.git
+git+https://github.com/alvations/sacremoses.git
+sentencepiece
+git+https://github.com/rsennrich/subword-nmt.git
+git+https://github.com/eladhoffer/seq2seq.pytorch.git
+git+https://github.com/scikit-learn-contrib/DESlib.git
+git+https://github.com/scikit-learn-contrib/scikit-learn-extra.git
+git+https://github.com/scikit-learn-contrib/mimic.git
+git+https://github.com/vene/bilearn.git

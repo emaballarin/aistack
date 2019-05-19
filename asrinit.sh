@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.8.1-001 (18/05/2019)  ###
+###  AIStack, v. 3.8.2-001 (19/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -1120,6 +1120,17 @@ cd ../..
 # QUPa
 echo ' '
 pip install --upgrade --no-deps --force https://try.quadrant.ai/hubfs/QuPA/qupa-0.1+tf16-py2.py3-none-linux_x86_64.whl
+
+# vene SSA
+echo ' '
+git clone --recursive https://github.com/vene/sparse-structured-attention.git
+pip install --upgrade --no-deps ./sparse-structured-attention/pytorch/
+echo 'vene SSA successfully installed!'
+
+# Angeletti - LoAd
+git clone --recursive https://github.com/blackecho/LoAd-Network.git
+cp -R ./LoAd-Network/load_network_pytorch "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo 'LoAd successfully installed!'
 
 # END BLOCK: experimental packages
 echo ' '
