@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.8.2-001 (19/05/2019)  ###
+###  AIStack, v. 3.8.4-001 (21/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -867,7 +867,7 @@ cd "$SELF_INVOKE_DIR/aistack/aistack-env/gitpipdeps"
 pip install --upgrade --no-deps --force-reinstall xacc
 
 ## Install PIP packages that need particular install procedures
-git clone --recursive https://github.com/chobeat/hypothesis-csv.git
+git clone --recursive https://github.com/emaballarin/hypothesis-csv.git
 cd hypothesis-csv
 cp "$SELF_INVOKE_DIR/aistack/aistack-env/dlfiles/4b95ec184c55cbd9de462ea2de8b8082cd35ab5d.patch" ./
 git apply 4b95ec184c55cbd9de462ea2de8b8082cd35ab5d.patch
@@ -878,7 +878,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4670/Python/h2o-3.25.0.4670-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4676/Python/h2o-3.25.0.4676-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -1131,6 +1131,11 @@ echo 'vene SSA successfully installed!'
 git clone --recursive https://github.com/blackecho/LoAd-Network.git
 cp -R ./LoAd-Network/load_network_pytorch "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo 'LoAd successfully installed!'
+
+# Gridworld Visualizer (Chanlatte)
+git clone --recursive https://github.com/mvcisback/gridworld-visualizer.git
+pip install --upgrade --no-deps ./gridworld-visualizer/gridworld_vis/
+echo 'Chanlatte^s Gridworld Visualizer successfully installed!'
 
 # END BLOCK: experimental packages
 echo ' '
