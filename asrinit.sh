@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-###  AIStack, v. 3.8.4-001 (21/05/2019)  ###
+###  AIStack, v. 3.9.0-001 (22/05/2019)  ###
 ############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -867,8 +867,8 @@ cd "$SELF_INVOKE_DIR/aistack/aistack-env/gitpipdeps"
 pip install --upgrade --no-deps --force-reinstall xacc
 
 ## Install PIP packages that need particular install procedures
-git clone --recursive https://github.com/emaballarin/hypothesis-csv.git
-cd hypothesis-csv
+git clone --recursive https://github.com/emaballarin/hypothesis-csv-chobeat.git
+cd hypothesis-csv-chobeat
 cp "$SELF_INVOKE_DIR/aistack/aistack-env/dlfiles/4b95ec184c55cbd9de462ea2de8b8082cd35ab5d.patch" ./
 git apply 4b95ec184c55cbd9de462ea2de8b8082cd35ab5d.patch
 pip install --upgrade --no-deps .
@@ -878,7 +878,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4676/Python/h2o-3.25.0.4676-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4677/Python/h2o-3.25.0.4677-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
