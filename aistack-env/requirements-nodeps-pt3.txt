@@ -605,7 +605,6 @@ python-constraint
 google_pasta
 tensorflow_estimator
 git+https://github.com/uber/ludwig.git
-git+https://github.com/facebookresearch/enorm.git
 git+https://github.com/DeepX-inc/machina.git
 git+https://github.com/rflamary/POT.git
 git+https://github.com/dragonfly/dragonfly.git
@@ -649,7 +648,7 @@ art
 vulture
 bandit
 git+https://github.com/sepandhaghighi/pycm.git
-git+https://github.com/Nico-Curti/scorer.git
+git+https://github.com/emaballarin/scorer.git
 git+https://github.com/mvcisback/DiscreteSignals.git
 frozendict
 git+https://github.com/ingolemo/python-lenses.git
@@ -1156,7 +1155,6 @@ git+https://github.com/scikit-learn-contrib/mimic.git
 git+https://github.com/vene/bilearn.git
 dotmap
 git+https://github.com/robertocalandra/scipyplot.git
-direct
 git+https://github.com/robertocalandra/opto.git
 git+https://github.com/mvcisback/py-aiger.git
 git+https://github.com/mvcisback/py-aiger-bv.git

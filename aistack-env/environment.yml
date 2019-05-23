@@ -44,7 +44,7 @@ dependencies:
   - tensorflow-gpu=1.13
   - tensorflow-estimator=1.13
   - theano=1.0.4
-  - torchvision=0.2.2
+  - torchvision=0.3.0
   - _ipyw_jlab_nb_ext_conf
   - ad3-cpp
   - aenum
