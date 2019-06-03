@@ -878,7 +878,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps pip install https://h2o-release.s3.amazonaws.com/h2o/master/4689/Python/h2o-3.25.0.4689-py2.py3-none-any.whl
+pip install --upgrade https://h2o-release.s3.amazonaws.com/h2o/master/4689/Python/h2o-3.25.0.4689-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
