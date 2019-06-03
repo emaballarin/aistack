@@ -1,7 +1,7 @@
 #!/bin/bash
-############################################
-###  AIStack, v. 3.9.0-002 (23/05/2019)  ###
-############################################
+#############################################
+###  AIStack, v. 3.10.0-001 (03/06/2019)  ###
+#############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
 # at the broadest possible Machine Learning, Artificial Intelligence, Control
@@ -878,7 +878,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4678/Python/h2o-3.25.0.4678-py2.py3-none-any.whl
+pip install --upgrade --no-deps pip install https://h2o-release.s3.amazonaws.com/h2o/master/4689/Python/h2o-3.25.0.4689-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -891,7 +891,7 @@ cd ../
 echo ' '
 export SELF_PREV_MNBUILD="$MN_BUILD"
 export MN_BUILD=boost
-git clone --recursive https://github.com/peter-ch/MultiNEAT.git
+git clone --recursive https://github.com/nickwilliamsnewby/MultiNEAT.git
 cd MultiNEAT
 python setup.py build_ext
 python setup.py install
@@ -982,11 +982,11 @@ echo 'Oger successfully installed!'
 ### NEAT STUFF (still part of experimental packages) ###
 
 echo ' '
-git clone --recursive https://github.com/uber-research/PyTorch-NEAT.git
+git clone https://github.com/nickwilliamsnewby/PyTorch-NEAT.git --recursive --branch es-hyperneat --single-branch --depth 1
 cd ./PyTorch-NEAT
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/ead150a2f00136f6c72dee81f17b7851fa4286d9.patch
 git apply ./ead150a2f00136f6c72dee81f17b7851fa4286d9.patch
-cp -R ./pytorch_neat "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+cp -R ./pytorch_neat "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/uber_pytorch_neat"
 cd ..
 echo 'Uber`s PyTorch NEAT successfully installed!'
 
@@ -1000,6 +1000,14 @@ git clone --recursive https://github.com/flxsosa/DeepHyperNEAT.git
 rm -R -f ./DeepHyperNEAT/reports ./DeepHyperNEAT/.gitignore ./DeepHyperNEAT/.gitignore
 cp -R ./DeepHyperNEAT "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo 'DeepHyperNEAT successfully installed!'
+
+echo ' '
+
+git clone https://github.com/nickwilliamsnewby/peas.git --recursive --branch crypto_edition --single-branch --depth 1
+cd ./peas
+cp -R ./peas "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+cd ..
+echo 'Peas, new version, successfully installed!'
 
 ### ### ### ### ###
 
@@ -1086,6 +1094,7 @@ cp -R ./pyESN "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packa
 echo 'pyESN successfully installed!'
 
 # EasyESN - tweaked
+echo ' '
 git clone --recursive https://github.com/emaballarin/easyesn.git
 pip install --upgrade --no-deps ./easyesn/src/easyesn/
 echo 'EasyESN successfully installed!'
@@ -1105,14 +1114,17 @@ echo 'CIRTorch successfully installed!'
 echo ' '
 git clone --recursive https://github.com/chimera0/accel-brain-code.git
 ## pygan
+echo ' '
 cd ./accel-brain-code/Generative-Adversarial-Networks
 pip install --upgrade --no-deps ./
 cd ../..
 ## pyqlearning
+echo ' '
 cd ./accel-brain-code/Reinforcement-Learning
 pip install --upgrade --no-deps ./
 cd ../..
 ## pydbm
+echo ' '
 cd ./accel-brain-code/Deep-Learning-by-means-of-Design-Pattern
 pip install --upgrade --no-deps ./
 cd ../..
@@ -1128,14 +1140,35 @@ pip install --upgrade --no-deps ./sparse-structured-attention/pytorch/
 echo 'vene SSA successfully installed!'
 
 # Angeletti - LoAd
+echo ' '
 git clone --recursive https://github.com/blackecho/LoAd-Network.git
 cp -R ./LoAd-Network/load_network_pytorch "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo 'LoAd successfully installed!'
 
 # Gridworld Visualizer (Chanlatte)
+echo ' '
 git clone --recursive https://github.com/mvcisback/gridworld-visualizer.git
 pip install --upgrade --no-deps ./gridworld-visualizer/gridworld_vis/
 echo 'Chanlatte^s Gridworld Visualizer successfully installed!'
+
+# Unity ML-Agents
+echo ' '
+git clone https://github.com/Unity-Technologies/ml-agents.git --recursive --branch master --single-branch --depth 1
+cd ./ml-agents
+echo ' '
+cd ./ml-agents-envs
+pip install --upgrade --no-deps ./
+cd ..
+echo ' '
+cd ./ml-agents
+pip install --upgrade --no-deps ./
+cd ..
+echo ' '
+cd ./gym-unity
+pip install --upgrade --no-deps ./
+cd ..
+cd ..
+echo 'Unity ML Agents successfully installed (3 packages)!'
 
 # END BLOCK: experimental packages
 echo ' '
