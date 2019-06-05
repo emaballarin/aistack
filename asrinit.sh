@@ -1,6 +1,6 @@
 #!/bin/bash
 #############################################
-###  AIStack, v. 3.10.0-001 (03/06/2019)  ###
+###  AIStack, v. 3.10.1-001 (05/06/2019)  ###
 #############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -865,6 +865,7 @@ cd "$SELF_INVOKE_DIR/aistack/aistack-env/gitpipdeps"
 
 # XACC
 pip install --upgrade --no-deps --force-reinstall xacc
+pip install --upgrade --no-deps --force-reinstall git+https://github.com/ORNL-QCI/xacc-vqe.git
 
 ## Install PIP packages that need particular install procedures
 git clone --recursive https://github.com/emaballarin/hypothesis-csv-chobeat.git
@@ -878,7 +879,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade https://h2o-release.s3.amazonaws.com/h2o/master/4689/Python/h2o-3.25.0.4689-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4691/Python/h2o-3.25.0.4691-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -891,7 +892,7 @@ cd ../
 echo ' '
 export SELF_PREV_MNBUILD="$MN_BUILD"
 export MN_BUILD=boost
-git clone --recursive https://github.com/nickwilliamsnewby/MultiNEAT.git
+git clone --recursive https://github.com/peter-ch/MultiNEAT.git
 cd MultiNEAT
 python setup.py build_ext
 python setup.py install
@@ -984,8 +985,8 @@ echo 'Oger successfully installed!'
 echo ' '
 git clone https://github.com/nickwilliamsnewby/PyTorch-NEAT.git --recursive --branch es-hyperneat --single-branch --depth 1
 cd ./PyTorch-NEAT
-wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/ead150a2f00136f6c72dee81f17b7851fa4286d9.patch
-git apply ./ead150a2f00136f6c72dee81f17b7851fa4286d9.patch
+wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://ballarin.cc/aistack/aistack-env/008d4d7a694c75a4633e27c657d3cc2aaabcae88.patch
+git apply ./008d4d7a694c75a4633e27c657d3cc2aaabcae88.patch
 cp -R ./pytorch_neat "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/uber_pytorch_neat"
 cd ..
 echo 'Uber`s PyTorch NEAT successfully installed!'
@@ -1169,6 +1170,14 @@ pip install --upgrade --no-deps ./
 cd ..
 cd ..
 echo 'Unity ML Agents successfully installed (3 packages)!'
+
+# Ganguli's Complex Synapse module
+git clone https://github.com/ganguli-lab/Complex_Synapse.git --recursive --branch master --single-branch --depth 1
+cp -R ./Complex_Synapse/Code/Python/complex_synapse "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+
+# Python Tricks Repository
+git clone https://github.com/subhylahiri/sl_py_tools.git --recursive --branch master --single-branch --depth 1
+cp -R ./sl_py_tools "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 
 # END BLOCK: experimental packages
 echo ' '

@@ -1,0 +1,22 @@
+From 008d4d7a694c75a4633e27c657d3cc2aaabcae88 Mon Sep 17 00:00:00 2001
+From: Emanuele Ballarin <emanuele@ballarin.cc>
+Date: Mon, 3 Jun 2019 17:04:40 +0200
+Subject: [PATCH] Fix for PyTorch >= 1.0
+
+---
+ pytorch_neat/recurrent_net.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pytorch_neat/recurrent_net.py b/pytorch_neat/recurrent_net.py
+index 1ff104a..b1acae4 100644
+--- a/pytorch_neat/recurrent_net.py
++++ b/pytorch_neat/recurrent_net.py
+@@ -33,7 +33,7 @@ def dense_from_coo(shape, conns, dtype=torch.float64):
+     idxs, weights = conns
+     if len(idxs) == 0:
+         return mat
+-    rows, cols = np.array(idxs).transpose()
++    rows, cols = np.array(idxs, dtype=np.int64).transpose()
+     mat[torch.LongTensor(rows), torch.LongTensor(cols)] = torch.tensor(
+         weights, dtype=dtype)
+     return mat
