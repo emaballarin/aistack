@@ -472,7 +472,7 @@ git+https://github.com/svenkreiss/databench.git
 git+https://github.com/svenkreiss/pysparkling.git
 git+https://github.com/svenkreiss/socialforce.git
 git+https://github.com/isadoranun/FATS.git
-https://storage.googleapis.com/jax-wheels/cuda100/jaxlib-0.1.16-cp36-none-linux_x86_64.whl
+https://storage.googleapis.com/jax-wheels/cuda100/jaxlib-latest-cp36-none-linux_x86_64.whl
 git+https://github.com/google/jax.git
 git+https://github.com/EpiSci/SafeAI.git
 python-cli-ui
@@ -928,6 +928,7 @@ git+https://github.com/msmbuilder/osprey.git
 git+https://github.com/rmcgibbo/logsumexp.git
 git+https://github.com/glm-tools/pyglmnet.git
 git+https://github.com/imageio/imageio-ffmpeg.git
+git+https://github.com/facebookresearch/habitat-sim.git
 git+https://github.com/facebookresearch/habitat-api.git
 git+https://github.com/pytorch/botorch.git
 git+https://github.com/facebook/Ax.git
@@ -1330,3 +1331,18 @@ git+https://github.com/lmcintosh/conv-batchnorm.git
 git+https://github.com/lmcintosh/surround-size.git
 git+https://github.com/nirum/jetpack.git
 git+https://github.com/subhylahiri/numpy_linalg_extras.git
+git+https://github.com/google/TensorNetwork.git
+anyconfig
+python-json-logger
+memory_profiler
+azure-storage-file
+azure-storage-queue
+kedro
+git+https://github.com/quantumblacklabs/qbstyles.git
+pyviz_comms
+git+https://github.com/pyviz/panel.git
+https://github.com/ctallec/analog.git
+git+https://github.com/kaushaltrivedi/fast-bert.git
+git+https://github.com/edouardoyallon/pyscatlight.git
+git+https://github.com/facebookresearch/EGG.git
+git+https://github.com/google-research/football.git

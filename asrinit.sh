@@ -1,6 +1,6 @@
 #!/bin/bash
 #############################################
-###  AIStack, v. 3.10.1-001 (05/06/2019)  ###
+###  AIStack, v. 3.11.1-001 (07/06/2019)  ###
 #############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -879,7 +879,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4691/Python/h2o-3.25.0.4691-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4693/Python/h2o-3.25.0.4693-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git
@@ -1178,6 +1178,10 @@ cp -R ./Complex_Synapse/Code/Python/complex_synapse "$SELF_CONDA_ENV_PATH/aistac
 # Python Tricks Repository
 git clone https://github.com/subhylahiri/sl_py_tools.git --recursive --branch master --single-branch --depth 1
 cp -R ./sl_py_tools "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+
+# Invertible ResNet (Duvenaud)
+git clone https://github.com/jhjacobsen/invertible-resnet.git --recursive --branch master --single-branch --depth 1
+cp -R ./invertible-resnet "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 
 # END BLOCK: experimental packages
 echo ' '
