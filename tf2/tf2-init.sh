@@ -244,7 +244,6 @@ source deactivate
 cd "$SELFTF2_BASEDIR"
 echo ' '
 source $SELFTF2_CEACT_COMMAND tf2-aistack
-#pip install --upgrade --no-deps https://github.com/inoryy/tensorflow-optimized-wheels/releases/download/v2.0.0a0/tensorflow-2.0.0a0-cp37-cp37m-linux_x86_64.whl
 pip install --upgrade --no-deps tf-nightly-gpu-2.0-preview
 pip install --upgrade --no-deps tensorflow-estimator-2.0-preview
 pip install --upgrade --no-deps git+https://github.com/keras-team/keras-applications.git

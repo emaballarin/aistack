@@ -1,6 +1,6 @@
 #!/bin/bash
 #############################################
-###  AIStack, v. 3.11.1-001 (07/06/2019)  ###
+###  AIStack, v. 3.11.2-001 (08/06/2019)  ###
 #############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -97,7 +97,7 @@ export SELF_TCMALLOC_INJECT="1"                             # 1 -> Preload TCMal
 export SELF_SCHIZOCUDA_MODE="1"                             # 1 -> Enable the hybrid CUDA 10.1 / CUDA 10.0 / CUDA 9.2 / CUDA 9.0 mode (i.e. Pytorch on CUDA 10.1 and TensorFlow on CUDA 9.2)
 export SELF_DO_INJECT_LIBTORCH="1"                          # 1 -> Enable forceful injection of Pytorch C/C++ libraries system-wide
 export SELF_APPLY_CUDA_BANDAID="1"                          # 1 -> A dirty hack if system-CUDA is not 10.0.x (if in doubt, set to 0 BUT must have CUDA 10.0.x installed system-wide!)
-export SELF_INSTALL_TF2_ENV="1"                             # 1 -> Create a new Conda environment containing a working TensorFlow 2.0 Alpha release and tooling
+export SELF_INSTALL_TF2_ENV="1"                             # 1 -> Create a new Conda environment containing a working TensorFlow 2.0 release and tooling
 export SELF_PYTORCH_NIGHTLIFY="0"                           # 1 -> Use PyTorch nightly; 0 -> Use PyTorch stable (recommended!).
 
 # Configuration for CVXOPT
@@ -692,7 +692,7 @@ cd ../
 echo ' '
 
 # BoostGDB
-pip install --force --upgrade --no-deps --no-binary :all: lightgbm --install-option=--mpi --install-option=--gpu
+pip install --force --upgrade --no-deps --no-binary :all: lightgbm --install-option=--mpi --install-option=--gpu --install-option=--hdfs
 echo ' '
 
 # CudaMAT
@@ -1182,6 +1182,10 @@ cp -R ./sl_py_tools "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site
 # Invertible ResNet (Duvenaud)
 git clone https://github.com/jhjacobsen/invertible-resnet.git --recursive --branch master --single-branch --depth 1
 cp -R ./invertible-resnet "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+
+# Raccoon (MILA)
+git clone https://github.com/adbrebs/raccoon.git --recursive --branch master --single-branch --depth 1
+cp -R ./raccoon/raccoon "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 
 # END BLOCK: experimental packages
 echo ' '

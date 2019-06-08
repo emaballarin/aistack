@@ -12,7 +12,7 @@ PyMetis
 cpplint
 parsable
 git+https://github.com/posterior/goftests.git
-opt-einsum
+git+https://github.com/dgasmith/opt_einsum.git
 git+https://github.com/posterior/treecat.git
 pygogo
 meza

@@ -18,7 +18,7 @@ git+https://github.com/pytorch/audio.git
 git+https://github.com/pytorch/text.git
 git+https://github.com/pytorch/tnt.git
 git+https://github.com/pytorch/ignite.git
-git+https://github.com/uber/pyro.git
+git+https://github.com/pyro-ppl/pyro.git
 git+https://github.com/probtorch/probtorch.git
 git+https://github.com/mpi4py/mpi4py.git
 git+https://github.com/skorch-dev/skorch.git
