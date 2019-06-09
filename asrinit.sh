@@ -1,6 +1,6 @@
 #!/bin/bash
 #############################################
-###  AIStack, v. 3.11.2-001 (08/06/2019)  ###
+###  AIStack, v. 3.11.4-001 (09/06/2019)  ###
 #############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -1174,18 +1174,22 @@ echo 'Unity ML Agents successfully installed (3 packages)!'
 # Ganguli's Complex Synapse module
 git clone https://github.com/ganguli-lab/Complex_Synapse.git --recursive --branch master --single-branch --depth 1
 cp -R ./Complex_Synapse/Code/Python/complex_synapse "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo "Ganguli's Complex Synapse successfully installed!"
 
 # Python Tricks Repository
 git clone https://github.com/subhylahiri/sl_py_tools.git --recursive --branch master --single-branch --depth 1
 cp -R ./sl_py_tools "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo "SL PyTools successfully installed!"
 
 # Invertible ResNet (Duvenaud)
 git clone https://github.com/jhjacobsen/invertible-resnet.git --recursive --branch master --single-branch --depth 1
 cp -R ./invertible-resnet "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo "Invertible ResNet successfully installed!"
 
 # Raccoon (MILA)
 git clone https://github.com/adbrebs/raccoon.git --recursive --branch master --single-branch --depth 1
 cp -R ./raccoon/raccoon "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo "Raccoon successfully installed!"
 
 # END BLOCK: experimental packages
 echo ' '
