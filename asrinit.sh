@@ -1,6 +1,6 @@
 #!/bin/bash
 #############################################
-###  AIStack, v. 3.11.4-001 (09/06/2019)  ###
+###  AIStack, v. 3.11.4-002 (10/06/2019)  ###
 #############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -1191,6 +1191,12 @@ git clone https://github.com/adbrebs/raccoon.git --recursive --branch master --s
 cp -R ./raccoon/raccoon "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo "Raccoon successfully installed!"
 
+# DeepMind Hanabi LE
+git clone https://github.com/deepmind/hanabi-learning-environment.git --recursive --branch master --single-branch --depth 1
+cp -R ./hanabi-learning-environment "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo "DeepMind Hanabi Learning Environment successfully installed"
+
+
 # END BLOCK: experimental packages
 echo ' '
 
@@ -1332,6 +1338,18 @@ echo '#########################################################################'
 echo ' '
 git clone --recursive https://bitbucket.org/fenics-project/dolfin.git
 git clone --recursive https://bitbucket.org/fenics-project/mshr.git
+echo ' '
+echo ' '
+echo '#########################################################################'
+echo ' '
+echo 'Please, note that any error in the form of:'
+echo ' '
+echo 'ERROR: You must give at least one requirement to install (see "pip help install")'
+echo ' '
+echo 'IS EXPECTED AND HAS NOT TO BE FIXED. It is just the reaction of the pip-install'
+echo 'to commented package names in the package lists.'
+echo ' '
+echo '#########################################################################'
 echo ' '
 echo ' '
 echo ' '

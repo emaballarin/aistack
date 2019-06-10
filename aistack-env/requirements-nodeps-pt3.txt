@@ -916,7 +916,6 @@ git+https://github.com/bayespy/bayespy.git
 ruptures
 git+https://github.com/tomMoral/loky.git
 git+https://github.com/tomMoral/dicodile.git
-git+https://github.com/emaballarin/adopty.git
 git+https://github.com/alphacsc/alphacsc.git
 git+https://github.com/jasmainak/pydemons.git
 mpldatacursor
@@ -1006,7 +1005,7 @@ git+https://github.com/duckietown/gym-duckietown.git
 git+https://github.com/duckietown/gym-duckietown-agent.git
 git+https://github.com/rizar/prototypical-networks.git
 git+https://github.com/fpom/snakes.git
-git+https://github.com/mauriceling/copads.git
+#git+https://github.com/mauriceling/copads.git
 git+https://github.com/mauriceling/dose.git
 qsharp
 git+https://github.com/XanaduAI/PennyLane-qsharp.git
@@ -1231,7 +1230,7 @@ git+https://github.com/wkentaro/pytorch-fcn.git
 git+https://github.com/sigopt/sigopt-python.git
 git+https://github.com/sigopt/sigopt-sklearn.git
 git+https://github.com/sfalkner/pySMAC.git
-SALib
+#SALib
 flask-compress
 dash-renderer
 dash-core-components
@@ -1313,16 +1312,16 @@ autodora
 deprecated
 pywmi
 git+https://github.com/ML-KULeuven/incal.git
-git+https://github.com/ML-KULeuven/PyDC.git
+#git+https://github.com/ML-KULeuven/PyDC.git
 git+https://github.com/ariovistus/pyd.git
-git+https://github.com/ML-KULeuven/psipy.git
+#git+https://github.com/ML-KULeuven/psipy.git
 dtaidistance
 kshape
 datashader
 git+https://github.com/ML-KULeuven/cobras.git
 git+https://github.com/davidvi/pypanda.git
 git+https://github.com/tmoerman/arboreto.git
-git+https://github.com/emaballarin/robustness_lib.git
+#git+https://github.com/emaballarin/robustness_lib.git
 git+https://github.com/robust-ml/robustml.git
 git+https://github.com/ganguli-lab/proxalgs.git
 git+https://github.com/ganguli-lab/twpca.git
@@ -1343,7 +1342,7 @@ git+https://github.com/ctallec/analog.git
 git+https://github.com/kaushaltrivedi/fast-bert.git
 git+https://github.com/edouardoyallon/pyscatlight.git
 git+https://github.com/facebookresearch/EGG.git
-git+https://github.com/google-research/football.git
+#git+https://github.com/google-research/football.git
 git+https://github.com/IBM/mi-prometheus.git
 git+https://github.com/IBM/pytorchpipe.git
 git+https://github.com/IBM/causallib.git
@@ -1383,10 +1382,10 @@ orthopy
 pipdate
 quadpy
 git+https://github.com/qTipTip/PSFEM.git
-git+https://github.com/MPI-IS/mesh.git
+#git+https://github.com/MPI-IS/mesh.git
 git+https://github.com/nghorbani/configer.git
 git+https://github.com/mattloper/opendr.git
-git+https://github.com/MPI-IS/meshlite.git
+#git+https://github.com/MPI-IS/meshlite.git
 git+https://github.com/lballes/msvag.git
 matplotlib2tikz
 git+https://github.com/fsschneider/DeepOBS.git
@@ -1397,3 +1396,5 @@ git+https://github.com/danijar/layered.git
 git+https://github.com/danijar/definitions.git
 git+https://github.com/rshkv/loadig.git
 git+https://github.com/danijar/conny.git
+git+https://github.com/fastai/fastforest.git
+git+https://github.com/mfduarte/scikit-feature.git
