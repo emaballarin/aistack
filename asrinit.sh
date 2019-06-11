@@ -1,6 +1,6 @@
 #!/bin/bash
 #############################################
-###  AIStack, v. 3.11.5-001 (11/06/2019)  ###
+###  AIStack, v. 3.11.5-002 (11/06/2019)  ###
 #############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -894,6 +894,8 @@ export SELF_PREV_MNBUILD="$MN_BUILD"
 export MN_BUILD=boost
 git clone --recursive https://github.com/peter-ch/MultiNEAT.git
 cd MultiNEAT
+# Boost compatibility (below)
+git checkout 0c3e21f
 python setup.py build_ext
 python setup.py install
 pip install --upgrade --no-deps .
@@ -1172,29 +1174,44 @@ cd ..
 echo 'Unity ML Agents successfully installed (3 packages)!'
 
 # Ganguli's Complex Synapse module
+echo ' '
 git clone https://github.com/ganguli-lab/Complex_Synapse.git --recursive --branch master --single-branch --depth 1
 cp -R ./Complex_Synapse/Code/Python/complex_synapse "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo "Ganguli's Complex Synapse successfully installed!"
 
 # Python Tricks Repository
+echo ' '
 git clone https://github.com/subhylahiri/sl_py_tools.git --recursive --branch master --single-branch --depth 1
 cp -R ./sl_py_tools "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo "SL PyTools successfully installed!"
 
 # Invertible ResNet (Duvenaud)
+echo ' '
 git clone https://github.com/jhjacobsen/invertible-resnet.git --recursive --branch master --single-branch --depth 1
 cp -R ./invertible-resnet "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo "Invertible ResNet successfully installed!"
 
 # Raccoon (MILA)
+echo ' '
 git clone https://github.com/adbrebs/raccoon.git --recursive --branch master --single-branch --depth 1
 cp -R ./raccoon/raccoon "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo "Raccoon successfully installed!"
 
 # DeepMind Hanabi LE
+echo ' '
 git clone https://github.com/deepmind/hanabi-learning-environment.git --recursive --branch master --single-branch --depth 1
 cp -R ./hanabi-learning-environment "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo "DeepMind Hanabi Learning Environment successfully installed"
+
+echo ' '
+git clone https://github.com/eth-sri/diffai.git --recursive --branch master --single-branch --depth 1
+cp -R ./diffai "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo "DiffAI successfully installed"
+
+echo ' '
+git clone https://github.com/eth-sri/dp-finder.git --recursive --branch master --single-branch --depth 1
+cp -R ./dp-finder/dpfinder "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo "DPFinder successfully installed"
 
 # Final, stupid fixup
 mv "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/skcuda/cublas.py" "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/skcuda/cublas.py.old"

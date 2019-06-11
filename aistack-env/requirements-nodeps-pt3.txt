@@ -1398,3 +1398,4 @@ git+https://github.com/rshkv/loadig.git
 git+https://github.com/danijar/conny.git
 git+https://github.com/fastai/fastforest.git
 git+https://github.com/mfduarte/scikit-feature.git
+git+https://github.com/clarete/forbiddenfruit.git
