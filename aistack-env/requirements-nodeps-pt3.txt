@@ -1384,7 +1384,7 @@ quadpy
 git+https://github.com/qTipTip/PSFEM.git
 #git+https://github.com/MPI-IS/mesh.git
 git+https://github.com/nghorbani/configer.git
-git+https://github.com/mattloper/opendr.git
+#git+https://github.com/mattloper/opendr.git
 #git+https://github.com/MPI-IS/meshlite.git
 git+https://github.com/lballes/msvag.git
 matplotlib2tikz

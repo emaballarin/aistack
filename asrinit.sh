@@ -1,6 +1,6 @@
 #!/bin/bash
 #############################################
-###  AIStack, v. 3.11.4-002 (10/06/2019)  ###
+###  AIStack, v. 3.11.5-001 (11/06/2019)  ###
 #############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -865,7 +865,7 @@ cd "$SELF_INVOKE_DIR/aistack/aistack-env/gitpipdeps"
 
 # XACC
 pip install --upgrade --no-deps --force-reinstall xacc
-pip install --upgrade --no-deps --force-reinstall git+https://github.com/ORNL-QCI/xacc-vqe.git
+#pip install --upgrade --no-deps --force-reinstall git+https://github.com/ORNL-QCI/xacc-vqe.git
 
 ## Install PIP packages that need particular install procedures
 git clone --recursive https://github.com/emaballarin/hypothesis-csv-chobeat.git
@@ -1196,6 +1196,9 @@ git clone https://github.com/deepmind/hanabi-learning-environment.git --recursiv
 cp -R ./hanabi-learning-environment "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo "DeepMind Hanabi Learning Environment successfully installed"
 
+# Final, stupid fixup
+mv "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/skcuda/cublas.py" "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/skcuda/cublas.py.old"
+
 
 # END BLOCK: experimental packages
 echo ' '
@@ -1337,7 +1340,13 @@ echo ' '
 echo '#########################################################################'
 echo ' '
 git clone --recursive https://bitbucket.org/fenics-project/dolfin.git
+cd ./dolfin
+git checkout 2019.1.0.post0
+cd ..
 git clone --recursive https://bitbucket.org/fenics-project/mshr.git
+cd ./mshr
+git checkout 2019.1.0
+cd ..
 echo ' '
 echo ' '
 echo '#########################################################################'
@@ -1345,6 +1354,7 @@ echo ' '
 echo 'Please, note that any error in the form of:'
 echo ' '
 echo 'ERROR: You must give at least one requirement to install (see "pip help install")'
+echo 'or similar'
 echo ' '
 echo 'IS EXPECTED AND HAS NOT TO BE FIXED. It is just the reaction of the pip-install'
 echo 'to commented package names in the package lists.'
