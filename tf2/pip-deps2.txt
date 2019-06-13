@@ -31,3 +31,4 @@ git+https://github.com/keras-team/keras-contrib.git
 git+https://github.com/tensorflow/graphics.git
 GPUtil
 git+https://github.com/davidenunes/exp.git
+tensorflow-text
