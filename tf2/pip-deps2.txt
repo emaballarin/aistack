@@ -32,3 +32,10 @@ git+https://github.com/tensorflow/graphics.git
 GPUtil
 git+https://github.com/davidenunes/exp.git
 tensorflow-text
+text-unidecode
+python-slugify
+kaggle
+googleapis-common-protos
+tensorflow-metadata
+tensorflow-datasets
+git+https://github.com/OATML/bdl-benchmarks.git

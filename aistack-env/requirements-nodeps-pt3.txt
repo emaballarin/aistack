@@ -1342,7 +1342,7 @@ git+https://github.com/ctallec/analog.git
 git+https://github.com/kaushaltrivedi/fast-bert.git
 git+https://github.com/edouardoyallon/pyscatlight.git
 git+https://github.com/facebookresearch/EGG.git
-#git+https://github.com/google-research/football.git
+git+https://github.com/google-research/football.git
 git+https://github.com/IBM/mi-prometheus.git
 git+https://github.com/IBM/pytorchpipe.git
 git+https://github.com/IBM/causallib.git
@@ -1399,3 +1399,9 @@ git+https://github.com/danijar/conny.git
 git+https://github.com/fastai/fastforest.git
 git+https://github.com/mfduarte/scikit-feature.git
 git+https://github.com/clarete/forbiddenfruit.git
+git+https://github.com/sisl/hgail.git
+py-dateutil
+git+https://github.com/sisl/mechamodlearn.git
+git+https://github.com/jrosebr1/imutils.git
+pypng
+git+https://github.com/grrrr/nsgt.git
