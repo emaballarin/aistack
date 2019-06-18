@@ -3,7 +3,7 @@ git+https://github.com/szagoruyko/pytorchviz.git
 git+https://github.com/GRAAL-Research/pytoune.git
 git+https://github.com/Hananel-Hazan/bindsnet.git
 git+https://github.com/rusty1s/pytorch_scatter.git
-git+https://github.com/rusty1s/pytorch_cluster.git@@f7e9e8fdbdcf60ba9eb6cea17266d3549beea86d
+git+https://github.com/rusty1s/pytorch_cluster.git@f7e9e8fdbdcf60ba9eb6cea17266d3549beea86d
 git+https://github.com/rusty1s/pytorch_spline_conv.git
 git+https://github.com/rusty1s/pytorch_bincount.git
 git+https://github.com/rusty1s/pytorch_sparse.git

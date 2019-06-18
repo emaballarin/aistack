@@ -1,6 +1,6 @@
 #!/bin/bash
 #############################################
-###  AIStack, v. 3.11.6-002 (18/06/2019)  ###
+###  AIStack, v. 3.11.7-001 (19/06/2019)  ###
 #############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -1213,9 +1213,16 @@ git clone https://github.com/eth-sri/dp-finder.git --recursive --branch master -
 cp -R ./dp-finder/dpfinder "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 echo "DPFinder successfully installed"
 
-# Final, stupid fixup
-mv "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/skcuda/cublas.py" "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/skcuda/cublas.py.old"
+# Forge (Kosiorek)
+echo ' '
+git clone https://github.com/akosiorek/forge.git --recursive --branch master --single-branch --depth 1
+cp -R ./forge/forge "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 
+# Final, stupid fixup(s)
+echo ' '
+mv "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/skcuda/cublas.py" "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/skcuda/cublas.py.old"
+pip install --upgrade --no-deps --force --force-reinstall python-dateutil
+pip install --upgrade --no-deps git+https://github.com/gbolmier/funk-svd.git
 
 # END BLOCK: experimental packages
 echo ' '

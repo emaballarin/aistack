@@ -1405,3 +1405,11 @@ git+https://github.com/sisl/mechamodlearn.git
 git+https://github.com/jrosebr1/imutils.git
 pypng
 git+https://github.com/grrrr/nsgt.git
+git+https://github.com/creme-ml/creme.git
+git+https://github.com/koaning/scikit-lego.git
+fbpca
+git+https://github.com/MaxHalford/prince.git
+git+https://github.com/MaxHalford/xam.git
+git+https://github.com/MaxHalford/starboost.git
+git+https://github.com/koaning/brent.git
+git+https://github.com/koaning/kadro.git
