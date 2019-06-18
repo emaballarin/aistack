@@ -1342,7 +1342,7 @@ git+https://github.com/ctallec/analog.git
 git+https://github.com/kaushaltrivedi/fast-bert.git
 git+https://github.com/edouardoyallon/pyscatlight.git
 git+https://github.com/facebookresearch/EGG.git
-git+https://github.com/google-research/football.git
+#git+https://github.com/google-research/football.git
 git+https://github.com/IBM/mi-prometheus.git
 git+https://github.com/IBM/pytorchpipe.git
 git+https://github.com/IBM/causallib.git
