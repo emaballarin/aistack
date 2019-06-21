@@ -1,6 +1,6 @@
 #!/bin/bash
 #############################################
-###  AIStack, v. 3.11.7-001 (19/06/2019)  ###
+###  AIStack, v. 3.11.8-001 (21/06/2019)  ###
 #############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -191,11 +191,13 @@ rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/ccmake"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gcc"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-7"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-8"
+rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-9"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gcc"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cc"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/g++"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/g++-7"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/g++-8"
+rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/g++-9"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-g++"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-c++"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/cpp"
@@ -203,6 +205,7 @@ rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cpp"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-7"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-8"
+rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-9"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-f95"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gfortran"
 rm -f "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-fortran"
@@ -255,11 +258,13 @@ rm -f "$SELF_CONDA_ENV_PATH/aistack/compiler_compat/ld"
 ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc"
 ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-7"
 ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-8"
+ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gcc-9"
 ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gcc"
 ln -s "$(which gcc-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-cc"
 ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++"
 ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++-7"
 ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++-8"
+ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/g++-9"
 ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-g++"
 ln -s "$(which g++-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-c++"
 ln -s "$(which cpp)" "$SELF_CONDA_ENV_PATH/aistack/bin/cpp"
@@ -267,6 +272,7 @@ ln -s "$(which cpp)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-g
 ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran"
 ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-7"
 ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-8"
+ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/gfortran-9"
 ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-f95"
 ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-gfortran"
 ln -s "$(which gfortran-7)" "$SELF_CONDA_ENV_PATH/aistack/bin/x86_64-conda_cos6-linux-gnu-fortran"
@@ -879,7 +885,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4705/Python/h2o-3.25.0.4705-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4708/Python/h2o-3.25.0.4708-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git

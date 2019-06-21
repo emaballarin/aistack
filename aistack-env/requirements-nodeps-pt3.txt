@@ -1413,3 +1413,9 @@ git+https://github.com/MaxHalford/xam.git
 git+https://github.com/MaxHalford/starboost.git
 git+https://github.com/koaning/brent.git
 git+https://github.com/koaning/kadro.git
+pathlib
+pathlib2
+cprint
+art
+etaprogress
+git+https://github.com/keras-team/keras-tuner.git
