@@ -1,6 +1,6 @@
 #!/bin/bash
 #############################################
-###  AIStack, v. 3.11.9-001 (26/06/2019)  ###
+###  AIStack, v. 3.11.9-002 (26/06/2019)  ###
 #############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -174,7 +174,7 @@ ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/libjasper.so" "$SELF_CONDA_ENV_PATH/aist
 source $SELF_CEACT_COMMAND aistack
 echo ' '
 conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi jpeg libtiff --force
-conda install -y boost-cpp==1.67 util-linux libgcc urllib3 libtool libjpeg-turbo --force --no-deps
+conda install -y boost-cpp==1.67 libgcc urllib3 libtool libjpeg-turbo --force --no-deps
 # NOTE: PyDAAL is deprecated. Putting it here as a band-aid.
 conda install -y pydaal --force --no-deps
 source deactivate

@@ -579,7 +579,6 @@ dependencies:
   - unixodbc
   - urllib3
   - urwid
-  - util-linux
   - validate_email
   - vcrpy
   - vine
