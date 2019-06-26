@@ -472,7 +472,7 @@ git+https://github.com/svenkreiss/databench.git
 git+https://github.com/svenkreiss/pysparkling.git
 git+https://github.com/svenkreiss/socialforce.git
 git+https://github.com/isadoranun/FATS.git
-https://storage.googleapis.com/jax-wheels/cuda100/jaxlib-0.1.18-cp36-none-linux_x86_64.whl
+https://storage.googleapis.com/jax-wheels/cuda100/jaxlib-0.1.21-cp36-none-linux_x86_64.whl
 git+https://github.com/google/jax.git
 git+https://github.com/EpiSci/SafeAI.git
 python-cli-ui
@@ -1419,3 +1419,5 @@ cprint
 art
 etaprogress
 git+https://github.com/keras-team/keras-tuner.git
+git+https://github.com/cybertronai/pytorch-lamb.git
+git+https://github.com/cybertronai/pytorch-fd.git
