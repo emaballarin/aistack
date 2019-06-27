@@ -1,6 +1,6 @@
 #!/bin/bash
 #############################################
-###  AIStack, v. 3.11.9-005 (26/06/2019)  ###
+###  AIStack, v. 3.11.9-006 (27/06/2019)  ###
 #############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -24,7 +24,7 @@
 # SOFTWARE REQUIREMENTS (mandatory, installed system-wide):
 # - Relatively recent Linux operating system (with glibc >= 2.17);
 # - Bash >= 4.0
-# - Anaconda Python Distribution >= 4.6 (or equivalent, i.e. miniconda)
+# - Anaconda Python Distribution 4.6 (or equivalent, i.e. miniconda), NOT higher.
 # - NVidia Graphics proprietary drivers >= 418 series
 # - NVidia CUDA 10.1 (10.0/9.2 work too, but they are unsupported)
 # - GNU Binutils >= 2.30 (EXCLUDED 2.31.0, but OK if >= 2.31.1)
@@ -174,7 +174,7 @@ ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/libjasper.so" "$SELF_CONDA_ENV_PATH/aist
 source $SELF_CEACT_COMMAND aistack
 echo ' '
 conda remove -y cmake curl krb5 binutils_impl_linux-64 binutils_linux-64 gcc_impl_linux-64 gcc_linux-64 gxx_impl_linux-64 gxx_linux-64 gfortran_impl_linux-64 gfortran_linux-64 libuuid libgfortran mpich mpi jpeg libtiff --force
-conda install -y boost-cpp==1.67 libgcc urllib3 libtool libjpeg-turbo --force --no-deps
+conda install -y boost-cpp==1.67 util-linux libgcc urllib3 libtool libjpeg-turbo --force --no-deps
 # NOTE: PyDAAL is deprecated. Putting it here as a band-aid.
 conda install -y pydaal --force --no-deps
 source deactivate
@@ -387,7 +387,7 @@ conda remove -y ruamel_yaml --force
 pip install --upgrade --no-deps ruamel_yaml
 
 # Remove (old) PyTorch and affected dependencies
-conda remove -y pytorch --force
+conda remove -y pytorch _r-mutex --force
 
 # INSTALL THE "FINAL" VERSION OF PYTORCH
 echo ' '
@@ -403,7 +403,7 @@ fi
 echo ' '
 
 # Remove useless stuff
-conda remove -y cudatoolkit cudnn nccl nccl2 --force
+conda remove -y cudatoolkit cudnn nccl nccl2 _r-mutex --force
 
 if [ "$SELF_APPLY_CUDA_BANDAID" = "1" ]; then
   if [ "$SELF_CUDA_BANDAID_FAKEROOT" != "" ]; then
@@ -419,6 +419,9 @@ if [ "$SELF_APPLY_CUDA_BANDAID" = "1" ]; then
     echo ' '
   fi
 fi
+
+# Re-install _r-mutex
+conda install -y _r-mutex --force
 
 # Install (eventually) PyTorch libraries
 echo ' '

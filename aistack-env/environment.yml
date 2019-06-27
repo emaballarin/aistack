@@ -491,6 +491,7 @@ dependencies:
   - rfc3986
   - rope
   - rply
+  - rpy2
   - ruamel_yaml
   - rx
   - s3fs
@@ -578,6 +579,7 @@ dependencies:
   - unidecode
   - unixodbc
   - urllib3
+  - util-linux
   - urwid
   - validate_email
   - vcrpy
