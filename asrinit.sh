@@ -387,7 +387,7 @@ conda remove -y ruamel_yaml --force
 pip install --upgrade --no-deps ruamel_yaml
 
 # Remove (old) PyTorch and affected dependencies
-conda remove -y pytorch _r-mutex --force
+conda remove -y pytorch --force
 
 # INSTALL THE "FINAL" VERSION OF PYTORCH
 echo ' '
@@ -402,8 +402,8 @@ else
 fi
 echo ' '
 
-# Remove useless _r-mutex and other stuff
-conda remove -y _r-mutex cudatoolkit cudnn nccl nccl2 --force
+# Remove useless stuff
+conda remove -y cudatoolkit cudnn nccl nccl2 --force
 
 if [ "$SELF_APPLY_CUDA_BANDAID" = "1" ]; then
   if [ "$SELF_CUDA_BANDAID_FAKEROOT" != "" ]; then
@@ -419,9 +419,6 @@ if [ "$SELF_APPLY_CUDA_BANDAID" = "1" ]; then
     echo ' '
   fi
 fi
-
-# Re-install _r-mutex
-conda install -y _r-mutex
 
 # Install (eventually) PyTorch libraries
 echo ' '
@@ -885,7 +882,7 @@ echo ' '
 pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3nvml
 
 echo ' '
-pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4713/Python/h2o-3.25.0.4713-py2.py3-none-any.whl
+pip install --upgrade --no-deps https://h2o-release.s3.amazonaws.com/h2o/master/4714/Python/h2o-3.25.0.4714-py2.py3-none-any.whl
 
 echo ' '
 git clone --recursive https://github.com/Microsoft/TextWorld.git

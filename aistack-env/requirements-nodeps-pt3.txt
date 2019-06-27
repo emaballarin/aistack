@@ -1421,3 +1421,4 @@ etaprogress
 git+https://github.com/keras-team/keras-tuner.git
 git+https://github.com/cybertronai/pytorch-lamb.git
 git+https://github.com/cybertronai/pytorch-fd.git
+rpy2
