@@ -26,6 +26,7 @@ dependencies:
   - intel-openmp=2019
   - jupyterlab=0.35.6
   - libgpuarray=0.7.6
+  - luigi=2.8.6
   - mkl-dnn=0.14
   - numba=0.44.1
   - numpy=1.16.4
@@ -281,7 +282,6 @@ dependencies:
   - lmdb
   - locket
   - lockfile
-  - luigi
   - lxml
   - lz4
   - lz4-c
