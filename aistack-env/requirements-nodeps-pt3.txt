@@ -1422,3 +1422,5 @@ git+https://github.com/keras-team/keras-tuner.git
 git+https://github.com/cybertronai/pytorch-lamb.git
 git+https://github.com/cybertronai/pytorch-fd.git
 rpy2
+git+https://github.com/probcomp/parallel_map.git
+git+https://github.com/lmcinnes/enstop.git
