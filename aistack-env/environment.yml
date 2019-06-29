@@ -16,7 +16,7 @@ dependencies:
   - absl-py=0.7.1
   - blas=1.0=mkl
   - boost-cpp=1.67
-  - catboost=0.15.1
+  - catboost=0.15.2
   - conda=4.6.14
   - cudatoolkit=10.0.130
   - dask-core=2.0.0
@@ -24,7 +24,7 @@ dependencies:
   - faiss-gpu=1.5.3
   - fastai=1.0.54
   - intel-openmp=2019
-  - jupyterlab=0.35.6
+  - jupyterlab=1.0.0
   - libgpuarray=0.7.6
   - luigi=2.8.6
   - mkl-dnn=0.14

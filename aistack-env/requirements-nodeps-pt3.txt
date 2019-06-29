@@ -730,7 +730,7 @@ git+https://github.com/AIRLab-POLIMI/mushroom.git
 git+https://github.com/JamesBrofos/Sif.git
 git+https://github.com/JamesBrofos/Stein.git
 git+https://github.com/JamesBrofos/Thor.git
-git+https://github.com/MFreidank/causality.git
+#git+https://github.com/MFreidank/causality.git
 git+https://github.com/MFreidank/pysgmcmc@pytorch
 git+https://github.com/ajkxyz/jpeg4py.git
 crc32c
@@ -1171,7 +1171,7 @@ lazytree
 git+https://github.com/mvcisback/monotone-bipartition.git
 git+https://github.com/mvcisback/LogicalLens.git
 git+https://github.com/mvcisback/dfa.git
-git+https://github.com/mvcisback/lstar.git
+lstar
 git+https://github.com/mvcisback/pyLazyTree.git
 svgwrite
 git+https://github.com/shromonag/py-stl.git
@@ -1424,3 +1424,4 @@ git+https://github.com/cybertronai/pytorch-fd.git
 rpy2
 git+https://github.com/probcomp/parallel_map.git
 git+https://github.com/lmcinnes/enstop.git
+git+https://github.com/quantumjot/PyFolding.git
