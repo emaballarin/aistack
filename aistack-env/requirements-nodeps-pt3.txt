@@ -1426,3 +1426,4 @@ git+https://github.com/probcomp/parallel_map.git
 git+https://github.com/lmcinnes/enstop.git
 git+https://github.com/quantumjot/PyFolding.git
 git+https://github.com/ufvceiec/GEMA.git
+git+https://github.com/MiniZinc/iminizinc.git
