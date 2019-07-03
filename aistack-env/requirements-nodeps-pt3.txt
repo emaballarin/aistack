@@ -74,7 +74,7 @@ git+https://github.com/deepmind/dnc.git
 git+https://github.com/deepmind/graph_nets.git
 git+https://github.com/arraiy/torchgeometry.git
 git+https://github.com/WillKoehrsen/feature-selector.git
-git+https://github.com/xuy/pyipopt.git
+git+https://github.com/emaballarin/pyipopt.git
 pyscipopt
 git+https://github.com/bhoeckendorf/pyklb.git
 git+https://github.com/gatagat/kmers.git
@@ -265,7 +265,7 @@ git+https://github.com/OpenMined/Grid.git
 git+https://github.com/jvmancuso/safe-grid-agents.git
 git+https://github.com/ProjectQ-Framework/ProjectQ.git
 git+https://github.com/ProjectQ-Framework/FermiLib.git
-pennylane_pq
+git+https://github.com/XanaduAI/pennylane-pq.git
 tf-encrypted
 git+https://github.com/jvmancuso/PytorchAdversarialGym.git
 git+https://github.com/bstriner/keras-adversarial.git
@@ -1427,3 +1427,6 @@ git+https://github.com/lmcinnes/enstop.git
 git+https://github.com/quantumjot/PyFolding.git
 git+https://github.com/ufvceiec/GEMA.git
 git+https://github.com/MiniZinc/iminizinc.git
+git+https://github.com/facebookresearch/fair_self_supervision_benchmark.git
+git+https://github.com/facebookresearch/Detectron.git
+git+https://github.com/google/uis-rnn.git

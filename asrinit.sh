@@ -1,6 +1,6 @@
 #!/bin/bash
 ##############################################
-###  AIStack, v. 3.11.11-002 (03/07/2019)  ###
+###  AIStack, v. 3.11.12-001 (04/07/2019)  ###
 ##############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -887,13 +887,13 @@ pip install --upgrade --no-deps git+https://github.com/fbcotter/py3nvml#egg=py3n
 echo ' '
 pip install --upgrade --no-deps http://h2o-release.s3.amazonaws.com/h2o/master/4714/Python/h2o-3.25.0.4714-py2.py3-none-any.whl
 
-echo ' '
-git clone --recursive https://github.com/Microsoft/TextWorld.git
-cd TextWorld
-cp "$SELF_INVOKE_DIR/aistack/aistack-env/dlfiles/c8c78db1d051c05b5f7e6b07f06bbd292a94b68b.patch" ./
-git apply ./c8c78db1d051c05b5f7e6b07f06bbd292a94b68b.patch
-pip install --upgrade --no-deps .
-cd ../
+#echo ' '
+#git clone --recursive https://github.com/Microsoft/TextWorld.git
+#cd TextWorld
+#cp "$SELF_INVOKE_DIR/aistack/aistack-env/dlfiles/c8c78db1d051c05b5f7e6b07f06bbd292a94b68b.patch" ./
+#git apply ./c8c78db1d051c05b5f7e6b07f06bbd292a94b68b.patch
+#pip install --upgrade --no-deps .
+#cd ../
 
 echo ' '
 export SELF_PREV_MNBUILD="$MN_BUILD"
@@ -1223,17 +1223,32 @@ echo "DPFinder successfully installed"
 echo ' '
 git clone https://github.com/akosiorek/forge.git --recursive --branch master --single-branch --depth 1
 cp -R ./forge/forge "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo "Forge (Kosiorek) successfully installed"
 
 # CASADI
 echo ' '
 mkdir -p ./CASADI
 cd ./CASADI
 wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --timeout=30 --dns-timeout=30 --random-wait https://github.com/casadi/casadi/releases/download/3.4.5/casadi-linux-py36-v3.4.5-64bit.tar.gz
-untar casadi-linux-py36-v3.4.5-64bit.tar.gz
+tar xvf casadi-linux-py36-v3.4.5-64bit.tar.gz
 rm -f ./dummy.txt
 cp -R ./casadi "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
 ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/" "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/"
 cd ..
+echo "CASADI successfully installed"
+
+# CLEVR Robot Env
+echo ' '
+git clone --recursive https://github.com/google-research/clevr_robot_env.git
+cp -R ./clevr_robot_env "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo "CLEVR Robot Env successfully installed"
+
+# Adapter BERT
+echo ' '
+git clone --recursive https://github.com/google-research/adapter-bert.git
+cp -R ./adapter-bert "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
+echo "Adapter BERT Robot Env successfully installed"
+
 
 # Final, stupid fixup(s)
 echo ' '
