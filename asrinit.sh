@@ -1,6 +1,6 @@
 #!/bin/bash
 ##############################################
-###  AIStack, v. 3.11.12-001 (04/07/2019)  ###
+###  AIStack, v. 3.11.13-001 (04/07/2019)  ###
 ##############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed

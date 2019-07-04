@@ -1430,3 +1430,4 @@ git+https://github.com/MiniZinc/iminizinc.git
 git+https://github.com/facebookresearch/fair_self_supervision_benchmark.git
 git+https://github.com/facebookresearch/Detectron.git
 git+https://github.com/google/uis-rnn.git
+git+https://github.com/davidcpage/gamma.git
