@@ -1431,3 +1431,6 @@ git+https://github.com/facebookresearch/fair_self_supervision_benchmark.git
 git+https://github.com/facebookresearch/Detectron.git
 git+https://github.com/google/uis-rnn.git
 git+https://github.com/davidcpage/gamma.git
+git+https://github.com/AI-DI/Brancher.git
+git+https://github.com/tensorflow/tensor2tensor.git
+git+https://github.com/loftusa/scratchstats.git

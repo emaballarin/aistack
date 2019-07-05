@@ -1,6 +1,6 @@
 #!/bin/bash
 ##############################################
-###  AIStack, v. 3.11.13-001 (04/07/2019)  ###
+###  AIStack, v. 3.11.14-001 (05/07/2019)  ###
 ##############################################
 #
 # A hacky-but-effective environment initialization toolkit for Anaconda, aimed
@@ -1233,7 +1233,7 @@ wget --tries=0 --retry-connrefused --continue --progress=bar --show-progress --t
 tar xvf casadi-linux-py36-v3.4.5-64bit.tar.gz
 rm -f ./dummy.txt
 cp -R ./casadi "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/"
-ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/" "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/"
+ln -s "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/site-packages/casadi" "$SELF_CONDA_ENV_PATH/aistack/lib/python$SELF_PYVRS_EXP/casadi"
 cd ..
 echo "CASADI successfully installed"
 
