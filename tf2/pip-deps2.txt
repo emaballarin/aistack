@@ -40,3 +40,4 @@ tensorflow-metadata
 tensorflow-datasets
 git+https://github.com/OATML/bdl-benchmarks.git
 git+https://github.com/JuliaPy/pyjulia.git
+git+https://github.com/loftusa/scratchstats.git
